@@ -6,40 +6,87 @@
 
 <title>About | Adelina Male</title>
 
-<meta name="description" content="About Adelina Male — Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business.">
+<meta
+  name="description"
+  content="About Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business."
+>
 
 <meta name="author" content="Adelina Male">
-
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <link rel="canonical" href="https://adelinamale.com/about/">
 
 <!-- Open Graph -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:title" content="About | Adelina Male">
-<meta property="og:description" content="About Adelina Male — Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business.">
+<meta
+  property="og:description"
+  content="About Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business."
+>
 <meta property="og:url" content="https://adelinamale.com/about/">
 <meta property="og:site_name" content="Adelina Male">
 
-<!-- Structured data: establishes the identity/name relationship -->
+<!-- X / Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About | Adelina Male">
+<meta
+  name="twitter:description"
+  content="About Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business."
+>
+
+<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://adelinamale.com/#person",
-    "name": "Adelina Male",
-    "alternateName": [
-      "Adelina-Maria Male",
-      "Adelina Maria Male"
-    ],
-    "url": "https://adelinamale.com/",
-    "description": "Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business."
-  }
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://adelinamale.com/about/#webpage",
+      "url": "https://adelinamale.com/about/",
+      "name": "About | Adelina Male",
+      "description": "About Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business.",
+      "isPartOf": {
+        "@id": "https://adelinamale.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://adelinamale.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adelinamale.com/#person",
+      "name": "Adelina Male",
+      "alternateName": [
+        "Adelina-Maria Male",
+        "Adelina Maria Male"
+      ],
+      "url": "https://adelinamale.com/",
+      "jobTitle": "Writer, Digital Creator and Entrepreneur",
+      "description": "Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business.",
+      "knowsAbout": [
+        "Writing",
+        "Theater",
+        "Digital media",
+        "Web development",
+        "Business",
+        "Technology",
+        "Data"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adelinamale.com/#website",
+      "url": "https://adelinamale.com/",
+      "name": "Adelina Male",
+      "alternateName": [
+        "Adelina-Maria Male",
+        "Adelina Maria Male"
+      ]
+    }
+  ]
 }
-</script>
 
+</script>
 <style>
 :root{--bg:#f5f5f2;--ink:#11110f;--muted:#74746d;--line:#d8d8d1;--accent:#2747ff;--mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 
