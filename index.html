@@ -684,7 +684,7 @@ body.running #model > section:first-of-type{display:none}
     <section id="runDashboard" aria-label="Model dashboard">
       <div class="run-dashboard">
         <article class="dashboard-card">
-          <div class="d-label">01 / INPUTS</div>
+          <div class="d-label">INPUTS</div>
           <div class="d-title">ORIGIN + EDUCATION</div>
           <div class="d-copy">The model treats starting conditions and learning environments as variables that feed later outputs.</div>
           <div class="d-list">
@@ -699,7 +699,7 @@ body.running #model > section:first-of-type{display:none}
         </article>
 
         <article class="dashboard-card">
-          <div class="d-label">02 / OUTPUTS</div>
+          <div class="d-label">OUTPUTS</div>
           <div class="d-title">WHAT THE DATA PRODUCED</div>
           <div class="d-metrics">
             <div class="d-metric"><strong>100M+</strong><span>Total views</span></div>
@@ -716,7 +716,7 @@ body.running #model > section:first-of-type{display:none}
         </article>
 
         <article class="dashboard-card">
-          <div class="d-label">03 / CORRELATIONS</div>
+          <div class="d-label">CORRELATIONS</div>
           <div class="d-title">CAPABILITY TRANSFER</div>
           <div class="correlation-network">
             <div class="center">CORE<br>DRIVER</div>
@@ -730,19 +730,22 @@ body.running #model > section:first-of-type{display:none}
         </article>
 
         <article class="dashboard-card">
-          <div class="d-label">04 / INTERNATIONAL EXPOSURE</div>
-          <div class="d-title">EXCHANGE, NOT TOURISM.</div>
-          <div class="d-copy">Spain and Türkiye function as exposure events; Romania is the base and return point.</div>
-          <div class="d-map">
-            <div class="d-map-route one"></div><div class="d-map-route two"></div>
-            <div class="d-map-point a"><i></i><b>SPAIN</b><span>EXCHANGE</span></div>
-            <div class="d-map-point b"><i></i><b>TÜRKİYE</b><span>EXCHANGE</span></div>
-            <div class="d-map-point c"><i></i><b>ROMANIA</b><span>BASE</span></div>
-          </div>
-        </article>
-
+          <div class="d-label">INTERNATIONAL EXPOSURE</div>
+              <h3 style="font-size:42px;letter-spacing:-.06em">EXCHANGE, NOT TOURISM.</h3>
+              <p class="lede">Spain and Türkiye function in the dataset as exposure events: different environments, project contexts and networks feeding back into the trajectory.</p>
+              <div class="route-label">SPAIN → TÜRKİYE → ROMANIA / EXCHANGE STRUCTURE</div>
+            </div>
+            <div class="map mini-map">
+              <div class="map-grid"></div>
+              <div class="geo-route a"></div><div class="geo-route b"></div><div class="geo-route c"></div>
+              <div class="map-point mp-origin"><div class="ring"></div><b>SPAIN</b><span>EXCHANGE</span></div>
+              <div class="map-point mp-capital"><div class="ring"></div><b>TÜRKİYE</b><span>EXCHANGE</span></div>
+              <div class="map-point mp-europe"><div class="ring"></div><b>ROMANIA</b><span>BASE</span></div>
+            </div>
+    </article>
+      
         <article class="dashboard-card">
-          <div class="d-label">05 / CURRENT STATE</div>
+          <div class="d-label">CURRENT STATE</div>
           <div class="d-title">2026 — STATE VECTOR</div>
           <div class="d-list">
             <div class="d-list-row"><div class="k">Student</div><div class="v">International Business &amp; Economics</div></div>
@@ -757,7 +760,7 @@ body.running #model > section:first-of-type{display:none}
         </article>
 
         <article class="dashboard-card">
-          <div class="d-label">06 / NEXT VARIABLES</div>
+          <div class="d-label">NEXT VARIABLES</div>
           <div class="d-title">OPEN DIRECTIONS</div>
           <div class="d-copy">The model stops at the observed dataset. These are directions, not probability estimates.</div>
           <div class="d-next">
@@ -1067,10 +1070,10 @@ body.running #model > section:first-of-type{display:none}
     <section class="final">
       <div class="shell">
         <div class="mono eyebrow">MODEL OUTPUT / END OF OBSERVED DATA</div>
-        <p>
-          <align:center>The model doesn't predict my future.
-          <span class="accent"><align:center>It shows how I built the trajectory that brought me here.</span>
-        </p>
+      <p style="text-align:center;">
+  The model doesn't predict my future.
+  <span class="accent">It shows how I built the trajectory that brought me here.</span>
+</p>
       </div>
     </section>
 
