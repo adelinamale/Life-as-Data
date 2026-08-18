@@ -30,7 +30,7 @@
     content="The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across creative, digital and analytical fields."
   >
 
-  <title>Life as Data</title>
+  <title>Life as Data | Adelina Male</title>
 
   <script type="application/ld+json">
     {
@@ -194,6 +194,19 @@
       display: flex;
       align-items: center;
       gap: clamp(0.8rem, 2.8vw, 2rem);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      visibility: hidden;
+      transition: opacity 220ms ease, transform 220ms ease, visibility 0ms linear 220ms;
+    }
+
+    body.running .site-nav-links {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      visibility: visible;
+      transition-delay: 0ms;
     }
 
     .hero {
@@ -264,7 +277,11 @@
     }
 
     .summary {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: minmax(112px, auto);
+      gap: 0.75rem;
+      border: 0;
+      background: transparent;
     }
 
     .metric,
@@ -279,14 +296,77 @@
     }
 
     .metric {
-      min-height: 112px;
-      padding: 1.25rem;
+      position: relative;
+      min-height: 118px;
+      padding: 1.15rem;
+      overflow: hidden;
+      border: 1px solid rgba(215, 210, 196, 0.78);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 254, 248, 0.95), rgba(240, 238, 229, 0.68)),
+        var(--paper);
+      box-shadow: 0 14px 34px rgba(21, 21, 19, 0.07);
+      transform: translateY(8px);
+      opacity: 0;
+      animation: metric-rise 680ms ease forwards;
+    }
+
+    .metric:nth-child(1) {
+      grid-column: span 2;
+      min-height: 138px;
+      animation-delay: 80ms;
+    }
+
+    .metric:nth-child(2) {
+      grid-column: span 2;
+      min-height: 138px;
+      animation-delay: 140ms;
+    }
+
+    .metric:nth-child(3) {
+      animation-delay: 200ms;
+    }
+
+    .metric:nth-child(4) {
+      animation-delay: 260ms;
+    }
+
+    .metric:nth-child(5) {
+      animation-delay: 320ms;
+    }
+
+    .metric:nth-child(6) {
+      grid-column: span 2;
+      animation-delay: 380ms;
+    }
+
+    .metric::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 15%, rgba(31, 84, 232, 0.09), transparent 55%);
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: metric-scan 2.1s ease 260ms 1;
+    }
+
+    .metric::after {
+      content: "";
+      position: absolute;
+      right: 0.85rem;
+      bottom: 0.85rem;
+      width: 36px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: 0.24;
     }
 
     .metric strong {
       display: block;
       margin-bottom: 0.35rem;
-      font-size: clamp(1.65rem, 4vw, 2.1rem);
+      font-variant-numeric: tabular-nums;
+      font-size: clamp(1.8rem, 4.8vw, 2.9rem);
       line-height: 0.95;
     }
 
@@ -302,10 +382,12 @@
     }
 
     .run {
+      position: relative;
       width: 100%;
       min-height: 58px;
       margin-top: 1.2rem;
       border: 1px solid var(--ink);
+      border-radius: 999px;
       background: var(--ink);
       color: var(--paper);
       display: flex;
@@ -313,14 +395,44 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 0 1.15rem;
+      overflow: hidden;
       cursor: pointer;
-      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+      box-shadow: 0 16px 42px rgba(21, 21, 19, 0.22);
+      isolation: isolate;
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .run::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto -30% -65%;
+      z-index: -1;
+      width: 54%;
+      background: linear-gradient(105deg, transparent 5%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.38) 48%, rgba(255, 255, 255, 0.08) 62%, transparent 95%);
+      transform: skewX(-22deg);
+      animation: button-shine 1.9s cubic-bezier(0.55, 0, 0.25, 1) infinite;
+    }
+
+    .run::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      z-index: -2;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 45%);
+      pointer-events: none;
+    }
+
+    body.running .run::before {
+      animation: none;
+      opacity: 0;
     }
 
     .run:hover,
     .run:focus-visible {
       border-color: var(--accent);
       background: var(--accent);
+      box-shadow: 0 18px 48px rgba(31, 84, 232, 0.28);
       outline: none;
       transform: translateY(-1px);
     }
@@ -333,9 +445,11 @@
       display: none;
       margin-top: clamp(2rem, 5vw, 4rem);
       border: 1px solid #25252b;
+      border-radius: 24px;
       background: #09090b;
       color: #f2f2ee;
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     body.running .run-stage {
@@ -373,8 +487,8 @@
 
     .run-stage-body {
       display: grid;
-      grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
-      min-height: 430px;
+      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+      min-height: 520px;
     }
 
     .run-sequence {
@@ -388,7 +502,8 @@
       grid-template-columns: 34px minmax(0, 1fr) auto;
       gap: 0.85rem;
       align-items: center;
-      padding: 0.85rem 1rem;
+      min-height: 72px;
+      padding: 0.95rem 1rem;
       border-bottom: 1px solid #1f1f24;
       opacity: 0;
       transform: translateX(-10px);
@@ -428,30 +543,64 @@
 
     .run-graph {
       position: relative;
-      min-height: 360px;
-      padding: 1.2rem;
+      min-height: 520px;
+      padding: 1rem 1.2rem 1.3rem;
     }
 
     .run-graph svg {
       width: 100%;
       height: 100%;
-      min-height: 330px;
+      min-height: 485px;
     }
 
-    .gridline,
+    .timeline-gridline,
+    .timeline-row,
     .axis {
       stroke: #25252b;
       stroke-width: 1;
     }
 
+    .timeline-row {
+      stroke-dasharray: 4 8;
+    }
+
+    .timeline-label,
+    .axis-label {
+      fill: #878790;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     .trajectory {
       fill: none;
       stroke: #9bb6ff;
-      stroke-width: 4;
+      stroke-width: 2;
       stroke-dasharray: 1200;
       stroke-dashoffset: 1200;
       animation: draw-line 1.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
     }
+
+    .duration {
+      fill: rgba(155, 182, 255, 0.28);
+      rx: 8;
+      transform: scaleX(0);
+      transform-box: fill-box;
+      transform-origin: left center;
+      animation: grow-duration 720ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+
+    .duration.accent {
+      fill: rgba(84, 208, 182, 0.42);
+    }
+
+    .duration:nth-of-type(2) { animation-delay: 100ms; }
+    .duration:nth-of-type(3) { animation-delay: 200ms; }
+    .duration:nth-of-type(4) { animation-delay: 300ms; }
+    .duration:nth-of-type(5) { animation-delay: 400ms; }
+    .duration:nth-of-type(6) { animation-delay: 500ms; }
+    .duration:nth-of-type(7) { animation-delay: 600ms; }
 
     .run-graph .node {
       fill: #09090b;
@@ -505,7 +654,7 @@
     }
 
     .dashboard {
-      padding-top: clamp(3rem, 6vw, 5rem);
+      padding: clamp(3.5rem, 7vw, 6rem) 0;
       background: #09090b;
       color: #f3f3f4;
     }
@@ -516,21 +665,53 @@
 
     .run-dashboard {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      border: 1px solid #2b2b31;
-      background: #2b2b31;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      gap: 1rem;
+      border: 0;
+      background: transparent;
     }
 
     .dashboard-card {
-      min-height: 330px;
-      padding: 1.35rem;
-      background: #101014;
+      min-height: 270px;
+      padding: clamp(1.35rem, 2.4vw, 2rem);
+      border: 1px solid #292932;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 34%),
+        #101014;
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
+    }
+
+    .dashboard-card.signal-map {
+      grid-column: span 5;
+      grid-row: span 2;
+      min-height: 580px;
+    }
+
+    .dashboard-card.model-readout {
+      grid-column: span 7;
+      min-height: 300px;
+    }
+
+    .dashboard-card.signal-weights {
+      grid-column: span 4;
+      min-height: 260px;
+    }
+
+    .dashboard-card.transfer-lens {
+      grid-column: span 3;
+      min-height: 260px;
+    }
+
+    .dashboard-card.open-directions {
+      grid-column: span 7;
+      min-height: 260px;
     }
 
     .dashboard-card.full {
       grid-column: 1 / -1;
-      min-height: 145px;
+      min-height: 150px;
     }
 
     .dashboard-card-row {
@@ -592,16 +773,31 @@
     }
 
     .d-metrics {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       margin-top: 1rem;
-      border-color: #2b2b31;
-      background: #2b2b31;
+      gap: 0.65rem;
+      border: 0;
+      background: transparent;
     }
 
     .d-metric {
-      min-height: 82px;
-      padding: 0.95rem;
+      min-height: 92px;
+      padding: 1rem;
+      border: 1px solid #2a2a33;
+      border-radius: 16px;
       background: #151519;
+    }
+
+    .d-metric:nth-child(1) {
+      grid-column: span 3;
+    }
+
+    .d-metric:nth-child(2) {
+      grid-column: span 2;
+    }
+
+    .d-metric:nth-child(3) {
+      grid-column: span 1;
     }
 
     .d-metric strong {
@@ -621,9 +817,10 @@
 
     .d-orbit {
       position: relative;
-      min-height: 190px;
-      margin-top: 1.2rem;
+      min-height: 390px;
+      margin-top: 1.4rem;
       border: 1px solid #24242a;
+      border-radius: 18px;
       background:
         radial-gradient(circle at center, rgba(155, 182, 255, 0.16), transparent 30%),
         linear-gradient(135deg, transparent 49.5%, #24242a 50%, transparent 50.5%);
@@ -716,16 +913,23 @@
 
     .d-next {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.7rem;
       margin-top: 1.2rem;
-      background: #2b2b31;
+      background: transparent;
     }
 
     .d-next div {
       min-height: 110px;
       padding: 1rem;
+      border: 1px solid #2a2a33;
+      border-radius: 16px;
       background: #151519;
+    }
+
+    .d-next div:first-child,
+    .d-next div:nth-child(4) {
+      grid-column: span 2;
     }
 
     .d-next strong,
@@ -748,7 +952,8 @@
       gap: 1rem;
       padding: 1rem 1.2rem;
       border: 1px solid #2b2b31;
-      border-top: 0;
+      border-radius: 18px;
+      margin-top: 1rem;
       background: #09090b;
     }
 
@@ -935,74 +1140,202 @@
 
     .map {
       position: relative;
-      min-height: 430px;
       overflow: hidden;
       border: 1px solid var(--line);
+      border-radius: 24px;
       background:
-        linear-gradient(90deg, rgba(21, 21, 19, 0.06) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(21, 21, 19, 0.06) 1px, transparent 1px),
-        var(--paper);
-      background-size: 70px 70px;
+        radial-gradient(circle at 55% 45%, rgba(31, 84, 232, 0.1), transparent 34%),
+        linear-gradient(180deg, rgba(255, 254, 248, 0.94), rgba(239, 237, 229, 0.82));
       box-shadow: var(--shadow);
     }
 
-    .geo-route {
-      position: absolute;
-      z-index: 1;
-      height: 2px;
-      background: var(--accent);
-      transform-origin: left center;
+    .europe-map {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      gap: 0;
+      min-height: 560px;
     }
 
-    .geo-route.a { left: 16%; top: 64%; width: 37%; transform: rotate(-20deg); }
-    .geo-route.b { left: 49%; top: 49%; width: 31%; transform: rotate(-21deg); }
-    .geo-route.c { left: 77%; top: 30%; width: 17%; transform: rotate(-17deg); background: var(--accent-2); }
-
-    .map-point {
-      position: absolute;
-      z-index: 2;
+    .map-stage {
+      position: relative;
+      min-height: 560px;
+      padding: clamp(1rem, 2vw, 1.6rem);
     }
 
-    .map-point .ring {
-      width: 13px;
-      height: 13px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      background: var(--paper);
-      box-shadow: 0 0 0 7px var(--accent-soft);
-    }
-
-    .map-point b,
-    .map-point span {
+    .map-svg {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
       display: block;
     }
 
-    .map-point b {
-      margin-top: 0.6rem;
-      font-size: 0.75rem;
+    .map-sea {
+      fill: rgba(31, 84, 232, 0.045);
     }
 
-    .map-point span {
-      margin-top: 0.28rem;
-      color: var(--muted);
+    .map-graticule {
+      fill: none;
+      stroke: rgba(21, 21, 19, 0.08);
+      stroke-width: 1;
+    }
+
+    .country {
+      fill: rgba(255, 254, 248, 0.86);
+      stroke: rgba(105, 107, 99, 0.32);
+      stroke-width: 1.2;
+      transition: fill 180ms ease, stroke 180ms ease, opacity 180ms ease;
+    }
+
+    .country.context {
+      fill: rgba(232, 229, 219, 0.78);
+    }
+
+    .country.focus {
+      fill: rgba(31, 84, 232, 0.14);
+      stroke: rgba(31, 84, 232, 0.75);
+      stroke-width: 1.8;
+    }
+
+    .country.destination {
+      fill: rgba(10, 124, 104, 0.12);
+      stroke: rgba(10, 124, 104, 0.7);
+      stroke-width: 1.7;
+    }
+
+    .map-route {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      filter: drop-shadow(0 6px 12px rgba(31, 84, 232, 0.2));
+      opacity: 0.22;
+      transition: opacity 180ms ease, stroke 180ms ease, stroke-width 180ms ease;
+    }
+
+    .map-route.turkey {
+      stroke: var(--accent-2);
+    }
+
+    .map.visible .map-route,
+    body.running .map-route {
+      animation: draw-map-route 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+
+    .map-route.active,
+    .map-route:hover {
+      opacity: 1;
+      stroke-width: 6;
+    }
+
+    .map-location {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .map-location circle:first-child {
+      fill: rgba(31, 84, 232, 0.13);
+      transform-origin: center;
+      animation: location-pulse 2.4s ease infinite;
+    }
+
+    .map-location circle:last-of-type {
+      fill: var(--paper);
+      stroke: var(--accent);
+      stroke-width: 4;
+    }
+
+    .map-location.destination circle:last-of-type {
+      stroke: var(--accent-2);
+    }
+
+    .map-location text {
+      fill: var(--ink);
       font-family: var(--mono);
-      font-size: 0.55rem;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      paint-order: stroke;
+      stroke: rgba(255, 254, 248, 0.88);
+      stroke-width: 5px;
     }
 
-    .mp-origin { left: 14%; top: 63%; }
-    .mp-capital { left: 47%; top: 48%; }
-    .mp-europe { left: 74%; top: 29%; }
-    .mp-future { left: 86%; top: 18%; }
+    .map-location .sub {
+      fill: var(--muted);
+      font-size: 11px;
+      font-weight: 400;
+      stroke-width: 4px;
+    }
+
+    .map-location:focus-visible circle:last-of-type,
+    .map-location:hover circle:last-of-type,
+    .map-location.active circle:last-of-type {
+      stroke-width: 6;
+    }
+
+    .map-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+      border-left: 1px solid var(--line);
+      padding: clamp(1.2rem, 2.6vw, 1.8rem);
+      background: rgba(255, 254, 248, 0.68);
+    }
+
+    .map-panel h3 {
+      margin-top: 0.6rem;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.05;
+    }
+
+    .map-panel p {
+      margin: 0.75rem 0 0;
+      color: #555750;
+      line-height: 1.55;
+    }
+
+    .map-controls {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .map-control {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0.95rem;
+      text-align: left;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .map-control:hover,
+    .map-control:focus-visible,
+    .map-control.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      outline: none;
+    }
+
+    .map-control span:last-child {
+      color: var(--muted);
+    }
 
     .map-note {
-      position: absolute;
-      left: 1.25rem;
-      bottom: 1.1rem;
-      max-width: 310px;
       color: var(--muted);
       font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
       line-height: 1.6;
+      text-transform: uppercase;
     }
 
     .outputs,
@@ -1287,6 +1620,66 @@
       }
     }
 
+    @keyframes metric-rise {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes metric-scan {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+
+      18%,
+      62% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
+    }
+
+    @keyframes button-shine {
+      0% {
+        left: -70%;
+      }
+
+      46%,
+      100% {
+        left: 125%;
+      }
+    }
+
+    @keyframes grow-duration {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes draw-map-route {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes location-pulse {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.72;
+      }
+
+      50% {
+        transform: scale(1.28);
+        opacity: 0.24;
+      }
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .section-head,
@@ -1297,17 +1690,36 @@
       }
 
       .run-dashboard {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .dashboard-card.signal-map,
+      .dashboard-card.model-readout,
+      .dashboard-card.open-directions {
+        grid-column: span 6;
+        grid-row: auto;
+      }
+
+      .dashboard-card.signal-weights,
+      .dashboard-card.transfer-lens {
+        grid-column: span 3;
       }
 
       .run-stage-body,
+      .europe-map,
       .variable-explorer {
         grid-template-columns: 1fr;
       }
 
       .run-sequence,
+      .map-panel,
       .variable-tabs {
         border-right: 0;
+      }
+
+      .map-panel {
+        border-left: 0;
+        border-top: 1px solid var(--line);
       }
 
       .variable-tabs {
@@ -1348,14 +1760,35 @@
       .outputs,
       .corr-grid,
       .next,
-      .d-next,
       .run-dashboard {
         grid-template-columns: 1fr;
       }
 
+      .metric,
+      .metric:nth-child(1),
+      .metric:nth-child(2),
+      .metric:nth-child(6),
+      .dashboard-card.signal-map,
+      .dashboard-card.model-readout,
+      .dashboard-card.signal-weights,
+      .dashboard-card.transfer-lens,
+      .dashboard-card.open-directions {
+        grid-column: auto;
+      }
+
       .d-metrics,
+      .d-next,
       .state-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .d-metric,
+      .d-metric:nth-child(1),
+      .d-metric:nth-child(2),
+      .d-metric:nth-child(3),
+      .d-next div:first-child,
+      .d-next div:nth-child(4) {
+        grid-column: auto;
       }
 
       .dashboard-card-row,
@@ -1371,17 +1804,18 @@
         transform: rotate(90deg);
       }
 
-      .map {
-        min-height: 500px;
+      .map-stage,
+      .map-svg {
+        min-height: 420px;
       }
 
-      .mp-origin { left: 8%; top: 70%; }
-      .mp-capital { left: 44%; top: 54%; }
-      .mp-europe { left: 58%; top: 28%; }
-      .mp-future { left: 74%; top: 12%; }
-      .geo-route.a { left: 11%; top: 71%; width: 39%; transform: rotate(-27deg); }
-      .geo-route.b { left: 48%; top: 56%; width: 29%; transform: rotate(-54deg); }
-      .geo-route.c { left: 63%; top: 31%; width: 22%; transform: rotate(-39deg); }
+      .map-location text {
+        font-size: 14px;
+      }
+
+      .map-location .sub {
+        font-size: 10px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -1414,7 +1848,8 @@
       }
 
       .state-list,
-      .d-metrics {
+      .d-metrics,
+      .d-next {
         grid-template-columns: 1fr;
       }
     }
@@ -1476,12 +1911,12 @@
 
           <div>
             <div class="summary" aria-label="Trajectory summary">
-              <div class="metric"><strong>10.00/10</strong><span>Academic average</span></div>
-              <div class="metric"><strong>100M+</strong><span>Digital views</span></div>
-              <div class="metric"><strong>5</strong><span>Published anthologies</span></div>
-              <div class="metric"><strong>3</strong><span>International exchanges</span></div>
-              <div class="metric"><strong>1</strong><span>Major trajectory shift</span></div>
-              <div class="metric"><strong>2007-26</strong><span>Observation window</span></div>
+              <div class="metric"><strong class="count-up" data-target="10" data-decimals="2" data-suffix="/10">10.00/10</strong><span>Academic average</span></div>
+              <div class="metric"><strong class="count-up" data-target="100" data-suffix="M+">100M+</strong><span>Digital views</span></div>
+              <div class="metric"><strong class="count-up" data-target="5">5</strong><span>Published anthologies</span></div>
+              <div class="metric"><strong class="count-up" data-target="3">3</strong><span>International exchanges</span></div>
+              <div class="metric"><strong class="count-up" data-target="1">1</strong><span>Major trajectory shift</span></div>
+              <div class="metric"><strong class="count-up" data-scramble="2007-26">2007-26</strong><span>Observation window</span></div>
             </div>
 
             <button class="run mono" id="runModel" type="button" aria-controls="model" aria-expanded="false">
@@ -1540,23 +1975,60 @@
             </div>
 
             <div class="run-graph">
-              <svg viewBox="0 0 760 360" preserveAspectRatio="none" aria-hidden="true">
-                <line class="gridline" x1="0" y1="40" x2="760" y2="40"></line>
-                <line class="gridline" x1="0" y1="100" x2="760" y2="100"></line>
-                <line class="gridline" x1="0" y1="160" x2="760" y2="160"></line>
-                <line class="gridline" x1="0" y1="220" x2="760" y2="220"></line>
-                <line class="gridline" x1="0" y1="280" x2="760" y2="280"></line>
-                <line class="axis" x1="95" y1="0" x2="95" y2="360"></line>
-                <path class="trajectory" d="M30 244 C120 218 120 130 208 141 S286 224 351 188 S422 105 485 121 S558 225 624 137 S684 64 726 40"></path>
-                <circle class="node" cx="30" cy="244" r="6"></circle>
-                <circle class="node" cx="208" cy="141" r="6"></circle>
-                <circle class="node" cx="351" cy="188" r="6"></circle>
-                <circle class="node" cx="485" cy="121" r="6"></circle>
-                <circle class="node" cx="624" cy="137" r="6"></circle>
-                <circle class="node" cx="684" cy="64" r="6"></circle>
-                <circle class="node endpoint" cx="726" cy="40" r="8"></circle>
+              <svg viewBox="0 0 860 500" preserveAspectRatio="none" aria-labelledby="timelineTitle timelineDesc" role="img">
+                <title id="timelineTitle">Timeline model from 2007 to 2026</title>
+                <desc id="timelineDesc">A time-based chart showing each stage across its real year span, from origin in 2007 through current business and economics work in 2026.</desc>
+
+                <line class="timeline-gridline" x1="88" y1="48" x2="88" y2="426"></line>
+                <line class="timeline-gridline" x1="271" y1="48" x2="271" y2="426"></line>
+                <line class="timeline-gridline" x1="417" y1="48" x2="417" y2="426"></line>
+                <line class="timeline-gridline" x1="564" y1="48" x2="564" y2="426"></line>
+                <line class="timeline-gridline" x1="600" y1="48" x2="600" y2="426"></line>
+                <line class="timeline-gridline" x1="710" y1="48" x2="710" y2="426"></line>
+                <line class="timeline-gridline" x1="784" y1="48" x2="784" y2="426"></line>
+
+                <line class="timeline-row" x1="70" y1="82" x2="800" y2="82"></line>
+                <line class="timeline-row" x1="70" y1="136" x2="800" y2="136"></line>
+                <line class="timeline-row" x1="70" y1="190" x2="800" y2="190"></line>
+                <line class="timeline-row" x1="70" y1="244" x2="800" y2="244"></line>
+                <line class="timeline-row" x1="70" y1="298" x2="800" y2="298"></line>
+                <line class="timeline-row" x1="70" y1="352" x2="800" y2="352"></line>
+                <line class="timeline-row" x1="70" y1="406" x2="800" y2="406"></line>
+
+                <text class="timeline-label" x="70" y="75">Origin</text>
+                <text class="timeline-label" x="70" y="129">Philology</text>
+                <text class="timeline-label" x="70" y="183">Writing / Theater</text>
+                <text class="timeline-label" x="70" y="237">Digital Media</text>
+                <text class="timeline-label" x="70" y="291">Eethera</text>
+                <text class="timeline-label" x="70" y="345">Web Development</text>
+                <text class="timeline-label" x="70" y="399">Business & Economics</text>
+
+                <rect class="duration" x="88" y="87" width="184" height="14"></rect>
+                <rect class="duration" x="271" y="141" width="366" height="14"></rect>
+                <rect class="duration" x="417" y="195" width="220" height="14"></rect>
+                <rect class="duration" x="564" y="249" width="146" height="14"></rect>
+                <rect class="duration" x="600" y="303" width="110" height="14"></rect>
+                <rect class="duration" x="710" y="357" width="37" height="14"></rect>
+                <rect class="duration accent" x="784" y="411" width="28" height="14"></rect>
+
+                <path class="trajectory" d="M88 94 L271 148 L417 202 L564 256 L600 310 L710 364 L784 418"></path>
+                <circle class="node" cx="88" cy="94" r="6"></circle>
+                <circle class="node" cx="271" cy="148" r="6"></circle>
+                <circle class="node" cx="417" cy="202" r="6"></circle>
+                <circle class="node" cx="564" cy="256" r="6"></circle>
+                <circle class="node" cx="600" cy="310" r="6"></circle>
+                <circle class="node" cx="710" cy="364" r="6"></circle>
+                <circle class="node endpoint" cx="784" cy="418" r="8"></circle>
+
+                <text class="axis-label" x="78" y="462">2007</text>
+                <text class="axis-label" x="261" y="462">2012</text>
+                <text class="axis-label" x="407" y="462">2016</text>
+                <text class="axis-label" x="554" y="462">2020</text>
+                <text class="axis-label" x="590" y="482">2021</text>
+                <text class="axis-label" x="700" y="462">2024</text>
+                <text class="axis-label" x="774" y="462">2026</text>
               </svg>
-              <div class="run-graph-label">Inputs → transfers → outputs → current state</div>
+              <div class="run-graph-label">Actual timespans mapped on a 2007-2026 axis</div>
             </div>
           </div>
         </div>
@@ -1578,19 +2050,15 @@
           </div>
 
           <div class="run-dashboard">
-            <article class="dashboard-card">
-              <div class="d-label">Inputs</div>
-              <div class="d-title">Origin + Education</div>
+            <article class="dashboard-card signal-map">
+              <div class="d-label">System map</div>
+              <div class="d-title">How the variables connect</div>
               <p class="d-copy">
-                Starting conditions and learning environments become variables that feed later outputs.
+                The useful pattern is not a list of achievements. It is the transfer path between language,
+                audience behavior, product thinking and technical execution.
               </p>
-              <div class="d-list">
-                <div class="d-list-row"><div class="k">Origin</div><div class="v">Rural Romania · smaller local opportunity · self-directed access</div></div>
-                <div class="d-list-row"><div class="k">Education</div><div class="v">Philology → language, literature, philosophy, history, ICT</div></div>
-                <div class="d-list-row"><div class="k">Transfer</div><div class="v">Language → communication → systems → strategy</div></div>
-              </div>
               <div class="d-orbit" aria-hidden="true">
-                <div class="core"><div><strong>SELF</strong><small>COLLECTION OF VARIABLES</small></div></div>
+                <div class="core"><div><strong>SELF</strong><small>SYSTEM OF TRANSFERS</small></div></div>
                 <span class="orb o1"></span>
                 <span class="orb o2"></span>
                 <span class="orb o3"></span>
@@ -1599,53 +2067,49 @@
               </div>
             </article>
 
-            <article class="dashboard-card">
-              <div class="d-label">Outputs</div>
-              <div class="d-title">What the data produced</div>
-              <div class="d-metrics">
-                <div class="d-metric"><strong>100M+</strong><span>Total views</span></div>
-                <div class="d-metric"><strong>76%+</strong><span>Search traffic</span></div>
-                <div class="d-metric"><strong>4.9M+</strong><span>Likes / audience signal</span></div>
-                <div class="d-metric"><strong>30+</strong><span>Creative certificates</span></div>
-                <div class="d-metric"><strong>5</strong><span>Published anthologies</span></div>
-                <div class="d-metric"><strong>1</strong><span>National theater finalist</span></div>
-              </div>
+            <article class="dashboard-card model-readout">
+              <div class="d-label">Model readout</div>
+              <div class="d-title">The strongest signal is capability reuse.</div>
+              <p class="d-copy">
+                Writing did not stay only creative, and digital work did not stay only distribution.
+                Both became reusable operating layers for brand, business and technology work.
+              </p>
               <div class="d-list">
-                <div class="d-list-row"><div class="k">Creative</div><div class="v">Writing, publication, awards, theater selection, workshop</div></div>
-                <div class="d-list-row"><div class="k">Digital</div><div class="v">Content, audience growth, search discovery, websites, brands</div></div>
+                <div class="d-list-row"><div class="k">Stable layer</div><div class="v">Language → structure → communication → systems</div></div>
+                <div class="d-list-row"><div class="k">Variable layer</div><div class="v">Mediums changed: page, stage, platform, brand, code</div></div>
+                <div class="d-list-row"><div class="k">Current use</div><div class="v">Turning creative judgment into strategic and technical leverage</div></div>
               </div>
             </article>
 
-            <article class="dashboard-card">
-              <div class="d-label">Correlations</div>
-              <div class="d-title">Capability transfer</div>
+            <article class="dashboard-card signal-weights">
+              <div class="d-label">Signal weights</div>
+              <div class="d-title">Compressed evidence</div>
+              <div class="d-metrics">
+                <div class="d-metric"><strong>Scale</strong><span>audience proof</span></div>
+                <div class="d-metric"><strong>Transfer</strong><span>cross-domain reuse</span></div>
+                <div class="d-metric"><strong>Range</strong><span>creative → technical</span></div>
+              </div>
+            </article>
+
+            <article class="dashboard-card transfer-lens">
+              <div class="d-label">Transfer lens</div>
+              <div class="d-title">Not prediction. Pattern recognition.</div>
               <div class="correlation-network" aria-hidden="true">
                 <div class="center">CORE<br>DRIVER</div>
-                <div class="cn north">CREATIVE<br>EXPRESSION</div>
-                <div class="cn ne">ANALYTICAL<br>THINKING</div>
-                <div class="cn se">TECHNOLOGY</div>
-                <div class="cn sw">CURIOSITY</div>
-                <div class="cn nw">COMMUNICATION</div>
-              </div>
-              <div class="dashboard-note">Repeated capability transfer across contexts.</div>
-            </article>
-
-            <article class="dashboard-card">
-              <div class="d-label">Current state</div>
-              <div class="d-title">2026 — state vector</div>
-              <div class="d-list">
-                <div class="d-list-row"><div class="k">Student</div><div class="v">International Business &amp; Economics</div></div>
-                <div class="d-list-row"><div class="k">Media</div><div class="v">Digital media · content · audience systems</div></div>
-                <div class="d-list-row"><div class="k">Technology</div><div class="v">Web development · digital tools · data</div></div>
-                <div class="d-list-row"><div class="k">Entrepreneur</div><div class="v">EƎTHERΛ™ · brand building · systems</div></div>
+                <div class="cn north">LANGUAGE</div>
+                <div class="cn ne">AUDIENCE</div>
+                <div class="cn se">TOOLS</div>
+                <div class="cn sw">MARKETS</div>
+                <div class="cn nw">STORY</div>
               </div>
             </article>
 
-            <article class="dashboard-card">
-              <div class="d-label">Next variables</div>
-              <div class="d-title">Open directions</div>
+            <article class="dashboard-card open-directions">
+              <div class="d-label">Open direction</div>
+              <div class="d-title">The next phase is where the model should stay unfinished.</div>
               <p class="d-copy">
-                The model stops at the observed dataset. These are directions, not probability estimates.
+                The dashboard stops summarizing past facts here and points to decision surfaces:
+                what to build, which systems to learn, and where the accumulated media signal can become leverage.
               </p>
               <div class="d-next">
                 <div><strong>BUSINESS</strong><span>Strategy · markets · impact</span></div>
@@ -1658,12 +2122,11 @@
             <article class="dashboard-card full">
               <div class="dashboard-card-row">
                 <div>
-                  <div class="d-label">Model output / observed data</div>
-                  <div class="d-title">The model doesn't predict my future.</div>
+                  <div class="d-label">Model output</div>
+                  <div class="d-title">The output is a trajectory, not a verdict.</div>
                 </div>
                 <p class="d-copy">
-                  It shows how the variables I was given became capabilities, outputs,
-                  relationships and the trajectory that brought me here.
+                  The rest of the page can now unpack the evidence without the dashboard competing with it.
                 </p>
               </div>
             </article>
@@ -1768,15 +2231,83 @@
             </div>
           </div>
 
-          <div class="map fade" role="img" aria-label="Trajectory map from Ștei through Bucharest and Europe toward future networks">
-            <div class="geo-route a"></div>
-            <div class="geo-route b"></div>
-            <div class="geo-route c"></div>
-            <div class="map-point mp-origin"><div class="ring"></div><b>ȘTEI</b><span>ORIGIN / BIHOR</span></div>
-            <div class="map-point mp-capital"><div class="ring"></div><b>BUCHAREST</b><span>SCALE / EDUCATION</span></div>
-            <div class="map-point mp-europe"><div class="ring"></div><b>EUROPE</b><span>EXPOSURE / EXCHANGE</span></div>
-            <div class="map-point mp-future"><div class="ring"></div><b>FUTURE</b><span>NETWORK / OPEN VARIABLE</span></div>
-            <div class="map-note">GEOGRAPHIC VARIABLE<br>SMALL TOWN → NATIONAL CAPITAL → INTERNATIONAL NETWORK → OPEN HORIZON</div>
+          <div class="map europe-map fade" id="europeMap">
+            <div class="map-stage">
+              <svg class="map-svg" viewBox="0 0 980 620" role="img" aria-labelledby="europeMapTitle europeMapDesc">
+                <title id="europeMapTitle">Interactive Europe map with routes from Romania to Spain and Turkey</title>
+                <desc id="europeMapDesc">Romania is marked as the origin. Animated route lines extend west to Spain and southeast to Turkey.</desc>
+
+                <rect class="map-sea" x="0" y="0" width="980" height="620" rx="22"></rect>
+                <path class="map-graticule" d="M120 70V550M260 70V550M400 70V550M540 70V550M680 70V550M820 70V550M60 150H920M60 270H920M60 390H920M60 510H920"></path>
+
+                <g aria-hidden="true">
+                  <path class="country context" d="M194 305 238 270 304 286 336 332 318 382 245 388 197 356Z"></path>
+                  <path class="country context" d="M250 222 310 190 372 214 382 274 324 296 260 268Z"></path>
+                  <path class="country context" d="M344 184 428 164 496 206 488 276 414 290 366 246Z"></path>
+                  <path class="country context" d="M430 112 520 70 604 92 622 160 554 206 456 184Z"></path>
+                  <path class="country context" d="M532 220 606 192 692 224 698 294 628 332 548 296Z"></path>
+                  <path class="country context" d="M610 338 680 320 742 354 732 414 670 430 620 396Z"></path>
+                  <path class="country context" d="M360 330 420 308 470 348 458 414 392 424 350 382Z"></path>
+                  <path class="country context" d="M482 332 538 306 598 344 586 410 520 426 476 384Z"></path>
+                  <path class="country focus" data-country="romania" d="M628 350 676 332 724 350 736 392 704 424 646 414 616 382Z"></path>
+                  <path class="country destination" data-country="spain" d="M152 384 226 350 298 384 286 462 216 500 142 464Z"></path>
+                  <path class="country destination" data-country="turkey" d="M700 438 802 418 910 444 906 486 792 500 704 478Z"></path>
+                  <path class="country context" d="M300 468 374 444 430 482 404 544 322 540Z"></path>
+                  <path class="country context" d="M724 294 786 278 842 310 832 360 766 376 726 346Z"></path>
+                </g>
+
+                <path class="map-route spain active" data-route-line="spain" d="M666 382 C560 292 388 304 220 420"></path>
+                <path class="map-route turkey" data-route-line="turkey" d="M666 382 C724 418 782 440 846 458"></path>
+
+                <g class="map-location active" data-route="romania" tabindex="0" role="button" aria-label="Romania origin">
+                  <circle cx="666" cy="382" r="24"></circle>
+                  <circle cx="666" cy="382" r="10"></circle>
+                  <text x="690" y="378">Romania</text>
+                  <text class="sub" x="690" y="398">origin / Bucharest</text>
+                </g>
+
+                <g class="map-location destination active" data-route="spain" tabindex="0" role="button" aria-label="Spain exchange route">
+                  <circle cx="220" cy="420" r="24"></circle>
+                  <circle cx="220" cy="420" r="10"></circle>
+                  <text x="244" y="416">Spain</text>
+                  <text class="sub" x="244" y="436">exchange / west route</text>
+                </g>
+
+                <g class="map-location destination" data-route="turkey" tabindex="0" role="button" aria-label="Turkey exchange route">
+                  <circle cx="846" cy="458" r="24"></circle>
+                  <circle cx="846" cy="458" r="10"></circle>
+                  <text x="718" y="454">Turkey</text>
+                  <text class="sub" x="718" y="474">exchange / southeast route</text>
+                </g>
+              </svg>
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+              <div>
+                <div class="mono eyebrow">Interactive geography</div>
+                <h3 id="mapRouteTitle">Romania → Spain</h3>
+                <p id="mapRouteCopy">
+                  The route begins from Romania and extends west toward Spain, turning international exchange into a visible exposure line.
+                </p>
+              </div>
+
+              <div class="map-controls" aria-label="Map routes">
+                <button class="map-control active mono" type="button" data-route="spain">
+                  <span>Spain route</span>
+                  <span>west</span>
+                </button>
+                <button class="map-control mono" type="button" data-route="turkey">
+                  <span>Turkey route</span>
+                  <span>southeast</span>
+                </button>
+                <button class="map-control mono" type="button" data-route="all">
+                  <span>Show both</span>
+                  <span>network</span>
+                </button>
+              </div>
+
+              <div class="map-note">Location lines emerge from Romania and connect the international exchange points across Europe.</div>
+            </aside>
           </div>
         </div>
       </section>
@@ -2024,6 +2555,12 @@
       const stateSpark = document.getElementById("stateSpark");
       const variablePanel = document.getElementById("variablePanel");
       const variableTabs = Array.from(document.querySelectorAll(".variable-tab"));
+      const counters = Array.from(document.querySelectorAll(".count-up"));
+      const mapTitle = document.getElementById("mapRouteTitle");
+      const mapCopy = document.getElementById("mapRouteCopy");
+      const mapControls = Array.from(document.querySelectorAll(".map-control"));
+      const mapLocations = Array.from(document.querySelectorAll(".map-location"));
+      const mapRoutes = Array.from(document.querySelectorAll(".map-route"));
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const variableData = {
@@ -2064,6 +2601,25 @@
         }
       };
 
+      const routeData = {
+        spain: {
+          title: "Romania → Spain",
+          copy: "The route begins from Romania and extends west toward Spain, turning international exchange into a visible exposure line."
+        },
+        turkey: {
+          title: "Romania → Turkey",
+          copy: "The southeast route links Romania to Turkey, showing a second exchange vector rather than a generic Europe label."
+        },
+        all: {
+          title: "Romania → Spain + Turkey",
+          copy: "Both location lines emerge from Romania, making the international network visible as two concrete routes across Europe."
+        },
+        romania: {
+          title: "Romania as origin",
+          copy: "Romania stays fixed as the origin point. The interaction shows how the exchange routes emerge from that starting location."
+        }
+      };
+
       const escapeHtml = (value) =>
         String(value).replace(/[&<>"']/g, (character) => ({
           "&": "&amp;",
@@ -2072,6 +2628,52 @@
           "\"": "&quot;",
           "'": "&#039;"
         })[character]);
+
+      const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
+
+      const formatCounter = (value, decimals, suffix) =>
+        `${value.toFixed(decimals)}${suffix}`;
+
+      const animateCounters = () => {
+        counters.forEach((counter, index) => {
+          const finalRange = counter.dataset.scramble;
+          const target = Number(counter.dataset.target || 0);
+          const decimals = Number(counter.dataset.decimals || 0);
+          const suffix = counter.dataset.suffix || "";
+          const duration = 1800 + index * 130;
+          const start = performance.now();
+
+          if (reduceMotion) {
+            counter.textContent = finalRange || formatCounter(target, decimals, suffix);
+            return;
+          }
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = easeOutCubic(progress);
+
+            if (finalRange) {
+              const startYear = 2007 + Math.floor(Math.random() * 19);
+              const endYear = 8 + Math.floor(Math.random() * 19);
+              counter.textContent = progress < 0.86 ? `${startYear}-${String(endYear).padStart(2, "0")}` : finalRange;
+            } else if (progress < 0.78) {
+              const ceiling = Math.max(target * 1.35, target + 8);
+              const randomValue = Math.random() * ceiling;
+              counter.textContent = formatCounter(Math.min(randomValue, ceiling), decimals, suffix);
+            } else {
+              counter.textContent = formatCounter(target * eased, decimals, suffix);
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              counter.textContent = finalRange || formatCounter(target, decimals, suffix);
+            }
+          };
+
+          requestAnimationFrame(tick);
+        });
+      };
 
       const renderVariable = (key) => {
         if (!variablePanel || !variableData[key]) return;
@@ -2125,7 +2727,48 @@
         });
       });
 
+      const activateMapRoute = (route) => {
+        const selected = routeData[route] ? route : "spain";
+        const activeRoutes = selected === "all" || selected === "romania"
+          ? ["spain", "turkey"]
+          : [selected];
+
+        mapTitle && (mapTitle.textContent = routeData[selected].title);
+        mapCopy && (mapCopy.textContent = routeData[selected].copy);
+
+        mapControls.forEach((control) => {
+          control.classList.toggle("active", control.dataset.route === selected);
+        });
+
+        mapRoutes.forEach((line) => {
+          line.classList.toggle("active", activeRoutes.includes(line.dataset.routeLine));
+        });
+
+        mapLocations.forEach((location) => {
+          const locationRoute = location.dataset.route;
+          const isOrigin = locationRoute === "romania";
+          const active = isOrigin || selected === "all" || activeRoutes.includes(locationRoute);
+          location.classList.toggle("active", active);
+        });
+      };
+
+      mapControls.forEach((control) => {
+        control.addEventListener("click", () => activateMapRoute(control.dataset.route));
+      });
+
+      mapLocations.forEach((location) => {
+        const selectLocation = () => activateMapRoute(location.dataset.route);
+        location.addEventListener("click", selectLocation);
+        location.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          selectLocation();
+        });
+      });
+
       renderVariable("origin");
+      activateMapRoute("spain");
+      animateCounters();
 
       runButton?.addEventListener("click", () => {
         const isRunning = !body.classList.contains("running");
