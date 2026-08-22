@@ -4,1879 +4,398 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f6f1">
-  <meta
-    name="description"
-    content="Adelina Male — Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business."
-  >
+  <meta name="description" content="Adelina Male — Romanian writer, digital creator and aspiring entrepreneur working across writing, theater, digital media, technology and business.">
   <meta name="author" content="Adelina Male">
   <meta name="robots" content="index, follow, max-image-preview:large">
-
   <link rel="canonical" href="https://adelinamale.com/">
   <link rel="icon" type="image/png" href="/favicon.png">
-
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Adelina Male">
-  <meta
-    property="og:description"
-    content="The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across creative, digital and analytical fields."
-  >
+  <meta property="og:title" content="Adelina Male — Life as Data">
+  <meta property="og:description" content="A personal record of experiences, decisions, outputs and the systems connecting them.">
   <meta property="og:url" content="https://adelinamale.com/">
   <meta property="og:site_name" content="Adelina Male">
-
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adelina Male">
-  <meta
-    name="twitter:description"
-    content="The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur working across creative, digital and analytical fields."
-  >
+  <meta name="twitter:title" content="Adelina Male — Life as Data">
+  <meta name="twitter:description" content="A personal record of experiences, decisions, outputs and the systems connecting them.">
 
-  <title>Life as Data</title>
+  <title>Adelina Male — Life as Data</title>
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://adelinamale.com/#website",
-          "url": "https://adelinamale.com/",
-          "name": "Adelina Male",
-          "alternateName": ["Adelina-Maria Male", "Adelina Maria Male"],
-          "description": "The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur."
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://adelinamale.com/#webpage",
-          "url": "https://adelinamale.com/",
-          "name": "Life as Data",
-          "isPartOf": { "@id": "https://adelinamale.com/#website" },
-          "about": { "@id": "https://adelinamale.com/#person" }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://adelinamale.com/#person",
-          "name": "Adelina Male",
-          "alternateName": ["Adelina-Maria Male", "Adelina Maria Male"],
-          "url": "https://adelinamale.com/",
-          "jobTitle": "Writer, Digital Creator and Entrepreneur",
-          "description": "Romanian writer, digital creator and aspiring entrepreneur working across writing, digital media, technology and business.",
-          "knowsAbout": [
-            "Writing",
-            "Theater",
-            "Digital media",
-            "Web development",
-            "Business",
-            "Technology",
-            "Data"
-          ]
-        }
-      ]
-    }
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://adelinamale.com/#website",
+        "url":"https://adelinamale.com/",
+        "name":"Adelina Male",
+        "alternateName":["Adelina-Maria Male","Adelina Maria Male"],
+        "description":"The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur."
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://adelinamale.com/#webpage",
+        "url":"https://adelinamale.com/",
+        "name":"Life as Data",
+        "isPartOf":{"@id":"https://adelinamale.com/#website"},
+        "about":{"@id":"https://adelinamale.com/#person"}
+      },
+      {
+        "@type":"Person",
+        "@id":"https://adelinamale.com/#person",
+        "name":"Adelina Male",
+        "alternateName":["Adelina-Maria Male","Adelina Maria Male"],
+        "url":"https://adelinamale.com/",
+        "jobTitle":"Writer, Digital Creator and Entrepreneur",
+        "description":"Romanian writer, digital creator and aspiring entrepreneur working across writing, digital media, technology and business.",
+        "knowsAbout":["Writing","Theater","Digital media","Web development","Business","Technology","Data"]
+      }
+    ]
+  }
   </script>
 
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f6f1;
-      --paper: #fffef8;
-      --ink: #151513;
-      --muted: #696b63;
-      --soft: #e8e5db;
-      --line: #d7d2c4;
-      --accent: #1f54e8;
-      --accent-2: #0a7c68;
-      --accent-3: #c54d2c;
-      --accent-soft: rgba(31, 84, 232, 0.1);
-      --shadow: 0 18px 60px rgba(21, 21, 19, 0.08);
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg:#f7f6f1;
+      --paper:#fffef8;
+      --ink:#151513;
+      --muted:#686a63;
+      --line:#d9d5c9;
+      --soft:#e9e6dd;
+      --blue:#2458e6;
+      --green:#0d7b67;
+      --blue-soft:rgba(36,88,230,.08);
+      --shadow:0 20px 60px rgba(21,21,19,.08);
+      --radius:22px;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:var(--sans);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    ::selection{background:var(--blue);color:#fff}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img,svg{max-width:100%}
+    p,h1,h2,h3{overflow-wrap:anywhere}
+    h1,h2,h3{font-weight:610}
+
+    .shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .mono{
+      font-family:var(--mono);
+      font-size:.66rem;
+      letter-spacing:.08em;
+      line-height:1.4;
+      text-transform:uppercase;
+    }
+    .eyebrow{margin:0;color:var(--muted)}
+    .lede{max-width:700px;margin:1rem 0 0;color:#50524b;font-size:1rem;line-height:1.68}
+
+    .skip-link{
+      position:fixed;left:1rem;top:1rem;z-index:100;
+      padding:.7rem .9rem;border:1px solid var(--ink);
+      background:var(--ink);color:var(--paper);
+      transform:translateY(-150%);transition:transform .2s ease;
+    }
+    .skip-link:focus{transform:none}
+
+    .site-header{
+      position:relative;z-index:50;
+      border-bottom:1px solid rgba(217,213,201,.9);
+      background:rgba(247,246,241,.86);
+      backdrop-filter:blur(14px);
+    }
+    .site-nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .site-nav-logo{font-weight:800;white-space:nowrap}
+    .site-nav-links{display:flex;align-items:center;gap:clamp(1rem,3vw,2.25rem)}
+    .site-nav-links a{transition:color .18s ease}
+    .site-nav-links a:hover,.site-nav-links a:focus-visible{color:var(--blue);outline:none}
+
+    /* Pre-run state: keep the landing view focused on the identity + model trigger. */
+    body:not(.running) .site-header,
+    body:not(.running) .hero .run-stage,
+    body:not(.running) main > section:not(.hero),
+    body:not(.running) .site-footer {
+      display:none !important;
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* Once opened, the header participates in normal document flow; it never sticks. */
+    body.running .site-header {
+      position:relative;
+      top:auto;
     }
 
-    body {
-      margin: 0;
+    .hero{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      min-height:calc(100svh - 68px);
+      display:flex;
+      align-items:flex-start;
+      padding:clamp(4.5rem,9vw,7.5rem) 0 clamp(3.5rem,7vw,6rem);
+      background:#f8f7f3;
+    }
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      z-index:-2;
+      pointer-events:none;
+      border-radius:50%;
+      filter:blur(72px);
+      will-change:transform,opacity;
+    }
+    .hero::before{
+      width:min(62vw,760px);
+      height:min(72vw,760px);
+      right:-10vw;
+      top:-9vw;
       background:
-        linear-gradient(90deg, rgba(21, 21, 19, 0.035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(21, 21, 19, 0.035) 1px, transparent 1px),
-        var(--bg);
-      background-size: 44px 44px;
-      color: var(--ink);
-      font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+        radial-gradient(circle at 48% 42%,rgba(150,150,150,.22) 0 14%,rgba(190,190,190,.13) 30%,rgba(230,230,230,.07) 50%,transparent 72%);
+      opacity:.9;
+      animation:smoke-drift-a 18s ease-in-out infinite alternate;
     }
-
-    body::selection {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .shell {
-      width: min(1180px, calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .mono {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .skip-link {
-      position: fixed;
-      left: 1rem;
-      top: 1rem;
-      z-index: 100;
-      transform: translateY(-150%);
-      background: var(--ink);
-      color: var(--paper);
-      padding: 0.75rem 0.9rem;
-    }
-
-    .skip-link:focus {
-      transform: none;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      border-bottom: 1px solid rgba(215, 210, 196, 0.82);
-      background: rgba(247, 246, 241, 0.86);
-      backdrop-filter: blur(16px);
-    }
-
-    .site-nav {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .site-nav a {
-      color: var(--ink);
-    }
-
-    .site-nav a:hover,
-    .site-nav a:focus-visible {
-      color: var(--accent);
-      outline: none;
-    }
-
-    .site-nav-logo {
-      font-weight: 750;
-    }
-
-    .site-nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(0.8rem, 2.8vw, 2rem);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-6px);
-      visibility: hidden;
-      transition: opacity 220ms ease, transform 220ms ease, visibility 0ms linear 220ms;
-    }
-
-    body.running .site-nav-links {
-      opacity: 1;
-      pointer-events: auto;
-      transform: none;
-      visibility: visible;
-      transition-delay: 0ms;
-    }
-
-    .hero {
-      min-height: calc(100svh - 68px);
-      display: grid;
-      align-items: center;
-      padding: clamp(4rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.75fr);
-      gap: clamp(2rem, 6vw, 5rem);
-      align-items: end;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      overflow-wrap: anywhere;
-    }
-
-    h1 {
-      max-width: 940px;
-      margin: 0;
-      font-size: clamp(3.8rem, 9vw, 8.4rem);
-      font-weight: 800;
-      line-height: 0.88;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      font-weight: 790;
-      line-height: 0.95;
-    }
-
-    h3 {
-      margin: 0;
-    }
-
-    .subtitle {
-      max-width: 690px;
-      margin: 1.8rem 0 0;
-      color: #454741;
-      font-size: 1.08rem;
-      line-height: 1.65;
-    }
-
-    .year {
-      margin-top: 1.6rem;
-      color: var(--muted);
-    }
-
-    .summary,
-    .cards,
-    .outputs,
-    .corr-grid,
-    .current,
-    .next,
-    .panel-grid,
-    .d-metrics {
-      display: grid;
-      gap: 1px;
-      border: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .summary {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      grid-auto-rows: minmax(112px, auto);
-      gap: 0.75rem;
-      border: 0;
-      background: transparent;
-    }
-
-    .metric,
-    .card,
-    .output,
-    .corr,
-    .current-main,
-    .current-side,
-    .next-item,
-    .panel-stat {
-      background: rgba(255, 254, 248, 0.76);
-    }
-
-    .metric {
-      position: relative;
-      min-height: 118px;
-      padding: 1.15rem;
-      overflow: hidden;
-      border: 1px solid rgba(215, 210, 196, 0.78);
-      border-radius: 18px;
+    .hero::after{
+      width:min(48vw,600px);
+      height:min(58vw,680px);
+      right:14vw;
+      top:20vh;
       background:
-        linear-gradient(135deg, rgba(255, 254, 248, 0.95), rgba(240, 238, 229, 0.68)),
-        var(--paper);
-      box-shadow: 0 14px 34px rgba(21, 21, 19, 0.07);
-      transform: translateY(8px);
-      opacity: 0;
-      animation: metric-rise 680ms ease forwards;
-    }
-
-    .metric:nth-child(1) {
-      grid-column: span 2;
-      min-height: 138px;
-      animation-delay: 80ms;
-    }
-
-    .metric:nth-child(2) {
-      grid-column: span 2;
-      min-height: 138px;
-      animation-delay: 140ms;
-    }
-
-    .metric:nth-child(3) {
-      animation-delay: 200ms;
-    }
-
-    .metric:nth-child(4) {
-      animation-delay: 260ms;
-    }
-
-    .metric:nth-child(5) {
-      animation-delay: 320ms;
-    }
-
-    .metric:nth-child(6) {
-      grid-column: span 2;
-      animation-delay: 380ms;
-    }
-
-    .metric::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 15%, rgba(31, 84, 232, 0.09), transparent 55%);
-      opacity: 0;
-      transform: translateX(-100%);
-      animation: metric-scan 2.1s ease 260ms 1;
-    }
-
-    .metric::after {
-      content: "";
-      position: absolute;
-      right: 0.85rem;
-      bottom: 0.85rem;
-      width: 36px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--accent);
-      opacity: 0.24;
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-variant-numeric: tabular-nums;
-      font-size: clamp(1.8rem, 4.8vw, 2.9rem);
-      line-height: 0.95;
-    }
-
-    .metric span,
-    .next small,
-    .output li span:last-child,
-    .panel-stat small {
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .run {
-      position: relative;
-      width: 100%;
-      min-height: 58px;
-      margin-top: 1.2rem;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: var(--paper);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0 1.15rem;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 16px 42px rgba(21, 21, 19, 0.22);
-      isolation: isolate;
-      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-    }
-
-    .run::before {
-      content: "";
-      position: absolute;
-      inset: -30% auto -30% -65%;
-      z-index: -1;
-      width: 54%;
-      background: linear-gradient(105deg, transparent 5%, rgba(255, 255, 255, 0.08) 35%, rgba(255, 255, 255, 0.38) 48%, rgba(255, 255, 255, 0.08) 62%, transparent 95%);
-      transform: skewX(-22deg);
-      animation: button-shine 1.9s cubic-bezier(0.55, 0, 0.25, 1) infinite;
-    }
-
-    .run::after {
-      content: "";
-      position: absolute;
-      inset: 2px;
-      z-index: -2;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 45%);
-      pointer-events: none;
-    }
-
-    body.running .run::before {
-      animation: none;
-      opacity: 0;
-    }
-
-    .run:hover,
-    .run:focus-visible {
-      border-color: var(--accent);
-      background: var(--accent);
-      box-shadow: 0 18px 48px rgba(31, 84, 232, 0.28);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .run .arrow {
-      font-size: 1.25rem;
-    }
-
-    .run-stage {
-      display: none;
-      margin-top: clamp(2rem, 5vw, 4rem);
-      border: 1px solid #25252b;
-      border-radius: 24px;
-      background: #09090b;
-      color: #f2f2ee;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    body.running .run-stage {
-      display: block;
-    }
-
-    .run-stage-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.25rem;
-      padding: 1rem 1.2rem;
-      border-bottom: 1px solid #29292f;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .run-stage-head b {
-      color: #9bb6ff;
-    }
-
-    .run-stage-head .meta {
-      display: flex;
-      gap: 1rem;
-      color: #86868e;
-    }
-
-    .run-stage-head strong {
-      display: block;
-      color: #f3f3f4;
-      font-size: 0.8rem;
-      margin-top: 0.2rem;
-    }
-
-    .run-stage-body {
-      display: grid;
-      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
-      min-height: 520px;
-    }
-
-    .run-sequence {
-      display: grid;
-      align-content: stretch;
-      border-right: 1px solid #29292f;
-    }
-
-    .run-item {
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr) auto;
-      gap: 0.85rem;
-      align-items: center;
-      min-height: 72px;
-      padding: 0.95rem 1rem;
-      border-bottom: 1px solid #1f1f24;
-      opacity: 0;
-      transform: translateX(-10px);
-      animation: enter-row 420ms ease forwards;
-    }
-
-    .run-item:nth-child(2) { animation-delay: 90ms; }
-    .run-item:nth-child(3) { animation-delay: 180ms; }
-    .run-item:nth-child(4) { animation-delay: 270ms; }
-    .run-item:nth-child(5) { animation-delay: 360ms; }
-    .run-item:nth-child(6) { animation-delay: 450ms; }
-    .run-item:nth-child(7) { animation-delay: 540ms; }
-
-    .run-icon {
-      color: #9bb6ff;
-      font-family: var(--mono);
-      text-align: center;
-    }
-
-    .run-item .name {
-      font-weight: 750;
-      font-size: 0.82rem;
-    }
-
-    .run-item .detail,
-    .run-item .year {
-      color: #96969e;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      line-height: 1.45;
-      text-transform: uppercase;
-    }
-
-    .run-item.is-current {
-      background: rgba(155, 182, 255, 0.08);
-    }
-
-    .run-graph {
-      position: relative;
-      min-height: 520px;
-      padding: 1rem 1.2rem 1.3rem;
-    }
-
-    .run-graph svg {
-      width: 100%;
-      height: 100%;
-      min-height: 485px;
-    }
-
-    .timeline-gridline,
-    .timeline-row,
-    .axis {
-      stroke: #25252b;
-      stroke-width: 1;
-    }
-
-    .timeline-row {
-      stroke-dasharray: 4 8;
-    }
-
-    .timeline-label,
-    .axis-label {
-      fill: #878790;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .trajectory {
-      fill: none;
-      stroke: #9bb6ff;
-      stroke-width: 2;
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-      animation: draw-line 1.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    }
-
-    .duration {
-      fill: rgba(155, 182, 255, 0.28);
-      rx: 8;
-      transform: scaleX(0);
-      transform-box: fill-box;
-      transform-origin: left center;
-      animation: grow-duration 720ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    }
-
-    .duration.accent {
-      fill: rgba(84, 208, 182, 0.42);
-    }
-
-    .duration:nth-of-type(2) { animation-delay: 100ms; }
-    .duration:nth-of-type(3) { animation-delay: 200ms; }
-    .duration:nth-of-type(4) { animation-delay: 300ms; }
-    .duration:nth-of-type(5) { animation-delay: 400ms; }
-    .duration:nth-of-type(6) { animation-delay: 500ms; }
-    .duration:nth-of-type(7) { animation-delay: 600ms; }
-
-    .run-graph .node {
-      fill: #09090b;
-      stroke: #9bb6ff;
-      stroke-width: 3;
-      opacity: 0;
-      animation: show-node 350ms ease forwards 1.2s;
-    }
-
-    .run-graph .endpoint {
-      stroke: #54d0b6;
-    }
-
-    .run-graph-label {
-      position: absolute;
-      left: 1.2rem;
-      bottom: 1rem;
-      color: #86868e;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .model {
-      display: none;
-    }
-
-    body.running .model {
-      display: block;
-    }
-
-    .section {
-      padding: clamp(4.5rem, 9vw, 8rem) 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(160px, 0.65fr) minmax(0, 1.35fr);
-      gap: clamp(1.5rem, 5vw, 4rem);
-      margin-bottom: clamp(2rem, 5vw, 4rem);
-    }
-
-    .lede {
-      max-width: 660px;
-      margin: 1rem 0 0;
-      color: #4f514a;
-      font-size: 1.08rem;
-      line-height: 1.65;
-    }
-
-    .dashboard {
-      padding: clamp(3.5rem, 7vw, 6rem) 0;
-      background: #09090b;
-      color: #f3f3f4;
-    }
-
-    .dashboard .shell {
-      width: min(1220px, calc(100% - 32px));
-    }
-
-    .run-dashboard {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      grid-auto-flow: dense;
-      gap: 1rem;
-      border: 0;
-      background: transparent;
-    }
-
-    .dashboard-card {
-      min-height: 270px;
-      padding: clamp(1.35rem, 2.4vw, 2rem);
-      border: 1px solid #292932;
-      border-radius: 22px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.035), transparent 34%),
-        #101014;
-      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
-    }
-
-    .dashboard-card.signal-map {
-      grid-column: span 5;
-      grid-row: span 2;
-      min-height: 580px;
-    }
-
-    .dashboard-card.model-readout {
-      grid-column: span 7;
-      min-height: 300px;
-    }
-
-    .dashboard-card.signal-weights {
-      grid-column: span 4;
-      min-height: 260px;
-    }
-
-    .dashboard-card.transfer-lens {
-      grid-column: span 3;
-      min-height: 260px;
-    }
-
-    .dashboard-card.open-directions {
-      grid-column: span 7;
-      min-height: 260px;
-    }
-
-    .dashboard-card.full {
-      grid-column: 1 / -1;
-      min-height: 150px;
-    }
-
-    .dashboard-card-row {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .d-label,
-    .dashboard-note,
-    .dashboard-footer {
-      color: #7d7d86;
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .d-title {
-      margin-top: 0.7rem;
-      color: #f4f4f5;
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      font-weight: 760;
-      line-height: 1.02;
-    }
-
-    .d-copy {
-      max-width: 580px;
-      margin-top: 0.8rem;
-      color: #bfc0c5;
-      line-height: 1.55;
-    }
-
-    .d-list {
-      margin-top: 1.2rem;
-      border-top: 1px solid #2b2b31;
-    }
-
-    .d-list-row {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 1rem;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #222228;
-    }
-
-    .d-list-row .k {
-      color: #8fa9ff;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      text-transform: uppercase;
-    }
-
-    .d-list-row .v {
-      color: #c8c8cc;
-      font-size: 0.86rem;
-      line-height: 1.45;
-    }
-
-    .d-metrics {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      margin-top: 1rem;
-      gap: 0.65rem;
-      border: 0;
-      background: transparent;
-    }
-
-    .d-metric {
-      min-height: 92px;
-      padding: 1rem;
-      border: 1px solid #2a2a33;
-      border-radius: 16px;
-      background: #151519;
-    }
-
-    .d-metric:nth-child(1) {
-      grid-column: span 3;
-    }
-
-    .d-metric:nth-child(2) {
-      grid-column: span 2;
-    }
-
-    .d-metric:nth-child(3) {
-      grid-column: span 1;
-    }
-
-    .d-metric strong {
-      display: block;
-      color: #9bb6ff;
-      font-size: 1.55rem;
-    }
-
-    .d-metric span {
-      display: block;
-      margin-top: 0.35rem;
-      color: #85858d;
-      font-family: var(--mono);
-      font-size: 0.52rem;
-      text-transform: uppercase;
-    }
-
-    .d-orbit {
-      position: relative;
-      min-height: 390px;
-      margin-top: 1.4rem;
-      border: 1px solid #24242a;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at center, rgba(155, 182, 255, 0.16), transparent 30%),
-        linear-gradient(135deg, transparent 49.5%, #24242a 50%, transparent 50.5%);
-    }
-
-    .d-orbit .core {
-      position: absolute;
-      inset: 50% auto auto 50%;
-      width: 112px;
-      height: 112px;
-      border: 1px solid #4f67ba;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-    .d-orbit strong,
-    .d-orbit small {
-      display: block;
-    }
-
-    .d-orbit small {
-      margin-top: 0.35rem;
-      color: #85858d;
-      font-family: var(--mono);
-      font-size: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .orb {
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      border: 2px solid #54d0b6;
-      border-radius: 50%;
-      background: #101014;
-      box-shadow: 0 0 0 6px rgba(84, 208, 182, 0.08);
-    }
-
-    .o1 { left: 18%; top: 26%; }
-    .o2 { right: 21%; top: 22%; }
-    .o3 { right: 16%; bottom: 26%; }
-    .o4 { left: 24%; bottom: 22%; }
-    .o5 { left: 48%; top: 10%; }
-
-    .correlation-network {
-      position: relative;
-      min-height: 235px;
-      margin-top: 1rem;
-    }
-
-    .correlation-network::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 92px;
-      height: 92px;
-      border: 1px solid #4f67ba;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .correlation-network .center {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      color: #9bb6ff;
-      font-family: var(--mono);
-      font-size: 0.56rem;
-      text-align: center;
-      transform: translate(-50%, -50%);
-    }
-
-    .cn {
-      position: absolute;
-      color: #bfc0c5;
-      font-family: var(--mono);
-      font-size: 0.52rem;
-      text-align: center;
-    }
-
-    .cn.north { left: 43%; top: 2%; }
-    .cn.ne { right: 1%; top: 28%; }
-    .cn.se { right: 8%; bottom: 12%; }
-    .cn.sw { left: 7%; bottom: 12%; }
-    .cn.nw { left: 3%; top: 29%; }
-
-    .d-next {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 0.7rem;
-      margin-top: 1.2rem;
-      background: transparent;
-    }
-
-    .d-next div {
-      min-height: 110px;
-      padding: 1rem;
-      border: 1px solid #2a2a33;
-      border-radius: 16px;
-      background: #151519;
-    }
-
-    .d-next div:first-child,
-    .d-next div:nth-child(4) {
-      grid-column: span 2;
-    }
-
-    .d-next strong,
-    .d-next span {
-      display: block;
-    }
-
-    .d-next span {
-      margin-top: 0.55rem;
-      color: #909099;
-      font-family: var(--mono);
-      font-size: 0.54rem;
-      line-height: 1.5;
-      text-transform: uppercase;
-    }
-
-    .dashboard-footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid #2b2b31;
-      border-radius: 18px;
-      margin-top: 1rem;
-      background: #09090b;
-    }
-
-    .dashboard-footer b {
-      color: #54d0b6;
-    }
-
-    .causal-note {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: clamp(1.5rem, 5vw, 3rem);
-      align-items: start;
-    }
-
-    .causal-note p {
-      margin: 0;
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
-      line-height: 1.15;
-    }
-
-    .variable-explorer {
-      display: grid;
-      grid-template-columns: 270px minmax(0, 1fr);
-      min-height: 390px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .variable-tabs {
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid var(--line);
-    }
-
-    .variable-tab {
-      border: 0;
-      border-bottom: 1px solid var(--line);
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.05rem 1rem;
-      text-align: left;
-      transition: background 160ms ease, color 160ms ease;
-    }
-
-    .variable-tab:hover,
-    .variable-tab:focus-visible {
-      background: var(--accent-soft);
-      color: var(--ink);
-      outline: none;
-    }
-
-    .variable-tab.active {
-      background: var(--accent-soft);
-      color: var(--ink);
-      box-shadow: inset 3px 0 0 var(--accent);
-    }
-
-    .variable-tab .label {
-      font-size: 0.84rem;
-      font-weight: 740;
-    }
-
-    .variable-tab .meta {
-      font-family: var(--mono);
-      font-size: 0.56rem;
-      letter-spacing: 0.08em;
-    }
-
-    .variable-panel {
-      padding: clamp(1.5rem, 4vw, 2.4rem);
-    }
-
-    .panel-kicker {
-      color: var(--accent);
-    }
-
-    .variable-panel h3 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 0.98;
-    }
-
-    .variable-panel p {
-      max-width: 700px;
-      margin: 0.9rem 0 0;
-      color: #555750;
-      font-size: 1rem;
-      line-height: 1.62;
-    }
-
-    .panel-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 1.7rem;
-    }
-
-    .panel-stat {
-      min-height: 104px;
-      padding: 1rem;
-    }
-
-    .panel-stat strong {
-      display: block;
-      font-size: 1.6rem;
-      line-height: 1.05;
-    }
-
-    .panel-stat small {
-      display: block;
-      margin-top: 0.5rem;
-    }
-
-    .panel-flow,
-    .flow {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .panel-flow {
-      margin-top: 1.7rem;
-    }
-
-    .chip,
-    .panel-flow span {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.06em;
-      padding: 0.55rem 0.7rem;
-    }
-
-    .connector,
-    .panel-flow i,
-    .corr-line .arrow {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-style: normal;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(2rem, 6vw, 4.5rem);
-      margin-top: clamp(3rem, 7vw, 5rem);
-    }
-
-    .stack {
-      border-top: 1px solid var(--ink);
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 110px minmax(0, 1fr);
-      gap: 1.4rem;
-      padding: 1.45rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .row h3 {
-      font-size: 1.22rem;
-    }
-
-    .row p {
-      margin: 0.35rem 0 0;
-      color: #5e6058;
-      line-height: 1.5;
-    }
-
-    .thesis {
-      max-width: 880px;
-      margin-top: clamp(2rem, 6vw, 4rem);
-      border-left: 3px solid var(--accent);
-      padding-left: 1.35rem;
-      font-size: clamp(1.7rem, 3.4vw, 2.7rem);
-      line-height: 1.15;
-    }
-
-    .map {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 55% 45%, rgba(31, 84, 232, 0.1), transparent 34%),
-        linear-gradient(180deg, rgba(255, 254, 248, 0.94), rgba(239, 237, 229, 0.82));
-      box-shadow: var(--shadow);
-    }
-
-    .europe-map {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 270px;
-      gap: 0;
-      min-height: 560px;
-    }
-
-    .map-stage {
-      position: relative;
-      min-height: 560px;
-      padding: clamp(1rem, 2vw, 1.6rem);
-    }
-
-    .map-svg {
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      display: block;
-    }
-
-    .map-sea {
-      fill: rgba(31, 84, 232, 0.045);
-    }
-
-    .map-graticule {
-      fill: none;
-      stroke: rgba(21, 21, 19, 0.08);
-      stroke-width: 1;
-    }
-
-    .country {
-      fill: rgba(255, 254, 248, 0.86);
-      stroke: rgba(105, 107, 99, 0.32);
-      stroke-width: 1.2;
-      transition: fill 180ms ease, stroke 180ms ease, opacity 180ms ease;
-    }
-
-    .country.context {
-      fill: rgba(232, 229, 219, 0.78);
-    }
-
-    .country.focus {
-      fill: rgba(31, 84, 232, 0.14);
-      stroke: rgba(31, 84, 232, 0.75);
-      stroke-width: 1.8;
-    }
-
-    .country.destination {
-      fill: rgba(10, 124, 104, 0.12);
-      stroke: rgba(10, 124, 104, 0.7);
-      stroke-width: 1.7;
-    }
-
-    .map-route {
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-dasharray: 900;
-      stroke-dashoffset: 900;
-      filter: drop-shadow(0 6px 12px rgba(31, 84, 232, 0.2));
-      opacity: 0.22;
-      transition: opacity 180ms ease, stroke 180ms ease, stroke-width 180ms ease;
-    }
-
-    .map-route.turkey {
-      stroke: var(--accent-2);
-    }
-
-    .map.visible .map-route,
-    body.running .map-route {
-      animation: draw-map-route 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    }
-
-    .map-route.active,
-    .map-route:hover {
-      opacity: 1;
-      stroke-width: 6;
-    }
-
-    .map-location {
-      cursor: pointer;
-      outline: none;
-    }
-
-    .map-location circle:first-child {
-      fill: rgba(31, 84, 232, 0.13);
-      transform-origin: center;
-      animation: location-pulse 2.4s ease infinite;
-    }
-
-    .map-location circle:last-of-type {
-      fill: var(--paper);
-      stroke: var(--accent);
-      stroke-width: 4;
-    }
-
-    .map-location.destination circle:last-of-type {
-      stroke: var(--accent-2);
-    }
-
-    .map-location text {
-      fill: var(--ink);
-      font-family: var(--mono);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      paint-order: stroke;
-      stroke: rgba(255, 254, 248, 0.88);
-      stroke-width: 5px;
-    }
-
-    .map-location .sub {
-      fill: var(--muted);
-      font-size: 11px;
-      font-weight: 400;
-      stroke-width: 4px;
-    }
-
-    .map-location:focus-visible circle:last-of-type,
-    .map-location:hover circle:last-of-type,
-    .map-location.active circle:last-of-type {
-      stroke-width: 6;
-    }
-
-    .map-panel {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1.2rem;
-      border-left: 1px solid var(--line);
-      padding: clamp(1.2rem, 2.6vw, 1.8rem);
-      background: rgba(255, 254, 248, 0.68);
-    }
-
-    .map-panel h3 {
-      margin-top: 0.6rem;
-      font-size: clamp(1.45rem, 3vw, 2.1rem);
-      line-height: 1.05;
-    }
-
-    .map-panel p {
-      margin: 0.75rem 0 0;
-      color: #555750;
-      line-height: 1.55;
-    }
-
-    .map-controls {
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .map-control {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--ink);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.8rem 0.95rem;
-      text-align: left;
-      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
-    }
-
-    .map-control:hover,
-    .map-control:focus-visible,
-    .map-control.active {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent);
-      outline: none;
-    }
-
-    .map-control span:last-child {
-      color: var(--muted);
-    }
-
-    .map-note {
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.06em;
-      line-height: 1.6;
-      text-transform: uppercase;
-    }
-
-    .outputs,
-    .corr-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .output,
-    .corr {
-      min-height: 350px;
-      padding: clamp(1.35rem, 3vw, 2rem);
-    }
-
-    .output h3,
-    .corr h3 {
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      line-height: 1.05;
-    }
-
-    .output ul {
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .output li {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.2rem;
-      padding: 0.9rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .output li span:last-child {
-      flex: 0 0 auto;
-      text-align: right;
-    }
-
-    .corr-line {
-      margin-top: 1.8rem;
-      color: #393a36;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      line-height: 2.15;
-    }
-
-    .causal-graph {
-      margin-top: clamp(2rem, 6vw, 4rem);
-      border: 1px solid var(--line);
-      background: var(--paper);
-      padding: clamp(1.3rem, 4vw, 2rem);
-    }
-
-    .causal-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr) 32px minmax(0, 1fr);
-      gap: 0.75rem;
-      align-items: center;
-      margin-top: 0.75rem;
-    }
-
-    .causal-cell {
-      min-height: 92px;
-      border: 1px solid var(--line);
-      background: var(--bg);
-      padding: 1rem;
-    }
-
-    .causal-cell strong,
-    .causal-cell small {
-      display: block;
-    }
-
-    .causal-cell small {
-      margin-top: 0.45rem;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.54rem;
-      line-height: 1.4;
-      text-transform: uppercase;
-    }
-
-    .causal-arrow {
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    .causal-caption {
-      margin-top: 1.2rem;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.06em;
-      line-height: 1.5;
-      text-transform: uppercase;
-    }
-
-    .current {
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    }
-
-    .current-main,
-    .current-side {
-      padding: clamp(1.5rem, 4vw, 2.4rem);
-    }
-
-    .current-main h3 {
-      font-size: clamp(2.3rem, 5vw, 3.4rem);
-      line-height: 0.98;
-    }
-
-    .state-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      margin-top: 2rem;
-      border: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .state-list div {
-      min-height: 58px;
-      background: var(--paper);
-      display: grid;
-      align-items: center;
-      padding: 0.95rem;
-      font-family: var(--mono);
-      font-size: 0.63rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .current-side .big {
-      margin: 0.8rem 0 0.75rem;
-      color: var(--accent-2);
-      font-size: clamp(3.4rem, 9vw, 5.2rem);
-      font-weight: 800;
-      line-height: 0.9;
-    }
-
-    .current-side p {
-      margin: 0;
-      color: #5e6058;
-      line-height: 1.55;
-    }
-
-    .state-spark {
-      position: relative;
-      height: 122px;
-      margin-top: 1.6rem;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .state-spark svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .spark-path {
-      fill: none;
-      stroke: var(--accent-2);
-      stroke-width: 3;
-      stroke-dasharray: 700;
-      stroke-dashoffset: 700;
-      transition: stroke-dashoffset 1.4s ease;
-    }
-
-    .state-spark.active .spark-path {
-      stroke-dashoffset: 0;
-    }
-
-    .spark-label {
-      position: absolute;
-      left: 0;
-      bottom: 0.55rem;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.55rem;
-    }
-
-    .next {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .next-item {
-      min-height: 145px;
-      padding: 1.55rem;
-    }
-
-    .next strong {
-      display: block;
-      font-size: 1.35rem;
-    }
-
-    .next small {
-      display: block;
-      margin-top: 0.7rem;
-    }
-
-    .final {
-      min-height: 72svh;
-      display: grid;
-      align-items: center;
-      padding: clamp(4rem, 9vw, 7rem) 0;
-      border-top: 1px solid var(--line);
-      text-align: center;
-    }
-
-    .final p {
-      max-width: 920px;
-      margin: 0 auto;
-      font-size: clamp(2.4rem, 6.5vw, 5rem);
-      font-weight: 780;
-      line-height: 1.02;
-    }
-
-    .accent {
-      color: var(--accent);
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 1.35rem 0;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.1rem 2rem;
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.15rem;
-    }
-
-    .footer-nav a:hover,
-    .footer-nav a:focus-visible {
-      color: var(--accent);
-      outline: none;
-    }
-
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 650ms ease, transform 650ms ease;
-    }
-
-    .fade.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal-delay-1 { transition-delay: 80ms; }
-    .reveal-delay-2 { transition-delay: 160ms; }
-    .reveal-delay-3 { transition-delay: 240ms; }
-
-    @keyframes enter-row {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    @keyframes draw-line {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes show-node {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes metric-rise {
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    @keyframes metric-scan {
-      0% {
-        opacity: 0;
-        transform: translateX(-100%);
-      }
-
-      18%,
-      62% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
-    }
-
-    @keyframes button-shine {
-      0% {
-        left: -70%;
-      }
-
-      46%,
-      100% {
-        left: 125%;
-      }
-    }
-
-    @keyframes grow-duration {
-      to {
-        transform: scaleX(1);
-      }
-    }
-
-    @keyframes draw-map-route {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes location-pulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.72;
-      }
-
-      50% {
-        transform: scale(1.28);
-        opacity: 0.24;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .section-head,
-      .split,
-      .current,
-      .causal-note {
-        grid-template-columns: 1fr;
-      }
-
-      .run-dashboard {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-      }
-
-      .dashboard-card.signal-map,
-      .dashboard-card.model-readout,
-      .dashboard-card.open-directions {
-        grid-column: span 6;
-        grid-row: auto;
-      }
-
-      .dashboard-card.signal-weights,
-      .dashboard-card.transfer-lens {
-        grid-column: span 3;
-      }
-
-      .run-stage-body,
-      .europe-map,
-      .variable-explorer {
-        grid-template-columns: 1fr;
-      }
-
-      .run-sequence,
-      .map-panel,
-      .variable-tabs {
-        border-right: 0;
-      }
-
-      .map-panel {
-        border-left: 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .variable-tabs {
-        flex-direction: row;
-        overflow-x: auto;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .variable-tab {
-        min-width: 160px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .shell {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .site-nav {
-        min-height: auto;
-        padding: 0.85rem 0;
-        align-items: flex-start;
-      }
-
-      .site-nav-logo {
-        display: none;
-      }
-
-      .site-nav-links {
-        width: 100%;
-        justify-content: space-between;
-        gap: 0.7rem;
-        overflow-x: auto;
-      }
-
-      .summary,
-      .panel-grid,
-      .outputs,
-      .corr-grid,
-      .next,
-      .run-dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .metric,
-      .metric:nth-child(1),
-      .metric:nth-child(2),
-      .metric:nth-child(6),
-      .dashboard-card.signal-map,
-      .dashboard-card.model-readout,
-      .dashboard-card.signal-weights,
-      .dashboard-card.transfer-lens,
-      .dashboard-card.open-directions {
-        grid-column: auto;
-      }
-
-      .d-metrics,
-      .d-next,
-      .state-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .d-metric,
-      .d-metric:nth-child(1),
-      .d-metric:nth-child(2),
-      .d-metric:nth-child(3),
-      .d-next div:first-child,
-      .d-next div:nth-child(4) {
-        grid-column: auto;
-      }
-
-      .dashboard-card-row,
-      .dashboard-footer {
-        display: grid;
-      }
-
-      .causal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .causal-arrow {
-        transform: rotate(90deg);
-      }
-
-      .map-stage,
-      .map-svg {
-        min-height: 420px;
-      }
-
-      .map-location text {
-        font-size: 14px;
-      }
-
-      .map-location .sub {
-        font-size: 10px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      h1 {
-        font-size: clamp(3.2rem, 18vw, 4.5rem);
-      }
-
-      .metric,
-      .output,
-      .corr,
-      .current-main,
-      .current-side,
-      .dashboard-card {
-        padding: 1rem;
-      }
-
-      .run-item {
-        grid-template-columns: 24px minmax(0, 1fr);
-      }
-
-      .run-item .year {
-        grid-column: 2;
-        margin-top: -0.35rem;
-      }
-
-      .d-list-row,
-      .row {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
-      }
-
-      .state-list,
-      .d-metrics,
-      .d-next {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 1ms !important;
-      }
-
-      .fade {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    noscript .model {
-      display: block;
-    }
+        radial-gradient(circle at 58% 42%,rgba(110,110,110,.14) 0 10%,rgba(175,175,175,.10) 29%,rgba(220,220,220,.05) 48%,transparent 73%);
+      opacity:.75;
+      animation:smoke-drift-b 14s ease-in-out infinite alternate-reverse;
+    }
+    .hero-smoke{
+      position:absolute;
+      z-index:-1;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .hero-smoke span{
+      position:absolute;
+      display:block;
+      border-radius:50%;
+      filter:blur(52px);
+      background:radial-gradient(circle,rgba(120,120,120,.12) 0%,rgba(180,180,180,.08) 32%,rgba(230,230,230,.02) 58%,transparent 74%);
+      mix-blend-mode:multiply;
+      opacity:.55;
+      will-change:transform,opacity;
+    }
+    .hero-smoke .s1{width:420px;height:260px;right:8%;top:12%;animation:smoke-float-1 16s ease-in-out infinite}
+    .hero-smoke .s2{width:340px;height:220px;right:24%;top:30%;animation:smoke-float-2 19s ease-in-out infinite}
+    .hero-smoke .s3{width:500px;height:300px;right:-4%;bottom:7%;animation:smoke-float-3 22s ease-in-out infinite}
+    .hero-grid{display:block}
+    .hero-kicker{margin-bottom:1.25rem}
+    .hero h1{
+      max-width:900px;
+      margin:0;
+      font-size:clamp(4rem,10vw,8.8rem);
+      line-height:.82;
+      letter-spacing:-.055em;
+      font-weight:720;
+    }
+    .hero-record{
+      position:relative;
+      width:min(860px,100%);
+      min-height:38px;
+      margin-top:1.55rem;
+      color:#454741;
+      font-size:1.08rem;
+      line-height:1.55;
+      overflow:visible;
+    }
+    .record-cursor{
+      position:absolute;
+      left:0;
+      top:50%;
+      z-index:2;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--ink);
+      box-shadow:0 0 0 5px rgba(21,21,19,.055);
+      transform:translate(-50%,-50%);
+      pointer-events:none;
+      will-change:left;
+    }
+    .record-text{
+      display:inline-block;
+      width:max-content;
+      max-width:100%;
+      white-space:nowrap;
+      overflow:hidden;
+      vertical-align:middle;
+      min-height:1.55em;
+    }
+    .hero-actions{margin-top:1.7rem}
+
+    .run-row{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      width:fit-content;
+      margin-top:2rem;
+    }
+    .run{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      display:inline-flex;align-items:center;justify-content:space-between;gap:1.25rem;
+      min-height:62px;min-width:210px;padding:0 1.45rem;
+      border:1px solid var(--ink);border-radius:999px;
+      background:var(--ink);color:var(--paper);cursor:pointer;
+      box-shadow:0 14px 35px rgba(21,21,19,.16);
+      transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+    }
+    .run::before{
+      content:"";
+      position:absolute;
+      inset:-30% auto -30% -65%;
+      z-index:-1;
+      width:54%;
+      background:linear-gradient(105deg,transparent 5%,rgba(255,255,255,.08) 35%,rgba(255,255,255,.38) 48%,rgba(255,255,255,.08) 62%,transparent 95%);
+      transform:skewX(-22deg);
+      animation:button-shine 1.9s cubic-bezier(.55,0,.25,1) infinite;
+    }
+    .run::after{
+      content:"";
+      position:absolute;
+      inset:2px;
+      z-index:-2;
+      border-radius:inherit;
+      background:linear-gradient(180deg,rgba(255,255,255,.12),transparent 45%);
+      pointer-events:none;
+    }
+    body.running .run::before{animation:none;opacity:0}
+    .run:hover,.run:focus-visible{background:var(--blue);border-color:var(--blue);box-shadow:0 16px 40px rgba(36,88,230,.22);transform:translateY(-1px);outline:none}
+    .run .arrow{font-size:1.2rem}
+    .run-note{color:var(--muted)}
+
+    .run-stage{display:none;margin-top:3rem;border:1px solid #2a2a2f;border-radius:var(--radius);background:#0a0a0c;color:#f2f2ee;overflow:hidden;box-shadow:var(--shadow)}
+    body.running .run-stage{display:block}
+    .stage-head{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid #29292e}
+    .stage-status{color:#a9bcff}.stage-meta{display:flex;gap:1.5rem;color:#82838b}
+    .stage-meta strong{display:block;margin-top:.15rem;color:#f3f3f4;font-size:.8rem}
+    .stage-body{display:grid;grid-template-columns:minmax(260px,.68fr) minmax(0,1.32fr);min-height:470px}
+    .run-sequence{border-right:1px solid #29292e}
+    .run-item{position:relative;width:100%;display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:.8rem;align-items:center;padding:.9rem 1rem;min-height:64px;border:0;border-bottom:1px solid #1e1e23;background:transparent;color:inherit;text-align:left;cursor:pointer;transition:background .2s ease,transform .2s ease}.run-item:hover,.run-item:focus-visible{background:rgba(155,182,255,.055);outline:none}.run-item.active{background:rgba(155,182,255,.1);box-shadow:inset 2px 0 0 #a9bcff}.run-item:focus-visible{box-shadow:inset 2px 0 0 #54d0b6}
+    .run-item.is-current{background:rgba(155,182,255,.08)}
+    .run-icon{font-family:var(--mono);color:#a9bcff;text-align:center}
+    .run-item .name{font-weight:600;font-size:.82rem}
+    .run-item .detail,.run-item .year{font-family:var(--mono);font-size:.58rem;line-height:1.45;color:#91929b;text-transform:uppercase}
+    .run-graph{position:relative;padding:1.2rem 1.3rem 1rem;min-height:470px;display:flex;flex-direction:column}.timeline-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:0 .1rem .7rem;border-bottom:1px solid #202126}.timeline-kicker{color:#7f8fff}.timeline-title{margin-top:.2rem;color:#f3f3f4;font-size:1.2rem;font-weight:600}.timeline-copy{max-width:440px;margin-top:.28rem;color:#9b9ca4;font-size:.72rem;line-height:1.45}.timeline-axis-note{color:#777983;white-space:nowrap}.chart-shell{position:relative;flex:1;min-height:380px;padding-top:.6rem}.chart-shell svg{width:100%;height:100%;min-height:380px;display:block}.chart-path{fill:none;stroke:#a9bcff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw-line-slow 2.8s cubic-bezier(.2,.7,.2,1) forwards}.chart-area{opacity:0;animation:fade-area 1.9s ease 1.35s forwards}.chart-point{fill:#0a0a0c;stroke:#a9bcff;stroke-width:2.1;opacity:0;transform-box:fill-box;transform-origin:center;animation:show-point-slow .5s ease 2.15s forwards}.chart-point.current{stroke:#54d0b6;fill:#0a0a0c}.chart-point.timeline-hit{opacity:0;}.chart-baseline{stroke:#25262b;stroke-width:1}.chart-grid{stroke:#202126;stroke-width:1}.chart-grid.dashed{stroke-dasharray:3 8}.chart-label{fill:#81838c;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase}.chart-caption{margin:.35rem 0 0;color:#777983;font-family:var(--mono);font-size:.55rem;letter-spacing:.06em;text-transform:uppercase}
+
+    .model{display:none}
+    body.running .model{display:block}
+    .section{padding:clamp(4.5rem,9vw,7rem) 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:minmax(140px,.48fr) minmax(0,1.52fr);gap:clamp(1.5rem,5vw,4rem);align-items:start;margin-bottom:clamp(2rem,5vw,3.5rem)}
+    .section h2{margin:0;font-size:clamp(2.8rem,6vw,5.4rem);font-weight:600;line-height:.9;letter-spacing:-.04em}
+
+    .variable-explorer{display:grid;grid-template-columns:235px minmax(0,1fr);border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+    .variable-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+    .variable-tab{display:flex;justify-content:space-between;gap:1rem;width:100%;padding:1rem;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;text-align:left;transition:background .16s ease,color .16s ease}
+    .variable-tab:last-child{border-bottom:0}
+    .variable-tab:hover,.variable-tab:focus-visible{background:var(--blue-soft);color:var(--ink);outline:none}
+    .variable-tab.active{background:var(--blue-soft);color:var(--ink);box-shadow:inset 3px 0 0 var(--blue)}
+    .variable-tab .label{font-size:.78rem;font-weight:680}.variable-tab .meta{font-family:var(--mono);font-size:.52rem;letter-spacing:.06em}
+    .variable-panel{padding:clamp(1.5rem,4vw,2.7rem)}
+    .panel-kicker{color:var(--blue)}
+    .variable-panel h3{margin:.45rem 0 0;font-size:clamp(2rem,4vw,3.2rem);line-height:.95;letter-spacing:-.03em}
+    .variable-panel p{max-width:720px;margin:.9rem 0 0;color:#555750;line-height:1.62}
+    .panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.5rem}
+    .panel-stat{min-height:96px;padding:1rem;border:1px solid var(--line);background:rgba(255,254,248,.8)}
+    .panel-stat strong{display:block;font-size:1.45rem;line-height:1}.panel-stat small{display:block;margin-top:.45rem;color:var(--muted);font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;line-height:1.4;text-transform:uppercase}
+    .panel-flow{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin-top:1.3rem}.panel-flow span{padding:.48rem .62rem;border:1px solid var(--line);background:var(--paper);font-family:var(--mono);font-size:.58rem;letter-spacing:.05em}.panel-flow i{font-family:var(--mono);font-style:normal;color:var(--blue)}
+
+    .map{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:var(--shadow)}
+    .europe-map{display:grid;grid-template-columns:minmax(0,1fr) 280px}
+    .map-stage{min-height:560px;padding:4.5% 4% 4%;overflow:hidden;display:grid;place-items:center}
+    .map-svg{display:block;width:100%;height:100%;min-height:0;max-height:100%;object-fit:contain}
+    .map-sea{fill:rgba(36,88,230,.025)}
+    .map-graticule{fill:none;stroke:rgba(21,21,19,.055);stroke-width:1}
+    .country{fill:rgba(255,254,248,.92);stroke:rgba(105,107,99,.34);stroke-width:1.1;vector-effect:non-scaling-stroke}
+    .country.context{fill:rgba(232,229,219,.46)}
+    .country.focus{fill:rgba(36,88,230,.13);stroke:rgba(36,88,230,.8);stroke-width:1.8}
+    .country.destination{fill:rgba(13,123,103,.11);stroke:rgba(13,123,103,.72);stroke-width:1.6}
+    .map-route{fill:none;stroke:var(--blue);stroke-width:3.6;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;opacity:.16;transition:opacity .18s ease,stroke-width .18s ease}
+    .map-route.turkey{stroke:var(--green)}
+    .map-route.active{opacity:1;stroke-width:5;animation:draw-map-route 1.2s cubic-bezier(.2,.7,.2,1) forwards}
+    .map-location{cursor:pointer;outline:none}.map-location circle:first-child{fill:rgba(36,88,230,.12);transform-origin:center;animation:location-pulse 2.4s ease infinite}.map-location circle:last-of-type{fill:var(--paper);stroke:var(--blue);stroke-width:4}.map-location.destination circle:last-of-type{stroke:var(--green)}
+    .map-location text{fill:var(--ink);font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;paint-order:stroke;stroke:rgba(255,254,248,.9);stroke-width:5px}.map-location .sub{fill:var(--muted);font-size:9px;font-weight:400;stroke-width:4px}
+    .map-location.active circle:last-of-type,.map-location:hover circle:last-of-type,.map-location:focus-visible circle:last-of-type{stroke-width:6}
+    .map-panel{display:flex;flex-direction:column;justify-content:space-between;gap:1.25rem;padding:1.35rem;border-left:1px solid var(--line);background:rgba(255,254,248,.72)}
+    .map-panel h3{margin:.45rem 0 0;font-size:clamp(1.65rem,3vw,2.25rem);line-height:1}
+    .map-panel p{margin:.8rem 0 0;color:#555750;line-height:1.55}
+    .map-controls{display:grid;gap:.55rem}.map-control{display:flex;justify-content:space-between;gap:1rem;padding:.72rem .85rem;border:1px solid var(--line);border-radius:999px;background:transparent;cursor:pointer;text-align:left}.map-control:hover,.map-control:focus-visible,.map-control.active{border-color:var(--blue);background:var(--blue-soft);color:var(--blue);outline:none}.map-control span:last-child{color:var(--muted)}.map-note{color:var(--muted);font-family:var(--mono);font-size:.58rem;letter-spacing:.05em;line-height:1.6;text-transform:uppercase}.map-credit{display:inline-block;margin-top:.55rem;font-size:.48rem;opacity:.68;text-transform:none;letter-spacing:.02em}
+
+    .outputs,.corr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;border:1px solid var(--line);background:var(--line)}
+    .output,.corr{min-height:310px;padding:clamp(1.3rem,3vw,2rem);background:var(--paper)}
+    .output h3,.corr h3{margin:0;font-size:clamp(1.4rem,3vw,2rem);line-height:1.02}
+    .output ul{margin:1.25rem 0 0;padding:0;list-style:none}.output li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-top:1px solid var(--line)}.output li span:last-child{flex:0 0 auto;color:var(--muted);font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-align:right;text-transform:uppercase}
+    .corr-line{margin-top:1.5rem;color:#383934;font-family:var(--mono);font-size:.72rem;line-height:2.1}.corr-line .arrow{color:var(--blue)}
+    .thesis{max-width:880px;margin:clamp(2rem,5vw,3.5rem) 0 0;border-left:3px solid var(--blue);padding-left:1.2rem;font-size:clamp(1.7rem,3.5vw,2.7rem);line-height:1.13}
+
+    .current{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);border:1px solid var(--line);background:var(--line)}
+    .current-main,.current-side{padding:clamp(1.4rem,4vw,2.3rem);background:var(--paper)}
+    .current-main h3{margin:0;font-size:clamp(2.2rem,5vw,3.6rem);line-height:.94;letter-spacing:-.035em}
+    .state-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:1.5rem;border:1px solid var(--line);background:var(--line)}.state-list div{min-height:58px;display:grid;align-items:center;padding:.85rem;background:var(--paper);font-family:var(--mono);font-size:.59rem;letter-spacing:.05em;text-transform:uppercase}
+    .current-side .big{margin:.45rem 0 .6rem;color:var(--green);font-size:clamp(3.4rem,8vw,5.3rem);font-weight:400;line-height:.9;letter-spacing:-.04em}.current-side p{margin:0;color:#5e6058;line-height:1.55}
+    .state-spark{position:relative;height:110px;margin-top:1.4rem;border-bottom:1px solid var(--line);overflow:hidden}.state-spark svg{position:absolute;inset:0;width:100%;height:100%}.spark-path{fill:none;stroke:var(--green);stroke-width:3;stroke-dasharray:700;stroke-dashoffset:700}.state-spark.active .spark-path{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s ease}.spark-label{position:absolute;left:0;bottom:.45rem;color:var(--muted);font-family:var(--mono);font-size:.54rem}
+
+    .next{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}.next-item{min-height:125px;padding:1.25rem;border:1px solid var(--line);background:var(--paper)}.next-item strong{display:block;font-size:1.15rem}.next-item small{display:block;margin-top:.55rem;color:var(--muted);font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;text-transform:uppercase}
+
+    .final-note{padding:clamp(5rem,11vw,8rem) 0;border-top:1px solid var(--line);text-align:center}.final-note p{max-width:920px;margin:0 auto;font-size:clamp(2.3rem,6.5vw,5rem);font-weight:620;line-height:1.02;letter-spacing:-.04em}.accent{color:var(--blue)}
+    .site-footer{border-top:1px solid var(--line);padding:1.25rem 0;color:var(--muted)}.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem}.footer-nav{display:flex;flex-wrap:wrap;gap:.8rem 1rem}.footer-nav a:hover,.footer-nav a:focus-visible{color:var(--blue);outline:none}
+
+    .fade{opacity:0;transform:translateY(26px);transition:opacity 1.05s cubic-bezier(.2,.7,.2,1),transform 1.05s cubic-bezier(.2,.7,.2,1)}.fade.visible{opacity:1;transform:none}.reveal-delay-1{transition-delay:120ms}.reveal-delay-2{transition-delay:240ms}.reveal-delay-3{transition-delay:360ms}
+
+    @keyframes smoke-drift-a{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3vw,2vh,0) scale(1.06)}100%{transform:translate3d(1vw,4vh,0) scale(.98)}}
+    @keyframes smoke-drift-b{0%{transform:translate3d(2vw,-2vh,0) scale(.98);opacity:.68}50%{transform:translate3d(-2vw,3vh,0) scale(1.04);opacity:.48}100%{transform:translate3d(3vw,5vh,0) scale(1.02);opacity:.62}}
+    @keyframes smoke-float-1{0%,100%{transform:translate3d(0,0,0) scale(1)}33%{transform:translate3d(-28px,14px,0) scale(1.06)}66%{transform:translate3d(18px,-20px,0) scale(.94)}}
+    @keyframes smoke-float-2{0%,100%{transform:translate3d(0,0,0) scale(.95);opacity:.42}50%{transform:translate3d(34px,18px,0) scale(1.08);opacity:.65}}
+    @keyframes smoke-float-3{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.34}50%{transform:translate3d(-30px,-24px,0) scale(1.1);opacity:.58}}
+    @keyframes draw-line-slow{to{stroke-dashoffset:0}}@keyframes fade-area{to{opacity:.22}}@keyframes show-point-slow{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+    @keyframes grow-duration{to{transform:scaleX(1)}}
+    @keyframes show-node{to{opacity:1}}
+    @keyframes draw-map-route{to{stroke-dashoffset:0}}
+    @keyframes location-pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.22);opacity:.24}}
+
+    @keyframes button-shine{
+      0%{left:-70%}
+      46%,100%{left:125%}
+    }
+
+    @media (max-width:980px){
+      .hero-grid,.current{grid-template-columns:1fr}
+      .stage-body,.europe-map,.variable-explorer{grid-template-columns:1fr}
+      .run-sequence,.variable-tabs{border-right:0}.run-sequence{border-bottom:1px solid #29292e}.variable-tabs{flex-direction:row;overflow-x:auto;border-bottom:1px solid var(--line)}.variable-tab{min-width:160px;border-bottom:0;border-right:1px solid var(--line)}
+      .map-panel{border-left:0;border-top:1px solid var(--line)}
+      .outputs,.corr-grid{grid-template-columns:1fr}.next{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .shell{width:min(100% - 28px,1180px)}
+      .site-nav{min-height:62px}.site-nav-logo{font-size:.6rem}.site-nav-links{gap:.85rem;overflow-x:auto}.site-nav-links a{white-space:nowrap}
+      .run-row{width:100%;align-items:center}.run{width:210px;flex:0 0 auto}
+      .section-head{grid-template-columns:1fr}.hero h1{font-size:clamp(3.6rem,16vw,6rem)}
+      .map-stage{min-height:390px;padding:3%}.map-svg{min-height:0}.map-location text{font-size:13px}.map-location .sub{font-size:9px}
+      .state-list{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .hero{padding-top:3.5rem}.hero-record{font-size:1rem}.record-text{white-space:normal}
+      .stage-head,.stage-meta{display:grid}.stage-body{min-height:0}.run-graph{min-height:390px}.chart-shell,.chart-shell svg{min-height:320px}
+      .map-stage{min-height:330px;padding:2.5%}.map-svg{min-height:0}.map-panel{padding:1rem}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}.fade{opacity:1;transform:none}}
   </style>
 </head>
 
@@ -1900,135 +419,54 @@
       <div class="shell">
         <div class="hero-grid">
           <div>
-            <div class="mono eyebrow">Life as Data / 2007-2026</div>
-            <h2>ADELINA-<br>MARIA<br>MALE</h2>
-            <div class="year mono">A DATASET BUILT FROM EXPERIENCE, DECISIONS & OUTPUTS</div>
-            <p class="subtitle">
-              A dataset built from the experiences, decisions and outputs that shaped my trajectory
-              from a small town in rural Romania to business, technology and digital media.
-            </p>
-          </div>
-
-          <div>
-            <div class="summary" aria-label="Trajectory summary">
-              <div class="metric"><strong class="count-up" data-target="10" data-decimals="2" data-suffix="/10">10.00/10</strong><span>Academic average</span></div>
-              <div class="metric"><strong class="count-up" data-target="100" data-suffix="M+">100M+</strong><span>Digital views</span></div>
-              <div class="metric"><strong class="count-up" data-target="5">5</strong><span>Published anthologies</span></div>
-              <div class="metric"><strong class="count-up" data-target="3">3</strong><span>International exchanges</span></div>
-              <div class="metric"><strong class="count-up" data-target="1">1</strong><span>Major trajectory shift</span></div>
-              <div class="metric"><strong class="count-up" data-scramble="2007-26">2007-26</strong><span>Observation window</span></div>
+            <div class="mono eyebrow hero-kicker">Life as Data / 2007–2026</div>
+            <h1 id="hero-title">ADELINA<br>MARIA<br>MALE</h1>
+            <div class="hero-smoke" aria-hidden="true"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div>
+            <div class="hero-record" aria-live="polite" aria-label="Personal record summary">
+              <span class="record-cursor" aria-hidden="true"></span>
+              <span class="record-text" id="recordText"></span>
             </div>
 
-            <button class="run mono" id="runModel" type="button" aria-controls="model" aria-expanded="false">
-              <span>Run Model</span>
-              <span class="arrow" aria-hidden="true">→</span>
-            </button>
-          </div>
+            <div class="hero-actions">
+              <div class="run-row">
+                <button class="run mono" id="runModel" type="button" aria-controls="model" aria-expanded="false">
+                  <span>Run Model</span><span class="arrow" aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
         </div>
 
         <div class="run-stage" id="runStage" aria-label="Animated model simulation">
-          <div class="run-stage-head">
-            <div>Model status <b>running model</b></div>
-            <div class="meta" aria-label="Model metadata">
+          <div class="stage-head mono">
+            <div>Model status <span class="stage-status">active</span></div>
+            <div class="stage-meta">
               <div>Data points<strong>7,182</strong></div>
-              <div>Years<strong>2007-2026</strong></div>
+              <div>Years<strong>2007–2026</strong></div>
             </div>
           </div>
 
-          <div class="run-stage-body">
-            <div class="run-sequence">
-              <div class="run-item">
-                <div class="run-icon">⌂</div>
-                <div><div class="name">Origin</div><div class="detail">Ștei, Bihor, Romania</div></div>
-                <div class="year">2007</div>
-              </div>
-              <div class="run-item">
-                <div class="run-icon">◫</div>
-                <div><div class="name">Philology</div><div class="detail">Languages · literature · culture</div></div>
-                <div class="year">2012-22</div>
-              </div>
-              <div class="run-item">
-                <div class="run-icon">∕</div>
-                <div><div class="name">Writing / Theater</div><div class="detail">Stories · plays · competitions</div></div>
-                <div class="year">2016-22</div>
-              </div>
-              <div class="run-item">
-                <div class="run-icon">▷</div>
-                <div><div class="name">Digital Media</div><div class="detail">Content · audience · strategy</div></div>
-                <div class="year">2020-24</div>
-              </div>
-              <div class="run-item">
-                <div class="run-icon">✦</div>
-                <div><div class="name">EƎTHERΛ™</div><div class="detail">Brand · design · entrepreneurship</div></div>
-                <div class="year">2021-24</div>
-              </div>
-              <div class="run-item">
-                <div class="run-icon">&lt;/&gt;</div>
-                <div><div class="name">Web Development</div><div class="detail">Code · build · solve</div></div>
-                <div class="year">2024-25</div>
-              </div>
-              <div class="run-item is-current">
-                <div class="run-icon">▦</div>
-                <div><div class="name">International Business &amp; Economics</div><div class="detail">Business · economics · technology · data</div></div>
-                <div class="year">2026</div>
-              </div>
+          <div class="stage-body">
+            <div class="run-sequence" aria-label="Timeline stages">
+              <button class="run-item active" type="button" data-timeline="0" aria-pressed="true"><div class="run-icon">⌂</div><div><div class="name">Origin</div><div class="detail">Ștei, Bihor, Romania</div></div><div class="year">2007</div></button>
+              <button class="run-item" type="button" data-timeline="1" aria-pressed="false"><div class="run-icon">◫</div><div><div class="name">Philology</div><div class="detail">Languages · literature · culture</div></div><div class="year">2012–22</div></button>
+              <button class="run-item" type="button" data-timeline="2" aria-pressed="false"><div class="run-icon">∕</div><div><div class="name">Writing / Theater</div><div class="detail">Stories · plays · competitions</div></div><div class="year">2016–22</div></button>
+              <button class="run-item" type="button" data-timeline="3" aria-pressed="false"><div class="run-icon">▷</div><div><div class="name">Digital Media</div><div class="detail">Content · audience · strategy</div></div><div class="year">2020–24</div></button>
+              <button class="run-item" type="button" data-timeline="4" aria-pressed="false"><div class="run-icon">✦</div><div><div class="name">EƎTHERΛ™</div><div class="detail">Brand · design · entrepreneurship</div></div><div class="year">2021–24</div></button>
+              <button class="run-item" type="button" data-timeline="5" aria-pressed="false"><div class="run-icon">&lt;/&gt;</div><div><div class="name">Web Development</div><div class="detail">Code · build · solve</div></div><div class="year">2024–25</div></button>
+              <button class="run-item" type="button" data-timeline="6" aria-pressed="false"><div class="run-icon">▦</div><div><div class="name">International Business &amp; Economics</div><div class="detail">Business · economics · technology · data</div></div><div class="year">2026</div></button>
             </div>
 
-            <div class="run-graph">
-              <svg viewBox="0 0 860 500" preserveAspectRatio="none" aria-labelledby="timelineTitle timelineDesc" role="img">
-                <title id="timelineTitle">Timeline model from 2007 to 2026</title>
-                <desc id="timelineDesc">A time-based chart showing each stage across its real year span, from origin in 2007 through current business and economics work in 2026.</desc>
-
-                <line class="timeline-gridline" x1="88" y1="48" x2="88" y2="426"></line>
-                <line class="timeline-gridline" x1="271" y1="48" x2="271" y2="426"></line>
-                <line class="timeline-gridline" x1="417" y1="48" x2="417" y2="426"></line>
-                <line class="timeline-gridline" x1="564" y1="48" x2="564" y2="426"></line>
-                <line class="timeline-gridline" x1="600" y1="48" x2="600" y2="426"></line>
-                <line class="timeline-gridline" x1="710" y1="48" x2="710" y2="426"></line>
-                <line class="timeline-gridline" x1="784" y1="48" x2="784" y2="426"></line>
-
-                <line class="timeline-row" x1="70" y1="82" x2="800" y2="82"></line>
-                <line class="timeline-row" x1="70" y1="136" x2="800" y2="136"></line>
-                <line class="timeline-row" x1="70" y1="190" x2="800" y2="190"></line>
-                <line class="timeline-row" x1="70" y1="244" x2="800" y2="244"></line>
-                <line class="timeline-row" x1="70" y1="298" x2="800" y2="298"></line>
-                <line class="timeline-row" x1="70" y1="352" x2="800" y2="352"></line>
-                <line class="timeline-row" x1="70" y1="406" x2="800" y2="406"></line>
-
-                <text class="timeline-label" x="70" y="75">Origin</text>
-                <text class="timeline-label" x="70" y="129">Philology</text>
-                <text class="timeline-label" x="70" y="183">Writing / Theater</text>
-                <text class="timeline-label" x="70" y="237">Digital Media</text>
-                <text class="timeline-label" x="70" y="291">Eethera</text>
-                <text class="timeline-label" x="70" y="345">Web Development</text>
-                <text class="timeline-label" x="70" y="399">Business & Economics</text>
-
-                <rect class="duration" x="88" y="87" width="184" height="14"></rect>
-                <rect class="duration" x="271" y="141" width="366" height="14"></rect>
-                <rect class="duration" x="417" y="195" width="220" height="14"></rect>
-                <rect class="duration" x="564" y="249" width="146" height="14"></rect>
-                <rect class="duration" x="600" y="303" width="110" height="14"></rect>
-                <rect class="duration" x="710" y="357" width="37" height="14"></rect>
-                <rect class="duration accent" x="784" y="411" width="28" height="14"></rect>
-
-                <path class="trajectory" d="M88 94 L271 148 L417 202 L564 256 L600 310 L710 364 L784 418"></path>
-                <circle class="node" cx="88" cy="94" r="6"></circle>
-                <circle class="node" cx="271" cy="148" r="6"></circle>
-                <circle class="node" cx="417" cy="202" r="6"></circle>
-                <circle class="node" cx="564" cy="256" r="6"></circle>
-                <circle class="node" cx="600" cy="310" r="6"></circle>
-                <circle class="node" cx="710" cy="364" r="6"></circle>
-                <circle class="node endpoint" cx="784" cy="418" r="8"></circle>
-
-                <text class="axis-label" x="78" y="462">2007</text>
-                <text class="axis-label" x="261" y="462">2012</text>
-                <text class="axis-label" x="407" y="462">2016</text>
-                <text class="axis-label" x="554" y="462">2020</text>
-                <text class="axis-label" x="590" y="482">2021</text>
-                <text class="axis-label" x="700" y="462">2024</text>
-                <text class="axis-label" x="774" y="462">2026</text>
-              </svg>
-              <div class="run-graph-label">Actual timespans mapped on a 2007-2026 axis</div>
+            <div class="run-graph" aria-live="polite">
+              <div class="timeline-head">
+                <div>
+                  <div class="mono timeline-kicker" id="timelineKicker">ORIGIN SIGNAL</div>
+                  <div class="timeline-title" id="timelineTitle">Origin</div>
+                  <div class="timeline-copy" id="timelineCopy">Relative signal across the full 2007–2026 observation window.</div>
+                </div>
+                <div class="mono timeline-axis-note">2007 → 2026</div>
+              </div>
+              <div class="chart-shell" id="timelineChart"></div>
+              <div class="chart-caption" id="timelineCaption">RELATIVE SIGNAL ONLY — VISUALIZED INTENSITY, NOT A SCIENTIFIC MEASUREMENT.</div>
             </div>
           </div>
         </div>
@@ -2036,506 +474,223 @@
     </section>
 
     <div id="model" class="model">
-      <section class="dashboard" aria-labelledby="dashboard-title">
-        <div class="shell">
-          <div class="section-head">
-            <div class="mono eyebrow">Model dashboard</div>
+    <section class="section" id="inputs" aria-labelledby="inputs-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Inputs</div>
+          <div>
+            <h2 id="inputs-title">EXPLORE<br>VARIABLES.</h2>
+            <p class="lede">The raw inputs matter less as a list than as a system of changing conditions, skills and exposure.</p>
+          </div>
+        </div>
+
+        <div class="variable-explorer fade">
+          <div class="variable-tabs" role="tablist" aria-label="Trajectory variables">
+            <button class="variable-tab active" id="tab-origin" type="button" data-variable="origin" role="tab" aria-selected="true" aria-controls="variablePanel"><span class="label">01 — ORIGIN</span><span class="meta">INPUT</span></button>
+            <button class="variable-tab" id="tab-education" type="button" data-variable="education" role="tab" aria-selected="false" aria-controls="variablePanel"><span class="label">02 — EDUCATION</span><span class="meta">INPUT</span></button>
+            <button class="variable-tab" id="tab-creative" type="button" data-variable="creative" role="tab" aria-selected="false" aria-controls="variablePanel"><span class="label">03 — CREATIVE</span><span class="meta">OUTPUT</span></button>
+            <button class="variable-tab" id="tab-digital" type="button" data-variable="digital" role="tab" aria-selected="false" aria-controls="variablePanel"><span class="label">04 — DIGITAL</span><span class="meta">OUTPUT</span></button>
+            <button class="variable-tab" id="tab-international" type="button" data-variable="international" role="tab" aria-selected="false" aria-controls="variablePanel"><span class="label">05 — INTERNATIONAL</span><span class="meta">EXPOSURE</span></button>
+          </div>
+          <div class="variable-panel" id="variablePanel" role="tabpanel" tabindex="0" aria-labelledby="tab-origin"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="geography-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Geography</div>
+          <div>
+            <h2 id="geography-title">ORIGIN<br>→ SCALE.</h2>
+            <p class="lede">Geography is a variable: a local starting point followed by progressively wider access.</p>
+          </div>
+        </div>
+
+        <div class="map europe-map fade" id="europeMap">
+          <div class="map-stage">
+            <svg class="map-svg" viewBox="350 105 600 390" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="europeMapTitle europeMapDesc">
+  <title id="europeMapTitle">Actual Europe map with routes from Romania to Spain and Turkey</title>
+  <desc id="europeMapDesc">A real country-boundary map of Europe. Romania is highlighted as the origin; animated routes extend west to Spain and southeast to Turkey.</desc>
+  <defs>
+    <filter id="mapGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect class="map-sea" x="0" y="0" width="980" height="620" rx="20"></rect>
+  <path class="map-graticule" d="M120 40V580M300 40V580M480 40V580M660 40V580M840 40V580M40 170H940M40 310H940M40 450H940"></path>
+  <g class="europe-countries" aria-hidden="true" transform="translate(60 20) scale(3) translate(-240.767 -271.591)">
+    <path id="country-is" class="country context" data-country="is" d="M366.261,340.521l-1.693-0.959l-2.283,1.443l-1.962,1.814l0.052,1.013l2.541,0.319l-0.156,1.815l-0.898,0.908l0.217,0.588l2.541,0.164v2.938l3.656,0.641l2.17,1.229l2.437,0.104l4.186-2.083l3.231-4.271l0.053-2.887l-1.963-1.66l-1.642-1.392l-0.743,0.536l-1.115,1.443l-1.271-0.164l-1.271-1.393l-1.642,0.156l-2.386,1.979l-1.437,1.547l-0.795-0.69l-0.053-1.712l0.795-0.536L366.261,340.521L366.261,340.521z"></path><path id="country-ie" class="country context" data-country="ie" d="M394.915,383.085l-0.786,5.187l-6.975,2.56h-2.223l-1.582-1.115v-0.96l3.492-2.238l-0.951-1.92l0.156-2.714l3.018,0.155l1.383-3.25l-0.183,2.887l2.344,1.858L394.915,383.085L394.915,383.085z"></path><path id="country-gb" class="country context" data-country="gb" d="M400.629,367.984l-1.582,2.395l0.631,0.959h3.648v1.6l-0.952,1.278l0.632,3.354l2.058,3.994l1.581,3.672l2.533,0.959l1.105,1.92l-0.155,1.755l-1.582,0.959l-0.156,0.795l1.106,0.64l-0.951,1.279l-2.221,0.959l-4.279-0.477l-6.664,3.035l-2.221-1.115l6.345-3.674l-0.796-0.477l-3.328-0.32l2.058-3.033l0.319-2.56l2.696-0.319l-0.475-4.953l-3.174-0.155l-0.95-1.115l0.155-3.674l-1.901,0.156l1.901-6.388l3.492-2.56L400.629,367.984L400.629,367.984z"></path><path id="country-pt" class="country context" data-country="pt" d="M387.499,421.716l-0.536,7.478l-1.53,1.384l0.156,0.846l1.071,1.772l-0.691,2.16l1.149,0.39l2.68-0.312l-0.155-2.16l1.756-10.02l-0.382-1.383L387.499,421.716L387.499,421.716z"></path><path id="country-es" class="country destination" data-country="es" d="M402.565,416.322h-11.014l-2.222-1.004l-1.071,0.078l-1.297,2.696l0.458,2.775l4.21,0.389l0.536,1.771l-1.833,10.33l0.078,1.851l2.981,1.617l3.439,0.232l6.881-1.694l3.363-4.233l0.077-4.313l5.965-5.395l0.302-2.386l-5.428-0.078L402.565,416.322L402.565,416.322z"></path><path id="country-fr" class="country context" data-country="fr" d="M412.973,393.588l-1.91,0.467l-3.82,4.158l-1.149,0.078l-1.53-1.081l-0.993,0.233l-0.762,2.386l-5.584,0.155l0.156,1.236l3.82,2.543l4.435,3.543l-0.077,4.236l-2.368,4.157l5.126,2.464l5.204,0.154l1.606-1.85l3.286,0.078l0.916,0.848l3.285-0.233l1.686-2.162l-2.145-2.541l-0.155-1.616l0.458-1.771l-1.071-1.539l-1.833,0.535l-0.232-1.383l4.054-4.469v-2.697l-2.348-0.767l-1.432-0.987L412.973,393.588L412.973,393.588z"></path><path id="country-be" class="country context" data-country="be" d="M414.019,391.704l-0.554,1.383l5.947,3.925l0.4,0.051l0.375-1.094l0.837-0.588l-1.336-1.499h-0.916l-1.255-1.426L414.019,391.704L414.019,391.704z"></path><path id="country-nl" class="country context" data-country="nl" d="M421.349,384.572l-3.915,1.928l0.829,0.752l0.088,1.928l-0.829-0.164l-0.917-1.426l-2.188,3.467l3.363,0.699l1.253,1.323l0.666,0.017l0.44-2.99l2.117-0.891L421.349,384.572L421.349,384.572z"></path><path id="country-de" class="country context" data-country="de" d="M422.257,384.234l3.086-0.5v-2.178l2.584-0.425l1.418,1.427l1.495,0.164l2.334-1.012l2.083,0.588l1.832,1.592l0.251,5.955l1.832,2.438l-2.411,0.337l-4.003,2.515l0.338,0.839l3.579,3.354l-0.251,1.677l-3.328,1.677l-3.085,0.086l-0.753,1.59h-1.581l-0.752-1.676l-2.749-0.675l-0.088-2.767l-1.39-0.77l0.114-1.861l-0.406-1.328l-1.982-1.824l0.414-2.854l2.161-1.011L422.257,384.234L422.257,384.234z"></path><path id="country-ch" class="country context" data-country="ch" d="M423.787,402.82l-3.771,4.011l0.078,0.405l1.547-0.483l1.393,1.937l2.352-0.83l1.625,1.263l0.667-0.38l2.005-3.146l-0.511-0.484l-1.979-0.051l-0.959-1.963L423.787,402.82L423.787,402.82z"></path><path id="country-lu" class="country context" data-country="lu" d="M420.424,397.582l0.76,0.679l0.88,0.083l0.194-1.734l-0.253-0.974l-1.224,0.583L420.424,397.582z"></path><path id="country-it" class="country context" data-country="it" d="M423.233,409.391l-0.535,1.356l0.146,1.478l2.065,2.412l3.25-0.113l7.175,8.334l4.479,1.297l2.646,2.498l0.631,5.695l1.417-0.828l1.229-3.104l-0.303-2.229l2.101-0.19l0.304-1.263l-5.922-2.834l-5.619-5.523l-2.238-3.303l-0.545-3.137l2.861-0.684l-0.734-2.066l-1.755-1.478l-1.513-0.069l-2.108,0.58l-1.99,2.781l-1.201,0.795l-1.858-1.141L423.233,409.391L423.233,409.391z"></path><path id="country-at" class="country context" data-country="at" d="M430.46,403.459l-0.562,1.167l0.483,0.83l2.015-0.415h1.711l1.857,1.572l3.95-0.717l2.904-1.729l0.743-1.167l-0.112-1.504l-2.611-1.954l-3.501,0.035l-0.294,1.988l-3.683,1.797L430.46,403.459L430.46,403.459z"></path><path id="country-dk" class="country context" data-country="dk" d="M427.123,370.076l-3.586,3.968l-0.13,2.584l1.635,4.263l2.559-0.484l-0.319-3.483l1.764-1.971l-0.034-1.548l-1.245-3.223L427.123,370.076L427.123,370.076z"></path>
+<path id="country-dk" class="country context" data-country="dk" d="M428.979,377.354l-1.062,0.229v1.583l1.128,0.875l0.997-0.25l-0.243-1.503L428.979,377.354z"></path>
+<path id="country-dk" class="country context" data-country="dk" d="M432.306,375.848l-0.949,0.23l-1.056,0.968l0.448,1.954l1.292,0.507l-1.334,0.535l-0.255,0.685h2.005l0.602-1.099l-0.768-0.378l0.25-0.962l0.916-1.205l-0.25-1.042L432.306,375.848z"></path><path id="country-no" class="country context" data-country="no" d="M460.567,327.409l1.747-1.279l-0.157-1.435l-1.106-0.641l0.157-1.754h0.95v-0.96l-4.123-1.114l-6.181,0.64l-0.631,2.714l-1.428-0.477l-0.951-1.599l-3.017,0.155l-0.32,3.033l-1.426,0.641l-0.795-1.6l-6.345,5.109l1.271,1.436l-2.378,1.115l-5.393,10.701l-1.901,1.279l0.155,0.959l1.9,0.959l-0.475,2.074l-3.173-0.164l-0.952-1.115l-2.057,2.395l-1.271,0.959l-0.32,2.24l-1.105,0.64l-2.854,0.64l-1.426,4.479l0.951,7.348l1.106,3.354l1.271,1.279l2.853-0.156l4.124-3.994l1.581-2.713l0.478,3.992l2.697-4.789l0.154-13.424l2.195-1.383l0.657-7.408l6.655-9.586l3.173-1.115l1.427-1.755l4.754,1.115l2.377,1.435l0.796-3.992l3.968-2.396L460.567,327.409L460.567,327.409z"></path><path id="country-se" class="country context" data-country="se" d="M445.232,329.52l1.693,1.563h3.173l1.746,3.354l0.477,5.748l-4.278,3.035v3.033l-3.017,4.158l-1.746,0.154l-2.378,3.994l0.155,3.838l4.124,3.035l-0.319,1.754l-1.582,2.396l-2.377,2.074l0.155,6.872l-3.647,1.279l-1.271,2.713h-1.747l-0.949-4.789l-3.969-6.084l3.26-5.455l0.225-13.477l2.248-1.236l0.545-7.709l6.405-9.172L445.232,329.52L445.232,329.52z"></path><path id="country-fi" class="country context" data-country="fi" d="M453.072,340.202l1.79,0.786l1.104,2.074l-1.104,1.436l-5.55,6.068l-0.952,3.199l1.271,4.633l4.278,3.199l5.706-2.715l4.598-0.64l4.279-6.872l-3.173-7.512l-3.018-7.192l0.477-4.633l-1.901-0.32l-0.492-3.38l-2.559-4.175l-2.836,1.962l-1.114,4.556l-3.008-1.807l-4.185-1.021l-0.934,1.09l1.607,1.453l2.931-0.053l2.359,3.812L453.072,340.202L453.072,340.202z"></path><path id="country-ee" class="country context" data-country="ee" d="M462.562,363.299l-4.84-0.173l-3.068,1.875l-0.043,1.392l1.987,1.875l6.182,1.047L462.562,363.299L462.562,363.299z"></path><path id="country-lv" class="country context" data-country="lv" d="M462.823,369.964l-6.362-1.037l-1.086,2.823l-1.833,0.548l-0.959-1.173l-0.962-1.811l-1.038,0.762l-0.589,3.132v1.708l2.242-0.375l4.665,0.083l5.617,1.044l2.249-0.657l-0.13-2.524L462.823,369.964L462.823,369.964z"></path><path id="country-lt" class="country context" data-country="lt" d="M452.14,375.236l-2.146,0.363l0.173,2.025l3.355,0.25l1.27,1.042l0.333,1.81l1.034,1.443l3.069-0.13l2.938-3.743l-0.172-2.222l-5.533-0.867L452.14,375.236z"></path><path id="country-pl" class="country context" data-country="pl" d="M457.109,390.184l0.733,1.348l0.174,1.435l-0.604,1.392l-1.383,2.664l-1.167,0.526l-1.514-0.657l-0.908,0.043l-2.204,0.83l-2.506-0.742l-4.062-2.879l-3.978-2.135l-1.6-2.438l-0.303-5.75l3.112-2.705l4.062-1.35l1.328-0.138l0.315,1.007l1.725,0.692l4.766,0.09l1.47-0.043l2.421,3.708l-0.604,1.521l0.259,1.789L457.109,390.184L457.109,390.184z"></path><path id="country-cz" class="country context" data-country="cz" d="M437.202,398.921h2.567h1.263l2.049,1.461l3.795-3.155l-3.683-2.627l-3.648-1.765l-2.498,0.45l-3.389,2.178L437.202,398.921L437.202,398.921z"></path><path id="country-sk" class="country context" data-country="sk" d="M443.607,400.875l0.597,0.527l0.077,0.898l6.596-0.146l4.875-2.102l-0.077-2.135l-0.934,0.415l-1.34-0.718l-0.821-0.035l-2.161,0.865l-2.938-0.709L443.607,400.875L443.607,400.875z"></path><path id="country-hu" class="country context" data-country="hu" d="M444.386,403.01l-1.003,1.573l0.078,2.403l1.599,0.82l4.919,0.147l6.854-5.774l0.034-1.279l-0.742-0.371l-4.953,2.248L444.386,403.01L444.386,403.01z"></path><path id="country-si" class="country context" data-country="si" d="M442.708,405.076l-2.195,1.314l-4.097,0.898l0.82,2.368l2.87,0.034l2.646-2.213L442.708,405.076L442.708,405.076z"></path><path id="country-hr" class="country context" data-country="hr" d="M443.417,407.816l-3.051,2.515h-3.095l-0.372,2.178l1.418,0.372l0.709-1.055l1.114,0.977l0.891,3.112l6.109,2.853l0.605-0.691l-6.197-6.396l0.631-1.166l5.888-0.226l0.596-1.876l-3.838,0.111L443.417,407.816L443.417,407.816z"></path><path id="country-ba" class="country context" data-country="ba" d="M442.708,411.084l-0.319,0.527l5.801,5.981l2.127-3.13l-0.078-1.234l-1.857-2.256L442.708,411.084L442.708,411.084z"></path><path id="country-rs" class="country context" data-country="rs" d="M452.001,407.279l-1.772,1.332h-0.863l-0.588,1.832l2.092,2.43l0.139,1.928l-0.882,1.246l3.068,3.197l3.317-1.012l-0.274-4.721L452.001,407.279L452.001,407.279z"></path><path id="country-me" class="country context" data-country="me" d="M449.68,416.677l-1.266,1.789l0.362,1.099l1.504,0.275l1.184-1.607L449.68,416.677z"></path><path id="country-al" class="country context" data-country="al" d="M450.679,420.438v3.984l1.142,2.152l0.82-0.096l1.409-2.566l-0.821-1.15l-0.319-2.844l-1.089-1.012L450.679,420.438L450.679,420.438z"></path><path id="country-mk" class="country context" data-country="mk" d="M456.643,418.924l-2.912,0.959l0.139,2.473l0.683,0.873l3.458-1.606L456.643,418.924L456.643,418.924z"></path><path id="country-gr" class="country context" data-country="gr" d="M453.004,427.213l-0.096,1.15l4.003,2.014l1.911,0.734l-1.003,1.055l-2.23,0.227l-0.319,1.01l0.771,1.738l2.498,1.33l1.09,0.096l0.138-2.981l1.635-1.972l-4.46-5.272l0.589-1.789l1.046-0.043l1.591,1.279l1.002-0.501l0.319-1.79l3.732,0.534l1.134-3.239l-1.953,1.375l-5.731-0.14l-3.726,1.929L453.004,427.213L453.004,427.213z"></path><path id="country-bg" class="country context" data-country="bg" d="M457.092,414.066l0.139,4.305l1.452,3.025l5.454,0.095l2.455-1.737l2.412-0.959l-0.588-2.75l0.545-1.469l-1.228-0.641l-1.687,0.139l-1.323,1.332l-5.549,0.043L457.092,414.066L457.092,414.066z"></path><path id="country-ro" class="country focus" data-country="ro" d="M457.731,401.281l-0.226,1.279l-5.005,4.166l4.184,6.137l2.682,1.877h4.823l1.591-1.331l2.135-0.276l1.591,0.959l2.818-3.207l-0.545-1.607l-2.861-0.734l-1.953-0.095l0.094-2.749l-2.593-4.08L457.731,401.281L457.731,401.281z"></path><path id="country-md" class="country context" data-country="md" d="M465.14,401.376l2.681,4.123l-0.226,2.334l0.96,0.043l2.272-3.847l-2.731-3.389L466.549,400L465.14,401.376L465.14,401.376z"></path><path id="country-ua" class="country context" data-country="ua" d="M460.662,388.791l-2.507,1.409l0.622,2.663l-2.316,4.884l0.02,2.151l1.089,0.691l6.983,0.346l1.954-1.615l2.092,0.699l2.999,4.002l-2.194,3.942l2.61,0.761l3.414-3.933l1.954,0.354l1.815,1.262l-1.601,2.109l2.161,3.371h2.299l1.185-2.248l2.438-0.494l0.069-1.823l-4.529-0.7l0.14-1.963h4.391l4.737-3.794l2.092-1.824l0.345-5.757l-9.336-0.838l-3.829-5.402l-2.646-0.908l-3.207,0.139l-1.443,3.569l-6.57,0.087l-2.135-0.986L460.662,388.791L460.662,388.791z"></path><path id="country-by" class="country context" data-country="by" d="M456.418,382.861l1.297,2.135l-0.519,1.703l0.086,1.349l0.476,1.616l2.68-1.521l3.329,0.086l2.334,0.959h5.922l1.729-4.141l1.037-1.564v-1.045l-3.717-5.23l-3.285-1.305l-2.68-0.303l-2.335,0.743l0.088,2.351l-3.241,4.098L456.418,382.861L456.418,382.861z"></path><path id="country-ru" class="country context" data-country="ru" d="M722.059,302.16l1.522,5.256l3.043,0.873l3.042-4.814l-1.737-3.285l0.648-2.845h4.563l-1.09,2.188l0.434,7.883l-6.519,16.199l0.648,3.501l-0.216,5.912l12.161,17.729l2.387,0.657l0.216-14.443l2.386-2.188l-2.61-5.688l2.171-2.412l-4.78-6.346l-2.611,0.217l-0.865-10.503l6.734-1.755l0.432-3.068l3.478-0.873l1.953,1.756l2.386-9.631l4.124-7l3.259-1.756l2.827,0.217v-3.285l-4.563-0.873l-6.302-5.256l3.044-3.5l-2.61-5.913l2.169-2.187l2.61,3.5l6.519,2.411l7.166,0.657l0.873-3.061l-3.69-3.717l4.123-5.688l-9.345-3.285l-2.386,4.814l-3.043-3.941l-17.158-5.913l-16.295,2.844l-2.387,1.314v1.313l3.476,1.756l-0.434,4.157l-6.301-2.628l-13.898,5.473l-2.388-5.031h-9.561l-4.349,4.599l-15.421-3.501l-14.115,2.844l-1.737,4.375l2.17,0.656l-0.216,3.285l-13.685,1.529l0.873,4.375l-12.604-2.188l3.044-5.688l-12.819-0.657l1.089,5.913l-4.123,1.971l-3.476-3.285l-14.116,2.412l-5.428,5.031l-0.217,3.06l-3.476,0.216l-0.433-3.5l11.082-9.629v-6.57l-7.166-1.971l-9.345,3.061l-3.907-3.942h-1.737l-2.171,4.374l1.738,1.971l-12.388,6.787l-10.642,8.1l-6.519,8.972v3.717l6.949,2.845l-3.475,2.627l-7.382-2.627l-3.044,2.627l-4.563-5.256l-0.873,1.972l4.996,15.758l1.305,0.44l3.478-1.754l1.736,1.313v2.844l-3.259-1.313l-1.955,1.529l1.308,2.844l-1.09,7.443l-6.734,0.657l-0.432-2.412l3.907-2.411l0.873-6.57l-4.349-5.688l-1.521-9.846l-6.948-1.098l-0.648,3.5l1.305,1.754l-2.825,2.412l1.089,6.57l4.124,1.755l0.873,4.814l-4.133-2.627l-10.641-1.972l-1.306,3.502l-8.473,3.06l-1.305-2.187l-11.082,6.127l-0.216,4.158l-4.348,0.657l1.306-3.06v-3.061l-4.349-1.529l-2.826,1.098l2.386,4.599l1.737,3.06v2.412l-3.26-0.656l-0.647-0.657l-3.26,3.501l1.737,3.061l-7.383-0.217l2.387,3.069l-0.647,1.313h-3.907l-2.827-1.971l-0.647-5.472l-4.563-1.755v-2.187l9.561,1.972l5.213,0.44l2.17-3.285l-1.954-3.501l-13.899-5.472l-4.798,1.192l-1.642,1.41l0.511,3.24l2.039,0.354l-0.476,5.101l6.293,14.781l-4.548,7.209l-0.312,1.625l2.309,1.625l-2.084,1.375l-1.383,0.026l0.26,6.353l1.91,2.706l0.026,2.627l2.446,0.225l3.741,1.426l3.959,5.446l0.045,1.435l-1.288,2.205l2.956-0.164l2.878,0.83l3.891,5.506l9.577,0.873l-0.415,6.552l-3.301,2.827l0.683,1.105l-3.26,3.502l-0.864,3.284l1.954,2.845l6.301,2.187l2.611-1.53l16.727,6.346l0.648-1.756l-3.476-3.283v-4.158l-2.171-0.657l0.434-3.5l3.476-4.158l-6.231-4.667l0.432-6.492l6.665-4.383l7.822,0.441l1.306,2.412l8.04,0.44l5.869-3.284l-3.044-3.285l0.647-6.129l15.205-7.442l11.695,5.272l3.907-3.5l11.514,10.942l8.688-0.873l3.044,3.06l8.255,0.873l5.429-7.441l6.949,3.068l3.69,0.658l3.692-3.285l-3.26-2.188l2.827-4.374l8.039,2.628l1.736,3.501l3.477,0.216l2.17-1.529l5.869-0.217l0.647,1.53l6.733,0.44l4.562-4.814l9.345,1.098l2.827-1.098l0.864-5.256l-2.826-6.346l2.826-2.411h8.904l8.471,10.069l10.857,6.129h3.26l0.432-2.627l3.907-2.412l0.433,14.228l-3.475,0.216v3.5l1.953,2.412l-0.363,3.129l1.443,0.598l0.874-2.188l1.306,0.441l0.864,0.873l3.907-0.873l3.906-11.385l0.434-14.229l-4.996-11.385l-6.301-7.657l-3.044,0.44v2.412l-7.382-2.845l2.826-6.128l2.387-16.199l9.992-3.06l4.779-3.06h5.213l-1.312,1.754l1.306,2.188l4.563-4.814l2.609,0.215l-0.432-2.844l-4.132-0.873l2.827-10.287L722.059,302.16L722.059,302.16z"></path><path id="country-tr" class="country destination" data-country="tr" d="M472.812,421.906l-2.305-1.426l-1.271-1.013l-2.138,0.916l0,0l-1.477,3.74l2.219-0.5l1.562-1.188l3.438,0.938l-1.946,1.877L465.719,425l-1.91,2.093v1.021l1.22,1.021v1.123l-0.511,1.332l0.511,1.123l1.625-0.812l1.625,1.737l-0.406,1.228l-0.604,0.82l0.907,1.021l4.461,0.916l3.139-1.331v-1.937l1.521,0.303l3.648,2.144l3.948-0.614l1.721-1.633l1.114,0.406v1.841h1.521l1.313-2.55l11.549-1.229l5.04-0.613l-1.331-1.746l-0.025-2.359l1.011-1.21l-3.682-2.956l0.197-2.551h-2.022l-3.354-1.643l0,0l-1.929,2.041l-7.088-0.209l-4.253-2.549l-4.082,0.366l-4.544,2.729L472.812,421.906z"></path>
+  </g>
+
+  <path class="map-route spain active" data-route-line="spain" d="M721.8 429.8 C 651.8 384.8, 644.8 450.6, 529.8 485.6"></path>
+  <path class="map-route turkey" data-route-line="turkey" d="M721.8 429.8 C 756.8 449.8, 719.0 483.9, 789.0 488.9"></path>
+
+  <g class="map-location active" data-route="romania" tabindex="0" role="button" aria-label="Romania origin">
+    <circle cx="721.8" cy="429.8" r="26"></circle><circle cx="721.8" cy="429.8" r="10"></circle>
+    <text x="741.8" y="423.8">ROMANIA</text><text class="sub" x="741.8" y="443.8">origin / Bucharest</text>
+  </g>
+  <g class="map-location destination active" data-route="spain" tabindex="0" role="button" aria-label="Spain exchange route">
+    <circle cx="529.8" cy="485.6" r="26"></circle><circle cx="529.8" cy="485.6" r="10"></circle>
+    <text x="453.8" y="477.6">SPAIN</text><text class="sub" x="453.8" y="497.6">exchange / west</text>
+  </g>
+  <g class="map-location destination" data-route="turkey" tabindex="0" role="button" aria-label="Turkey exchange route">
+    <circle cx="789.0" cy="488.9" r="26"></circle><circle cx="789.0" cy="488.9" r="10"></circle>
+    <text x="809.0" y="480.9">TÜRKİYE</text><text class="sub" x="809.0" y="500.9">exchange / southeast</text>
+  </g>
+</svg>
+          </div>
+
+          <aside class="map-panel" aria-live="polite">
             <div>
-              <h2 id="dashboard-title">OBSERVED<br>SYSTEM.</h2>
-              <p class="lede">
-                The page turns biography into a visible structure: inputs, outputs,
-                repeated transfers and the current state.
-              </p>
+              <div class="mono eyebrow">Interactive geography</div>
+              <h3 id="mapRouteTitle">Romania → Spain</h3>
+              <p id="mapRouteCopy">The route extends west from Romania toward Spain, turning international exchange into a visible exposure vector.</p>
             </div>
-          </div>
+            <div class="map-controls" aria-label="Map routes">
+              <button class="map-control active mono" type="button" data-route="spain"><span>Spain route</span><span>west</span></button>
+              <button class="map-control mono" type="button" data-route="turkey"><span>Turkey route</span><span>southeast</span></button>
+              <button class="map-control mono" type="button" data-route="all"><span>Show both</span><span>network</span></button>
+            </div>
+            <div class="map-note">Romania remains fixed as origin; the exchange routes show widening exposure rather than geographic decoration.<br><span class="map-credit">Map geometry: Al MacDonald / Fritz Lekschas · CC BY-SA 3.0</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-          <div class="run-dashboard">
-            <article class="dashboard-card signal-map">
-              <div class="d-label">System map</div>
-              <div class="d-title">How the variables connect</div>
-              <p class="d-copy">
-                The useful pattern is not a list of achievements. It is the transfer path between language,
-                audience behavior, product thinking and technical execution.
-              </p>
-              <div class="d-orbit" aria-hidden="true">
-                <div class="core"><div><strong>SELF</strong><small>SYSTEM OF TRANSFERS</small></div></div>
-                <span class="orb o1"></span>
-                <span class="orb o2"></span>
-                <span class="orb o3"></span>
-                <span class="orb o4"></span>
-                <span class="orb o5"></span>
-              </div>
-            </article>
-
-            <article class="dashboard-card model-readout">
-              <div class="d-label">Model readout</div>
-              <div class="d-title">The strongest signal is capability reuse.</div>
-              <p class="d-copy">
-                Writing did not stay only creative, and digital work did not stay only distribution.
-                Both became reusable operating layers for brand, business and technology work.
-              </p>
-              <div class="d-list">
-                <div class="d-list-row"><div class="k">Stable layer</div><div class="v">Language → structure → communication → systems</div></div>
-                <div class="d-list-row"><div class="k">Variable layer</div><div class="v">Mediums changed: page, stage, platform, brand, code</div></div>
-                <div class="d-list-row"><div class="k">Current use</div><div class="v">Turning creative judgment into strategic and technical leverage</div></div>
-              </div>
-            </article>
-
-            <article class="dashboard-card signal-weights">
-              <div class="d-label">Signal weights</div>
-              <div class="d-title">Compressed evidence</div>
-              <div class="d-metrics">
-                <div class="d-metric"><strong>Scale</strong><span>audience proof</span></div>
-                <div class="d-metric"><strong>Transfer</strong><span>cross-domain reuse</span></div>
-                <div class="d-metric"><strong>Range</strong><span>creative → technical</span></div>
-              </div>
-            </article>
-
-            <article class="dashboard-card transfer-lens">
-              <div class="d-label">Transfer lens</div>
-              <div class="d-title">Not prediction. Pattern recognition.</div>
-              <div class="correlation-network" aria-hidden="true">
-                <div class="center">CORE<br>DRIVER</div>
-                <div class="cn north">LANGUAGE</div>
-                <div class="cn ne">AUDIENCE</div>
-                <div class="cn se">TOOLS</div>
-                <div class="cn sw">MARKETS</div>
-                <div class="cn nw">STORY</div>
-              </div>
-            </article>
-
-            <article class="dashboard-card open-directions">
-              <div class="d-label">Open direction</div>
-              <div class="d-title">The next phase is where the model should stay unfinished.</div>
-              <p class="d-copy">
-                The dashboard stops summarizing past facts here and points to decision surfaces:
-                what to build, which systems to learn, and where the accumulated media signal can become leverage.
-              </p>
-              <div class="d-next">
-                <div><strong>BUSINESS</strong><span>Strategy · markets · impact</span></div>
-                <div><strong>TECHNOLOGY</strong><span>Data · AI · automation</span></div>
-                <div><strong>MEDIA</strong><span>Storytelling · platforms · audience</span></div>
-                <div><strong>GLOBAL</strong><span>Mobility · opportunities · perspective</span></div>
-              </div>
-            </article>
-
-            <article class="dashboard-card full">
-              <div class="dashboard-card-row">
-                <div>
-                  <div class="d-label">Model output</div>
-                  <div class="d-title">The output is a trajectory, not a verdict.</div>
-                </div>
-                <p class="d-copy">
-                  The rest of the page can now unpack the evidence without the dashboard competing with it.
-                </p>
-              </div>
-            </article>
-          </div>
-
-          <div class="dashboard-footer">
-            <span>Model running complete.</span>
-            <span>Dataset status: <b>active</b></span>
-            <span>Last updated / 2026</span>
+    <section class="section" id="outputs" aria-labelledby="outputs-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Outputs</div>
+          <div>
+            <h2 id="outputs-title">MEASURE<br>THE OUTPUT.</h2>
+            <p class="lede">Inputs matter because they produce observable work.</p>
           </div>
         </div>
-      </section>
 
-      <section class="section" aria-labelledby="simulation-title">
-        <div class="shell">
-          <div class="causal-note fade">
-            <div class="mono eyebrow" id="simulation-title">What the model is showing</div>
-            <p>
-              The visible sequence is nonlinear. The underlying variables are not.
-              Each stage becomes an input for the next.
-            </p>
+        <div class="outputs">
+          <article class="output fade">
+            <h3>Creative output</h3>
+            <ul>
+              <li><span>30+ creative certificates</span><span>volume</span></li>
+              <li><span>5 published anthologies</span><span>publication</span></li>
+              <li><span>National writing award</span><span>recognition</span></li>
+              <li><span>National theater finalist</span><span>selection</span></li>
+              <li><span>Drama workshop</span><span>development</span></li>
+            </ul>
+          </article>
+          <article class="output fade reveal-delay-1">
+            <h3>Digital output</h3>
+            <ul>
+              <li><span>100M+ views</span><span>distribution</span></li>
+              <li><span>4.9M+ likes</span><span>audience signal</span></li>
+              <li><span>76%+ search traffic</span><span>discovery</span></li>
+              <li><span>Top 0.5% search performance</span><span>relative signal</span></li>
+              <li><span>Websites &amp; brand projects</span><span>execution</span></li>
+            </ul>
+          </article>
+          <article class="output fade reveal-delay-2">
+            <h3>Capability output</h3>
+            <ul>
+              <li><span>Writing → storytelling</span><span>transfer</span></li>
+              <li><span>Design → branding</span><span>transfer</span></li>
+              <li><span>Content → audience systems</span><span>transfer</span></li>
+              <li><span>Web → implementation</span><span>transfer</span></li>
+              <li><span>Business → strategy</span><span>current phase</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="correlation-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Structural correlation</div>
+          <div>
+            <h2 id="correlation-title">WHAT<br>TRANSFERRED?</h2>
+            <p class="lede">Not statistical prediction. A visual shorthand for the capabilities that kept surviving each domain change.</p>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="inputs" aria-labelledby="inputs-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Inputs</div>
-            <div>
-              <h2 id="inputs-title">EXPLORE<br>VARIABLES.</h2>
-              <p class="lede">
-                The raw inputs are more useful when they are treated as a system rather than isolated achievements.
-              </p>
-            </div>
-          </div>
+        <div class="corr-grid">
+          <article class="corr fade"><h3>Writing → digital</h3><div class="corr-line">STORYTELLING <span class="arrow">→</span><br>CONTENT <span class="arrow">→</span><br>AUDIENCE <span class="arrow">→</span><br>BRAND</div></article>
+          <article class="corr fade reveal-delay-1"><h3>Philology → business</h3><div class="corr-line">LANGUAGE <span class="arrow">→</span><br>ANALYSIS <span class="arrow">→</span><br>COMMUNICATION <span class="arrow">→</span><br>STRATEGY</div></article>
+          <article class="corr fade reveal-delay-2"><h3>Eethera → tech</h3><div class="corr-line">DESIGN <span class="arrow">→</span><br>BRANDING <span class="arrow">→</span><br>WEB <span class="arrow">→</span><br>TECHNOLOGY</div></article>
+        </div>
 
-          <div class="variable-explorer fade" id="variableExplorer">
-            <div class="variable-tabs" role="tablist" aria-label="Trajectory variables">
-              <button class="variable-tab active" id="tab-origin" type="button" data-variable="origin" role="tab" aria-selected="true" aria-controls="variablePanel">
-                <span class="label">01 — ORIGIN</span><span class="meta">INPUT</span>
-              </button>
-              <button class="variable-tab" id="tab-education" type="button" data-variable="education" role="tab" aria-selected="false" aria-controls="variablePanel">
-                <span class="label">02 — EDUCATION</span><span class="meta">INPUT</span>
-              </button>
-              <button class="variable-tab" id="tab-creative" type="button" data-variable="creative" role="tab" aria-selected="false" aria-controls="variablePanel">
-                <span class="label">03 — CREATIVE</span><span class="meta">OUTPUT</span>
-              </button>
-              <button class="variable-tab" id="tab-digital" type="button" data-variable="digital" role="tab" aria-selected="false" aria-controls="variablePanel">
-                <span class="label">04 — DIGITAL</span><span class="meta">OUTPUT</span>
-              </button>
-              <button class="variable-tab" id="tab-international" type="button" data-variable="international" role="tab" aria-selected="false" aria-controls="variablePanel">
-                <span class="label">05 — INTERNATIONAL</span><span class="meta">EXPOSURE</span>
-              </button>
-            </div>
-            <div class="variable-panel" id="variablePanel" role="tabpanel" tabindex="0" aria-labelledby="tab-origin"></div>
-          </div>
+        <div class="thesis fade">The trajectory looks nonlinear on the surface. The underlying variables are not.</div>
+      </div>
+    </section>
 
-          <div class="split">
-            <div class="fade">
-              <div class="mono eyebrow">Education transition</div>
-              <div class="stack">
-                <div class="row">
-                  <div class="mono">Input</div>
-                  <div><h3>Philology</h3><p>Romanian · English · literature · philosophy · history · ICT</p></div>
-                </div>
-                <div class="row">
-                  <div class="mono">Output</div>
-                  <div><h3>International Business &amp; Economics</h3><p>Business · economics · technology · data</p></div>
-                </div>
-                <div class="row">
-                  <div class="mono">Pattern</div>
-                  <div><h3>Language → systems → strategy</h3><p>The discipline changed. The underlying pattern did not.</p></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="fade">
-              <div class="mono eyebrow">Variable chain</div>
-              <div class="flow">
-                <span class="chip">LANGUAGE</span><span class="connector">→</span>
-                <span class="chip">NARRATIVE</span><span class="connector">→</span>
-                <span class="chip">COMMUNICATION</span><span class="connector">→</span>
-                <span class="chip">SYSTEMS</span><span class="connector">→</span>
-                <span class="chip">STRATEGY</span>
-              </div>
-              <div class="thesis">The model changed disciplines without abandoning the underlying pattern.</div>
-            </div>
+    <section class="section" id="current" aria-labelledby="current-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Current state</div>
+          <div>
+            <h2 id="current-title">2026 —<br>CURRENT STATE.</h2>
+            <p class="lede">The retrospective dataset ends here. The next variables remain open.</p>
           </div>
         </div>
-      </section>
 
-      <section class="section" aria-labelledby="geography-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Geography</div>
-            <div>
-              <h2 id="geography-title">ORIGIN<br>→ SCALE.</h2>
-              <p class="lede">
-                The geography is not decoration. It is a variable: local starting conditions followed by progressively wider access.
-              </p>
+        <div class="current fade">
+          <div class="current-main">
+            <div class="mono eyebrow">State vector / 2026</div>
+            <h3>BUILT FROM<br>MULTIPLE SYSTEMS.</h3>
+            <div class="state-list">
+              <div>Student</div><div>International Business &amp; Economics</div><div>Digital Media</div><div>Technology</div><div>Entrepreneurship</div><div>Data &amp; AI</div>
             </div>
           </div>
-
-          <div class="map europe-map fade" id="europeMap">
-            <div class="map-stage">
-              <svg class="map-svg" viewBox="0 0 980 620" role="img" aria-labelledby="europeMapTitle europeMapDesc">
-                <title id="europeMapTitle">Interactive Europe map with routes from Romania to Spain and Turkey</title>
-                <desc id="europeMapDesc">Romania is marked as the origin. Animated route lines extend west to Spain and southeast to Turkey.</desc>
-
-                <rect class="map-sea" x="0" y="0" width="980" height="620" rx="22"></rect>
-                <path class="map-graticule" d="M120 70V550M260 70V550M400 70V550M540 70V550M680 70V550M820 70V550M60 150H920M60 270H920M60 390H920M60 510H920"></path>
-
-                <g aria-hidden="true">
-                  <path class="country context" d="M194 305 238 270 304 286 336 332 318 382 245 388 197 356Z"></path>
-                  <path class="country context" d="M250 222 310 190 372 214 382 274 324 296 260 268Z"></path>
-                  <path class="country context" d="M344 184 428 164 496 206 488 276 414 290 366 246Z"></path>
-                  <path class="country context" d="M430 112 520 70 604 92 622 160 554 206 456 184Z"></path>
-                  <path class="country context" d="M532 220 606 192 692 224 698 294 628 332 548 296Z"></path>
-                  <path class="country context" d="M610 338 680 320 742 354 732 414 670 430 620 396Z"></path>
-                  <path class="country context" d="M360 330 420 308 470 348 458 414 392 424 350 382Z"></path>
-                  <path class="country context" d="M482 332 538 306 598 344 586 410 520 426 476 384Z"></path>
-                  <path class="country focus" data-country="romania" d="M628 350 676 332 724 350 736 392 704 424 646 414 616 382Z"></path>
-                  <path class="country destination" data-country="spain" d="M152 384 226 350 298 384 286 462 216 500 142 464Z"></path>
-                  <path class="country destination" data-country="turkey" d="M700 438 802 418 910 444 906 486 792 500 704 478Z"></path>
-                  <path class="country context" d="M300 468 374 444 430 482 404 544 322 540Z"></path>
-                  <path class="country context" d="M724 294 786 278 842 310 832 360 766 376 726 346Z"></path>
-                </g>
-
-                <path class="map-route spain active" data-route-line="spain" d="M666 382 C560 292 388 304 220 420"></path>
-                <path class="map-route turkey" data-route-line="turkey" d="M666 382 C724 418 782 440 846 458"></path>
-
-                <g class="map-location active" data-route="romania" tabindex="0" role="button" aria-label="Romania origin">
-                  <circle cx="666" cy="382" r="24"></circle>
-                  <circle cx="666" cy="382" r="10"></circle>
-                  <text x="690" y="378">Romania</text>
-                  <text class="sub" x="690" y="398">origin / Bucharest</text>
-                </g>
-
-                <g class="map-location destination active" data-route="spain" tabindex="0" role="button" aria-label="Spain exchange route">
-                  <circle cx="220" cy="420" r="24"></circle>
-                  <circle cx="220" cy="420" r="10"></circle>
-                  <text x="244" y="416">Spain</text>
-                  <text class="sub" x="244" y="436">exchange / west route</text>
-                </g>
-
-                <g class="map-location destination" data-route="turkey" tabindex="0" role="button" aria-label="Turkey exchange route">
-                  <circle cx="846" cy="458" r="24"></circle>
-                  <circle cx="846" cy="458" r="10"></circle>
-                  <text x="718" y="454">Turkey</text>
-                  <text class="sub" x="718" y="474">exchange / southeast route</text>
-                </g>
-              </svg>
-            </div>
-
-            <aside class="map-panel" aria-live="polite">
-              <div>
-                <div class="mono eyebrow">Interactive geography</div>
-                <h3 id="mapRouteTitle">Romania → Spain</h3>
-                <p id="mapRouteCopy">
-                  The route begins from Romania and extends west toward Spain, turning international exchange into a visible exposure line.
-                </p>
-              </div>
-
-              <div class="map-controls" aria-label="Map routes">
-                <button class="map-control active mono" type="button" data-route="spain">
-                  <span>Spain route</span>
-                  <span>west</span>
-                </button>
-                <button class="map-control mono" type="button" data-route="turkey">
-                  <span>Turkey route</span>
-                  <span>southeast</span>
-                </button>
-                <button class="map-control mono" type="button" data-route="all">
-                  <span>Show both</span>
-                  <span>network</span>
-                </button>
-              </div>
-
-              <div class="map-note">Location lines emerge from Romania and connect the international exchange points across Europe.</div>
-            </aside>
+          <div class="current-side">
+            <div class="mono eyebrow">Observed data</div>
+            <div class="big">100M+</div>
+            <p>Digital views accumulated before the current business and technology phase fully begins.</p>
+            <div class="state-spark" id="stateSpark"><svg viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path class="spark-path" d="M0 100 C80 95 90 82 160 87 S250 63 305 68 S395 30 445 42 S535 16 600 12"></path></svg><div class="spark-label">Observed output / cumulative direction</div></div>
+            <div class="big">10.00</div>
+            <p>Final academic average represented as an input, not an identity.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="outputs" aria-labelledby="outputs-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Outputs</div>
-            <div>
-              <h2 id="outputs-title">MEASURE<br>THE OUTPUT.</h2>
-              <p class="lede">Inputs only matter because they produce observable outputs.</p>
-            </div>
-          </div>
-
-          <div class="outputs">
-            <article class="output fade">
-              <h3>Creative output</h3>
-              <ul>
-                <li><span>30+ creative certificates</span><span>volume</span></li>
-                <li><span>5 published anthologies</span><span>publication</span></li>
-                <li><span>National writing award</span><span>recognition</span></li>
-                <li><span>National theater finalist</span><span>selection</span></li>
-                <li><span>Drama workshop</span><span>development</span></li>
-              </ul>
-            </article>
-
-            <article class="output fade reveal-delay-1">
-              <h3>Digital output</h3>
-              <ul>
-                <li><span>100M+ views</span><span>distribution</span></li>
-                <li><span>4.9M+ likes</span><span>audience signal</span></li>
-                <li><span>76%+ search traffic</span><span>discovery</span></li>
-                <li><span>Top 0.5% search performance</span><span>relative signal</span></li>
-                <li><span>Websites &amp; brand projects</span><span>execution</span></li>
-              </ul>
-            </article>
-
-            <article class="output fade reveal-delay-2">
-              <h3>Capability output</h3>
-              <ul>
-                <li><span>Writing → storytelling</span><span>transfer</span></li>
-                <li><span>Design → branding</span><span>transfer</span></li>
-                <li><span>Content → audience systems</span><span>transfer</span></li>
-                <li><span>Web → implementation</span><span>transfer</span></li>
-                <li><span>Business → strategy</span><span>current phase</span></li>
-              </ul>
-            </article>
+    <section class="section" id="next" aria-labelledby="next-title">
+      <div class="shell">
+        <div class="section-head fade">
+          <div class="mono eyebrow">Next variables</div>
+          <div>
+            <h2 id="next-title">NO FAKE<br>FORECAST.</h2>
+            <p class="lede">The model does not pretend a dataset can scientifically predict an individual future. <span class="accent">It shows how the trajectory was built.</span></p>
           </div>
         </div>
-      </section>
 
-      <section class="section" aria-labelledby="correlation-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Structural correlation</div>
-            <div>
-              <h2 id="correlation-title">WHAT<br>PREDICTED WHAT?</h2>
-              <p class="lede">
-                Not statistical prediction. Structural correlation: which capabilities kept reappearing in different forms?
-              </p>
-            </div>
-          </div>
-
-          <div class="corr-grid">
-            <article class="corr fade">
-              <h3>Writing → digital</h3>
-              <div class="corr-line">
-                STORYTELLING <span class="arrow">→</span><br>
-                CONTENT CREATION <span class="arrow">→</span><br>
-                AUDIENCE GROWTH <span class="arrow">→</span><br>
-                BRAND COMMUNICATION <span class="arrow">→</span><br>
-                DIGITAL STRATEGY
-              </div>
-            </article>
-
-            <article class="corr fade reveal-delay-1">
-              <h3>Philology → business</h3>
-              <div class="corr-line">
-                LANGUAGE <span class="arrow">→</span><br>
-                NARRATIVE <span class="arrow">→</span><br>
-                CULTURAL ANALYSIS <span class="arrow">→</span><br>
-                COMMUNICATION <span class="arrow">→</span><br>
-                STRATEGY
-              </div>
-            </article>
-
-            <article class="corr fade reveal-delay-2">
-              <h3>Eethera → tech</h3>
-              <div class="corr-line">
-                DESIGN <span class="arrow">→</span><br>
-                BRANDING <span class="arrow">→</span><br>
-                E-COMMERCE <span class="arrow">→</span><br>
-                WEB DEVELOPMENT <span class="arrow">→</span><br>
-                TECHNOLOGY
-              </div>
-            </article>
-          </div>
-
-          <div class="thesis fade">
-            My trajectory looks nonlinear on the surface. The underlying variables aren't.
-          </div>
-
-          <div class="causal-graph fade">
-            <div class="mono eyebrow">Relationship graph / observed transfers</div>
-
-            <div class="causal-grid">
-              <div class="causal-cell"><strong>WRITING</strong><small>narrative capability</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>DIGITAL MEDIA</strong><small>distribution capability</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>BRAND</strong><small>communication system</small></div>
-            </div>
-
-            <div class="causal-grid">
-              <div class="causal-cell"><strong>PHILOLOGY</strong><small>language + analysis</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>COMMUNICATION</strong><small>transfer mechanism</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>STRATEGY</strong><small>business application</small></div>
-            </div>
-
-            <div class="causal-grid">
-              <div class="causal-cell"><strong>Eethera</strong><small>design + branding</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>WEB DEVELOPMENT</strong><small>implementation</small></div>
-              <div class="causal-arrow">→</div>
-              <div class="causal-cell"><strong>TECHNOLOGY</strong><small>new leverage layer</small></div>
-            </div>
-
-            <div class="causal-caption">
-              Correlation here means repeated capability transfer across contexts, not proof of statistical causation.
-            </div>
-          </div>
+        <div class="next fade">
+          <div class="next-item"><strong>BUSINESS</strong><small>direction</small></div>
+          <div class="next-item"><strong>TECHNOLOGY</strong><small>direction</small></div>
+          <div class="next-item"><strong>DATA &amp; AI</strong><small>direction</small></div>
+          <div class="next-item"><strong>MEDIA</strong><small>direction</small></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="current" aria-labelledby="current-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Current state</div>
-            <div>
-              <h2 id="current-title">2026 —<br>CURRENT STATE.</h2>
-              <p class="lede">The retrospective dataset ends here. The next variables remain open.</p>
-            </div>
-          </div>
+    <section class="final-note" aria-label="Closing statement">
+      <div class="shell">
+        <p>Inputs become <span class="accent">patterns.</span><br>Patterns become <span class="accent">leverage.</span></p>
+      </div>
+    </section>
+  </main>
 
-          <div class="current fade">
-            <div class="current-main">
-              <div class="mono eyebrow">State vector / 2026</div>
-              <h3>BUILT FROM<br>MULTIPLE SYSTEMS.</h3>
-              <div class="state-list">
-                <div>Student</div>
-                <div>International Business &amp; Economics</div>
-                <div>Digital Media</div>
-                <div>Technology</div>
-                <div>Entrepreneurship</div>
-                <div>Data &amp; AI</div>
-              </div>
-            </div>
-
-            <div class="current-side">
-              <div class="mono eyebrow">Observed data</div>
-              <div class="big">100M+</div>
-              <p>digital views generated before the current business and technology phase fully begins.</p>
-
-              <div class="state-spark" id="stateSpark">
-                <svg viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="spark-path" d="M0 100 C80 95 90 82 160 87 S250 63 305 68 S395 30 445 42 S535 16 600 12"></path>
-                </svg>
-                <div class="spark-label">Observed output / cumulative direction</div>
-              </div>
-
-              <div class="big">10.00</div>
-              <p>final academic average represented as an input, not an identity.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="next" aria-labelledby="next-title">
-        <div class="shell">
-          <div class="section-head fade">
-            <div class="mono eyebrow">Next variables / Model Output</div>
-            <div>
-              <h2 id="next-title">NO FAKE<br>FORECAST.</h2>
-              <p class="lede">
-                The model does not pretend a dataset can scientifically predict an individual future. 
-                <span class="accent">It shows how I built the trajectory that brought me here.</span>
-          </p>
-              </p>
-            </div>
-          </div>
-
-          <div class="next fade">
-            <div class="next-item"><strong>BUSINESS</strong><small>direction</small></div>
-            <div class="next-item"><strong>TECHNOLOGY</strong><small>direction</small></div>
-            <div class="next-item"><strong>DATA &amp; AI</strong><small>direction</small></div>
-            <div class="next-item"><strong>MEDIA</strong><small>direction</small></div>
-          </div>
-        </div>
-      </section>
-      
   <footer class="site-footer">
     <div class="footer-inner shell">
       <span class="mono">ADELINA-MARIA MALE</span>
       <nav class="footer-nav mono" aria-label="Footer navigation">
-        <a href="#content">HOME</a>
-        <a href="#inputs">INPUTS</a>
-        <a href="#outputs">OUTPUTS</a>
-        <a href="#current">CURRENT</a>
-        <a href="#next">NEXT</a>
+        <a href="#content">HOME</a><a href="#inputs">INPUTS</a><a href="#outputs">OUTPUTS</a><a href="#current">CURRENT</a><a href="#next">NEXT</a>
       </nav>
-      <span class="mono">Life as Data / 2007-2026</span>
+      <span class="mono">Life as Data / 2007–2026</span>
     </div>
   </footer>
 
   <noscript>
-    <style>
-      .model,
-      .run-stage {
-        display: block;
-      }
-
-      .fade {
-        opacity: 1;
-        transform: none;
-      }
-    </style>
+    <style>#model,.run-stage{display:block}.fade{opacity:1;transform:none}</style>
   </noscript>
 
   <script>
@@ -2544,255 +699,337 @@
       const runButton = document.getElementById("runModel");
       const stateSpark = document.getElementById("stateSpark");
       const variablePanel = document.getElementById("variablePanel");
-      const variableTabs = Array.from(document.querySelectorAll(".variable-tab"));
-      const counters = Array.from(document.querySelectorAll(".count-up"));
+      const variableTabs = [...document.querySelectorAll(".variable-tab")];
+      const counters = [...document.querySelectorAll(".count-up")];
       const mapTitle = document.getElementById("mapRouteTitle");
       const mapCopy = document.getElementById("mapRouteCopy");
-      const mapControls = Array.from(document.querySelectorAll(".map-control"));
-      const mapLocations = Array.from(document.querySelectorAll(".map-location"));
-      const mapRoutes = Array.from(document.querySelectorAll(".map-route"));
+      const mapControls = [...document.querySelectorAll(".map-control")];
+      const mapLocations = [...document.querySelectorAll(".map-location")];
+      const mapRoutes = [...document.querySelectorAll(".map-route")];
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const variableData = {
-        origin: {
-          kicker: "Input variable / origin",
-          title: "Small-town origin",
-          text: "Ștei, Bihor establishes the starting conditions: smaller local opportunity, followed by a progressively more self-directed search for access, information and networks.",
-          stats: [["ȘTEI", "Bihor / Romania"], ["LOCAL ACCESS", "limited opportunity"], ["RESPONSE", "self-directed access"]],
-          flow: ["ORIGIN", "ACCESS", "SELF-DIRECTION", "SCALE"]
+        origin:{
+          kicker:"Input variable / origin",
+          title:"Small-town origin",
+          text:"Ștei, Bihor establishes the starting conditions: smaller local opportunity followed by progressively more self-directed access to information, projects and networks.",
+          stats:[["ȘTEI","Bihor / Romania"],["LOCAL ACCESS","limited opportunity"],["RESPONSE","self-directed access"]],
+          flow:["ORIGIN","ACCESS","SELF-DIRECTION","SCALE"]
         },
-        education: {
-          kicker: "Input variable / education",
-          title: "Philology → business & technology",
-          text: "The degree context changes, but the functional layer remains stable: language becomes communication; communication becomes systems thinking; systems thinking becomes strategy.",
-          stats: [["PHILOLOGY", "Romanian · English"], ["FOUNDATION", "literature · philosophy"], ["NEXT LAYER", "business · technology"]],
-          flow: ["LANGUAGE", "NARRATIVE", "COMMUNICATION", "SYSTEMS", "STRATEGY"]
+        education:{
+          kicker:"Input variable / education",
+          title:"Philology → business & technology",
+          text:"The discipline changes, but the functional layer remains stable: language becomes communication; communication becomes systems thinking; systems thinking becomes strategy.",
+          stats:[["PHILOLOGY","Romanian · English"],["FOUNDATION","literature · philosophy"],["NEXT LAYER","business · technology"]],
+          flow:["LANGUAGE","NARRATIVE","COMMUNICATION","SYSTEMS","STRATEGY"]
         },
-        creative: {
-          kicker: "Output variable / creative",
-          title: "Creative output",
-          text: "Writing and theater are treated as measurable output channels: sustained production, publication, recognition and selection.",
-          stats: [["30+", "creative certificates"], ["5", "published anthologies"], ["1", "national theater finalist"]],
-          flow: ["WRITING", "STORY", "PUBLICATION", "RECOGNITION"]
+        creative:{
+          kicker:"Output variable / creative",
+          title:"Creative output",
+          text:"Writing and theater become measurable output channels through sustained production, publication, recognition and selection.",
+          stats:[["30+","creative certificates"],["5","published anthologies"],["1","national theater finalist"]],
+          flow:["WRITING","STORY","PUBLICATION","RECOGNITION"]
         },
-        digital: {
-          kicker: "Output variable / digital",
-          title: "Digital distribution",
-          text: "Creative capability moved into platforms where audience behavior becomes observable: views, likes, search discovery, websites and brand projects.",
-          stats: [["100M+", "views"], ["4.9M+", "likes"], ["76%+", "search traffic"]],
-          flow: ["CONTENT", "DISTRIBUTION", "AUDIENCE", "BRAND", "DIGITAL STRATEGY"]
+        digital:{
+          kicker:"Output variable / digital",
+          title:"Digital distribution",
+          text:"Creative capability moves onto platforms where audience behavior becomes observable through views, likes, search discovery, websites and brand projects.",
+          stats:[["100M+","views"],["4.9M+","likes"],["76%+","search traffic"]],
+          flow:["CONTENT","DISTRIBUTION","AUDIENCE","BRAND","DIGITAL STRATEGY"]
         },
-        international: {
-          kicker: "Exposure variable / international",
-          title: "International exchange",
-          text: "International experiences operate as exposure variables: new environments and project contexts widen the reference set available to later decisions.",
-          stats: [["SPAIN", "exchange"], ["TÜRKİYE", "exchange"], ["ROMANIA", "base / return"]],
-          flow: ["EXPOSURE", "CONTEXT", "COMPARISON", "ADAPTATION"]
+        international:{
+          kicker:"Exposure variable / international",
+          title:"International exchange",
+          text:"International experiences widen the reference set available to later decisions by adding new environments, comparison points and project contexts.",
+          stats:[["SPAIN","exchange"],["TÜRKİYE","exchange"],["ROMANIA","base / return"]],
+          flow:["EXPOSURE","CONTEXT","COMPARISON","ADAPTATION"]
         }
       };
 
       const routeData = {
-        spain: {
-          title: "Romania → Spain",
-          copy: "The route begins from Romania and extends west toward Spain, turning international exchange into a visible exposure line."
-        },
-        turkey: {
-          title: "Romania → Turkey",
-          copy: "The southeast route links Romania to Turkey, showing a second exchange vector rather than a generic Europe label."
-        },
-        all: {
-          title: "Romania → Spain + Turkey",
-          copy: "Both location lines emerge from Romania, making the international network visible as two concrete routes across Europe."
-        },
-        romania: {
-          title: "Romania as origin",
-          copy: "Romania stays fixed as the origin point. The interaction shows how the exchange routes emerge from that starting location."
-        }
+        spain:{title:"Romania → Spain",copy:"The route extends west from Romania toward Spain, turning international exchange into a visible exposure vector."},
+        turkey:{title:"Romania → Turkey",copy:"The southeast route links Romania to Turkey, showing a second exchange vector rather than a generic Europe label."},
+        all:{title:"Romania → Spain + Turkey",copy:"Both routes emerge from Romania, making the international network visible as two concrete exchange vectors."},
+        romania:{title:"Romania as origin",copy:"Romania stays fixed as the origin point. The interaction shows how the exchange routes emerge from the same starting location."}
       };
 
-      const escapeHtml = (value) =>
-        String(value).replace(/[&<>"']/g, (character) => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          "\"": "&quot;",
-          "'": "&#039;"
-        })[character]);
+      const timelineProfiles = [
+        {title:"Origin", kicker:"ORIGIN SIGNAL", copy:"A strong starting condition in 2007, then a gradual decline as the trajectory moves beyond the original local environment.", values:[78,72,68,63,57,50,44,39,35,31], markerYears:[2007]},
+        {title:"Philology", kicker:"EDUCATION SIGNAL", copy:"A capability curve that builds through the academic period before stabilizing into a transferable foundation.", values:[18,22,34,48,61,73,80,82,79,76], markerYears:[2012,2022]},
+        {title:"Writing / Theater", kicker:"CREATIVE SIGNAL", copy:"Production intensifies after the mid-2010s, peaks around the most active creative years, then becomes a retained capability.", values:[8,10,16,28,44,61,78,84,80,74], markerYears:[2016,2022]},
+        {title:"Digital Media", kicker:"DISTRIBUTION SIGNAL", copy:"Low early signal followed by a sharp rise as content, audience behavior and digital distribution become measurable.", values:[6,7,9,12,22,46,68,90,86,78], markerYears:[2020,2024]},
+        {title:"EƎTHERΛ™", kicker:"BRAND SIGNAL", copy:"A concentrated 2021–2024 signal: design and brand-building spike, then settle into a reusable layer.", values:[5,5,6,8,10,16,56,82,74,62], markerYears:[2021,2024]},
+        {title:"Web Development", kicker:"TECHNICAL SIGNAL", copy:"Technical implementation becomes visible late in the window, accelerating quickly once the capability enters the stack.", values:[4,4,4,5,6,7,8,10,54,84], markerYears:[2024,2025]},
+        {title:"International Business & Economics", kicker:"CURRENT SIGNAL", copy:"The newest layer remains intentionally concentrated at the end of the window because it represents the current phase.", values:[3,3,3,3,4,4,5,6,10,92], markerYears:[2026]}
+      ];
 
-      const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
+      const timelineItems = [...document.querySelectorAll('.run-item[data-timeline]')];
+      const timelineChart = document.getElementById('timelineChart');
+      const timelineTitle = document.getElementById('timelineTitle');
+      const timelineKicker = document.getElementById('timelineKicker');
+      const timelineCopy = document.getElementById('timelineCopy');
+      const renderTimelineChart = index => {
+        const profile = timelineProfiles[index] || timelineProfiles[0];
+        timelineItems.forEach(item => {
+          const active = Number(item.dataset.timeline) === index;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        if (timelineTitle) timelineTitle.textContent = profile.title;
+        if (timelineKicker) timelineKicker.textContent = profile.kicker;
+        if (timelineCopy) timelineCopy.textContent = profile.copy;
+        if (!timelineChart) return;
+        const width = 900, height = 405, left = 64, right = 30, top = 28, bottom = 52;
+        const plotW = width - left - right, plotH = height - top - bottom;
+        const xs = profile.values.map((_, i) => left + plotW * i / (profile.values.length - 1));
+        const ys = profile.values.map(v => top + (100 - v) * plotH / 100);
+        const linePath = xs.map((x,i) => `${i ? 'L' : 'M'} ${x.toFixed(1)} ${ys[i].toFixed(1)}`).join(' ');
+        const areaPath = `${linePath} L ${xs.at(-1).toFixed(1)} ${(top+plotH).toFixed(1)} L ${xs[0].toFixed(1)} ${(top+plotH).toFixed(1)} Z`;
+        const gridYears = [2007,2012,2016,2020,2024,2026];
+        const labelYears = [2007,2012,2016,2020,2024,2026];
+        const grid = gridYears.map(year => { const x = left + plotW * ((year-2007)/19); return `<line class="chart-grid" x1="${x}" y1="${top}" x2="${x}" y2="${top+plotH}"/>`; }).join('');
+        const markerYears = profile.markerYears || [];
+        const markerCircles = markerYears.map(year => {
+          const normalized = (year - 2007) / 19;
+          const indexFloat = normalized * (profile.values.length - 1);
+          const lower = Math.floor(indexFloat);
+          const upper = Math.min(Math.ceil(indexFloat), profile.values.length - 1);
+          const blend = indexFloat - lower;
+          const value = profile.values[lower] + (profile.values[upper] - profile.values[lower]) * blend;
+          const x = left + plotW * normalized;
+          const y = top + (100 - value) * plotH / 100;
+          const currentClass = year === 2026 ? ' current' : '';
+          return `<circle class="chart-point timeline-hit${currentClass}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4"/>`;
+        }).join('');
+        const years = labelYears.map(year => { const x = left + plotW * ((year-2007)/19); return `<text class="chart-label" x="${x}" y="${height-18}" text-anchor="middle">${year}</text>`; }).join('');
+        const yAxis = [0,50,100].map(v => { const y = top + (100-v)*plotH/100; return `<text class="chart-label" x="12" y="${y+3}">${v}</text><line class="chart-grid dashed" x1="${left}" y1="${y}" x2="${left+plotW}" y2="${y}"/>`; }).join('');
+        const seed = `${Date.now()}-${index}`;
+        timelineChart.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="signalTitle-${index} signalDesc-${index}"><title id="signalTitle-${index}">${escapeHtml(profile.title)} signal chart, 2007 to 2026</title><desc id="signalDesc-${index}">A relative, non-scientific visualization of the selected timeline's signal across the full 2007–2026 window.</desc><defs><linearGradient id="chartAreaGradient-${seed}" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#a9bcff" stop-opacity=".2"/><stop offset="100%" stop-color="#a9bcff" stop-opacity="0"/></linearGradient></defs>${grid}${yAxis}<line class="chart-baseline" x1="${left}" y1="${top+plotH}" x2="${left+plotW}" y2="${top+plotH}"/><path class="chart-area" fill="url(#chartAreaGradient-${seed})" d="${areaPath}"/><path class="chart-path" d="${linePath}"/>${markerCircles}${years}</svg>`;
+      };
 
-      const formatCounter = (value, decimals, suffix) =>
-        `${value.toFixed(decimals)}${suffix}`;
+      const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char]));
+      const easeOutCubic = value => 1 - Math.pow(1 - value, 3);
+      const formatCounter = (value, decimals, suffix) => `${value.toFixed(decimals)}${suffix}`;
 
-      const animateCounters = () => {
-        counters.forEach((counter, index) => {
-          const finalRange = counter.dataset.scramble;
-          const target = Number(counter.dataset.target || 0);
-          const decimals = Number(counter.dataset.decimals || 0);
-          const suffix = counter.dataset.suffix || "";
-          const duration = 1800 + index * 130;
-          const start = performance.now();
+      const animateCounter = counter => {
+        const scramble = counter.dataset.scramble;
+        const target = Number(counter.dataset.target || 0);
+        const decimals = Number(counter.dataset.decimals || 0);
+        const suffix = counter.dataset.suffix || "";
+        const duration = 1150;
+        const start = performance.now();
 
-          if (reduceMotion) {
-            counter.textContent = finalRange || formatCounter(target, decimals, suffix);
-            return;
-          }
+        if (reduceMotion) {
+          counter.textContent = scramble || formatCounter(target, decimals, suffix);
+          return Promise.resolve();
+        }
 
-          const tick = (now) => {
+        return new Promise(resolve => {
+          const tick = now => {
             const progress = Math.min((now - start) / duration, 1);
             const eased = easeOutCubic(progress);
-
-            if (finalRange) {
-              const startYear = 2007 + Math.floor(Math.random() * 19);
-              const endYear = 8 + Math.floor(Math.random() * 19);
-              counter.textContent = progress < 0.86 ? `${startYear}-${String(endYear).padStart(2, "0")}` : finalRange;
-            } else if (progress < 0.78) {
-              const ceiling = Math.max(target * 1.35, target + 8);
-              const randomValue = Math.random() * ceiling;
-              counter.textContent = formatCounter(Math.min(randomValue, ceiling), decimals, suffix);
+            if (scramble) {
+              counter.textContent = progress < .78
+                ? `20${String(7 + Math.floor(Math.random() * 19)).padStart(2,"0")}–2${String(Math.floor(Math.random() * 7)).padStart(2,"0")}`
+                : scramble;
+            } else if (progress < .68) {
+              const ceiling = Math.max(target * 1.2, target + 6);
+              counter.textContent = formatCounter(Math.min(Math.random() * ceiling, ceiling), decimals, suffix);
             } else {
               counter.textContent = formatCounter(target * eased, decimals, suffix);
             }
-
-            if (progress < 1) {
-              requestAnimationFrame(tick);
-            } else {
-              counter.textContent = finalRange || formatCounter(target, decimals, suffix);
+            if (progress < 1) requestAnimationFrame(tick);
+            else {
+              counter.textContent = scramble || formatCounter(target, decimals, suffix);
+              resolve();
             }
           };
-
           requestAnimationFrame(tick);
         });
       };
 
-      const renderVariable = (key) => {
-        if (!variablePanel || !variableData[key]) return;
+      const cycleRecord = () => {
+        const text = document.getElementById("recordText");
+        const cursor = document.querySelector(".record-cursor");
+        if (!text || !cursor) return;
 
-        const item = variableData[key];
-        const stats = item.stats
-          .map(([value, label]) => `
-            <div class="panel-stat">
-              <strong>${escapeHtml(value)}</strong>
-              <small>${escapeHtml(label)}</small>
-            </div>
-          `)
-          .join("");
-        const flow = item.flow
-          .map((label, index) => `${index ? "<i>→</i>" : ""}<span>${escapeHtml(label)}</span>`)
-          .join("");
+        const records = [
+          "A personal record of the experiences, decisions, and work that shaped me.",
+          "Observation window: 2007–2026.",
+          "1 major trajectory shift."
+        ];
 
-        variablePanel.innerHTML = `
-          <div class="mono panel-kicker">${escapeHtml(item.kicker)}</div>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.text)}</p>
-          <div class="panel-grid">${stats}</div>
-          <div class="panel-flow">${flow}</div>
-        `;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          text.textContent = records[0];
+          requestAnimationFrame(() => {
+            cursor.style.left = `${Math.min(text.offsetWidth + 7, text.parentElement.offsetWidth - 2)}px`;
+          });
+          return;
+        }
+
+        const typeSpeed = 34;
+        const eraseSpeed = 9;
+        const holdTime = 1250;
+        let index = 0;
+
+        const moveCursor = () => {
+          const width = Math.min(text.offsetWidth + 7, text.parentElement.offsetWidth - 2);
+          cursor.style.left = `${Math.max(0, width)}px`;
+        };
+
+        const wait = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+
+        const typeIn = async value => {
+          text.textContent = "";
+          moveCursor();
+          for (let i = 0; i < value.length; i += 1) {
+            text.textContent += value[i];
+            moveCursor();
+            await wait(typeSpeed);
+          }
+          moveCursor();
+        };
+
+        const eraseOut = async () => {
+          while (text.textContent.length) {
+            text.textContent = text.textContent.slice(0, -1);
+            moveCursor();
+            await wait(eraseSpeed);
+          }
+          cursor.style.left = "0px";
+        };
+
+        const animate = async () => {
+          while (true) {
+            await typeIn(records[index]);
+            await wait(holdTime);
+            await eraseOut();
+            index = (index + 1) % records.length;
+            await wait(170);
+          }
+        };
+
+        animate();
       };
 
-      const activateTab = (tab) => {
+      const renderVariable = key => {
+        const item = variableData[key];
+        if (!variablePanel || !item) return;
+        const stats = item.stats.map(([value,label]) => `<div class="panel-stat"><strong>${escapeHtml(value)}</strong><small>${escapeHtml(label)}</small></div>`).join("");
+        const flow = item.flow.map((label,index) => `${index ? "<i>→</i>" : ""}<span>${escapeHtml(label)}</span>`).join("");
+        variablePanel.innerHTML = `<div class="mono panel-kicker">${escapeHtml(item.kicker)}</div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.text)}</p><div class="panel-grid">${stats}</div><div class="panel-flow">${flow}</div>`;
+      };
+
+      const activateTab = tab => {
         const key = tab?.dataset.variable;
         if (!key) return;
-
-        variableTabs.forEach((item) => {
+        variableTabs.forEach(item => {
           const active = item === tab;
           item.classList.toggle("active", active);
           item.setAttribute("aria-selected", String(active));
         });
-
         variablePanel?.setAttribute("aria-labelledby", tab.id);
         renderVariable(key);
       };
 
-      variableTabs.forEach((tab, index) => {
+      variableTabs.forEach((tab,index) => {
         tab.addEventListener("click", () => activateTab(tab));
-        tab.addEventListener("keydown", (event) => {
+        tab.addEventListener("keydown", event => {
           const direction = event.key === "ArrowRight" ? 1 : event.key === "ArrowLeft" ? -1 : 0;
           if (!direction) return;
-
           event.preventDefault();
-          const nextTab = variableTabs[(index + direction + variableTabs.length) % variableTabs.length];
-          nextTab.focus();
-          activateTab(nextTab);
+          const next = variableTabs[(index + direction + variableTabs.length) % variableTabs.length];
+          next.focus();
+          activateTab(next);
         });
       });
 
-      const activateMapRoute = (route) => {
+      const activateMapRoute = route => {
         const selected = routeData[route] ? route : "spain";
-        const activeRoutes = selected === "all" || selected === "romania"
-          ? ["spain", "turkey"]
-          : [selected];
-
-        mapTitle && (mapTitle.textContent = routeData[selected].title);
-        mapCopy && (mapCopy.textContent = routeData[selected].copy);
-
-        mapControls.forEach((control) => {
-          control.classList.toggle("active", control.dataset.route === selected);
+        const activeRoutes = selected === "all" || selected === "romania" ? ["spain","turkey"] : [selected];
+        if (mapTitle) mapTitle.textContent = routeData[selected].title;
+        if (mapCopy) mapCopy.textContent = routeData[selected].copy;
+        mapControls.forEach(control => control.classList.toggle("active", control.dataset.route === selected));
+        mapRoutes.forEach(line => {
+          const active = activeRoutes.includes(line.dataset.routeLine);
+          line.classList.toggle("active", active);
+          if (active && reduceMotion) line.style.strokeDashoffset = "0";
         });
-
-        mapRoutes.forEach((line) => {
-          line.classList.toggle("active", activeRoutes.includes(line.dataset.routeLine));
-        });
-
-        mapLocations.forEach((location) => {
-          const locationRoute = location.dataset.route;
-          const isOrigin = locationRoute === "romania";
-          const active = isOrigin || selected === "all" || activeRoutes.includes(locationRoute);
+        mapLocations.forEach(location => {
+          const routeKey = location.dataset.route;
+          const active = routeKey === "romania" || selected === "all" || activeRoutes.includes(routeKey);
           location.classList.toggle("active", active);
         });
       };
 
-      mapControls.forEach((control) => {
-        control.addEventListener("click", () => activateMapRoute(control.dataset.route));
-      });
-
-      mapLocations.forEach((location) => {
-        const selectLocation = () => activateMapRoute(location.dataset.route);
-        location.addEventListener("click", selectLocation);
-        location.addEventListener("keydown", (event) => {
+      mapControls.forEach(control => control.addEventListener("click", () => activateMapRoute(control.dataset.route)));
+      timelineItems.forEach(item => item.addEventListener('click', () => renderTimelineChart(Number(item.dataset.timeline))));
+      timelineItems.forEach(item => item.addEventListener('keydown', event => {
+        const idx = Number(item.dataset.timeline);
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') { event.preventDefault(); const next=timelineItems[(idx+1)%timelineItems.length]; next.focus(); next.click(); }
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') { event.preventDefault(); const prev=timelineItems[(idx-1+timelineItems.length)%timelineItems.length]; prev.focus(); prev.click(); }
+      }));
+      mapLocations.forEach(location => {
+        const select = () => activateMapRoute(location.dataset.route);
+        location.addEventListener("click", select);
+        location.addEventListener("keydown", event => {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
-          selectLocation();
+          select();
         });
       });
 
-      renderVariable("origin");
-      activateMapRoute("spain");
-      animateCounters();
+      const smoothScrollTo = (element, duration = 1150) => {
+        if (!element) return;
+        if (reduceMotion) { element.scrollIntoView({behavior:"auto",block:"start"}); return; }
+        const startY = window.scrollY;
+        const targetY = Math.max(0, element.getBoundingClientRect().top + window.scrollY - 12);
+        const delta = targetY - startY;
+        const start = performance.now();
+        const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+        const step = now => {
+          const progress = Math.min((now-start)/duration,1);
+          window.scrollTo(0, startY + delta * ease(progress));
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
 
       runButton?.addEventListener("click", () => {
-        const isRunning = !body.classList.contains("running");
-        body.classList.toggle("running", isRunning);
-        runButton.setAttribute("aria-expanded", String(isRunning));
-        runButton.querySelector("span:first-child").textContent = isRunning ? "Model Running" : "Run Model";
-        runButton.querySelector(".arrow").textContent = isRunning ? "↘" : "→";
-
-        if (isRunning) {
+        const running = !body.classList.contains("running");
+        body.classList.toggle("running", running);
+        runButton.setAttribute("aria-expanded", String(running));
+        runButton.querySelector("span:first-child").textContent = running ? "Close Model" : "Run Model";
+        runButton.querySelector(".arrow").textContent = running ? "×" : "→";
+        if (running) {
+          renderTimelineChart(0);
+          const dashboard = document.getElementById("runStage");
           window.setTimeout(() => {
-            document.getElementById("runStage")?.scrollIntoView({
-              behavior: reduceMotion ? "auto" : "smooth",
-              block: "start"
-            });
-          }, 120);
-          window.setTimeout(() => stateSpark?.classList.add("active"), reduceMotion ? 0 : 1200);
+            if (!dashboard) return;
+            smoothScrollTo(dashboard, reduceMotion ? 0 : 1250);
+          }, 180);
+          window.setTimeout(() => stateSpark?.classList.add("active"), reduceMotion ? 0 : 1700);
         } else {
           stateSpark?.classList.remove("active");
         }
       });
 
+      renderVariable("origin");
+      activateMapRoute("spain");
+      cycleRecord();
+
       if ("IntersectionObserver" in window && !reduceMotion) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.12 });
-
-        document.querySelectorAll(".fade").forEach((element) => observer.observe(element));
+        },{threshold:.12});
+        document.querySelectorAll(".fade").forEach(element => observer.observe(element));
       } else {
-        document.querySelectorAll(".fade").forEach((element) => element.classList.add("visible"));
+        document.querySelectorAll(".fade").forEach(element => element.classList.add("visible"));
       }
     })();
   </script>
