@@ -1,3 +1,4 @@
+pe html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -10,12 +11,12 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Life as Data">
-  <meta property="og:description" content="A personal record of experiences, decisions, outputs and the work behind them.">
+  <meta property="og:description" content="A personal record of places, chapters, experiments, work and decisions from 2007 onward.">
   <meta property="og:url" content="https://adelinamale.com/">
-  <meta property="og:site_name" content="Adelina Male">
+  <meta property="og:site_name" content="Life as Data">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Adelina Male — Life as Data">
-  <meta name="twitter:description" content="A personal record of experiences, decisions, outputs and the work behind them.">
+  <meta name="twitter:title" content="Life as Data">
+  <meta name="twitter:description" content="A personal record of places, chapters, experiments, work and decisions from 2007 onward.">
 
   <title>Life as Data</title>
 
@@ -27,9 +28,9 @@
         "@type":"WebSite",
         "@id":"https://adelinamale.com/#website",
         "url":"https://adelinamale.com/",
-        "name":"Adelina Male",
-        "alternateName":["Adelina-Maria Male","Adelina Maria Male"],
-        "description":"The personal website of Adelina Male, a Romanian writer, digital creator and aspiring entrepreneur."
+        "name":"Life as Data",
+        "alternateName":"Adelina Male — Life as Data",
+        "description":"A personal record of places, chapters, experiments, work and decisions from 2007 onward."
       },
       {
         "@type":"WebPage",
@@ -88,7 +89,7 @@
     p,h1,h2,h3{overflow-wrap:anywhere}
     h1,h2,h3{font-weight:610}
 
-    .shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .shell{width:min(1180px,calc(100% - 56px));margin-inline:auto}
     .mono{
       font-family:var(--mono);
       font-size:.66rem;
@@ -120,17 +121,10 @@
     .site-nav-links a:hover,.site-nav-links a:focus-visible{color:var(--blue);outline:none}
 
     /* Pre-run state: keep the landing view focused on the identity + model trigger. */
-    body:not(.running) .site-header,
     body:not(.running) .hero .run-stage,
     body:not(.running) main > section:not(.hero),
     body:not(.running) .site-footer {
       display:none !important;
-    }
-
-    /* Once opened, the header participates in normal document flow; it never sticks. */
-    body.running .site-header {
-      position:relative;
-      top:auto;
     }
 
     
@@ -183,13 +177,20 @@
       vertical-align:middle;
       min-height:1.55em;
     }
-    .hero-actions{margin-top:1.7rem;text-align:center}
+    .hero-actions{
+      width:100%;
+      margin-top:1.7rem;
+      display:flex;
+      justify-content:center;
+      text-align:center;
+    }
 
     .run-row{
       display:flex;
       align-items:center;
+      justify-content:center;
       gap:1rem;
-      width:fit-content;
+      width:100%;
       margin:2rem auto 0;
     }
     .run{
@@ -347,9 +348,17 @@
     .map-stage{min-width:0;width:100%;overflow:hidden}
     .map-canvas{width:100%;height:auto;max-width:100%;display:block}
     .evidence-window,.next-window{max-width:100%;touch-action:pan-x;overscroll-behavior-x:contain}
+    .next-window{isolation:isolate}
+    .next-track,.next-set{min-width:max-content}
     .value-chain{overscroll-behavior-x:contain;touch-action:pan-x}
     .variable-tabs{overscroll-behavior-x:contain;touch-action:pan-x}
     .ops-sheet{max-width:100%;overscroll-behavior-x:contain;touch-action:pan-x}
+
+    /* Laptops / standard desktop: keep the name comfortably below the top edge. */
+    @media (min-width:721px) and (max-width:1439px){
+      .hero{padding-top:clamp(7rem,9vw,9.5rem)}
+      body.running .hero{padding-top:clamp(7rem,9vw,9.5rem)}
+    }
 
     /* Large desktop / TV / 4K: increase usable canvas without letting text become huge. */
     @media (min-width:1440px){
@@ -375,18 +384,18 @@
 
     /* Tablet / iPad landscape and small laptops. */
     @media (min-width:721px) and (max-width:1100px){
-      .shell{width:min(100% - 48px,980px)}
+      .shell{width:min(100% - 64px,980px)}
       .hero{padding-top:5rem;padding-bottom:4.5rem}
       .hero h1{font-size:clamp(4.5rem,10vw,7rem)}
       .section{padding-top:clamp(4rem,7vw,5.5rem);padding-bottom:clamp(4rem,7vw,5.5rem)}
       .stage-body{grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr)}
       .chart-shell{flex-basis:260px;height:260px;min-height:260px}
-      .next-item{flex-basis:300px}
+      .next-item{flex:0 0 300px;width:300px;min-width:300px}
     }
 
     /* Portrait tablets / phones: prevent text, grids and controls from creating page-wide overflow. */
     @media (max-width:720px){
-      .shell{width:calc(100% - 28px);margin-inline:auto}
+      .shell{width:calc(100% - 36px);margin-inline:auto}
       .site-nav{gap:.75rem;min-height:58px}
       .site-nav-links{min-width:0;max-width:65vw;padding-bottom:2px}
       .hero{padding-top:clamp(3.5rem,12vw,5rem);padding-bottom:clamp(3rem,10vw,5rem)}
@@ -410,14 +419,14 @@
       .decision-matrix{grid-template-columns:1fr}
       .decision-cell + .decision-cell{border-top:1px solid var(--line)}
       .turning-label{max-width:100%}
-      .value-chain{max-width:100%;grid-template-columns:repeat(5,minmax(150px,1fr))}
+      .value-chain{max-width:100%;grid-template-columns:repeat(5,160px)}
       .footer-inner{align-items:flex-start}
       .footer-slogan{max-width:100%}
     }
 
     /* Very small phones / iPod-sized screens. */
     @media (max-width:380px){
-      .shell{width:calc(100% - 22px)}
+      .shell{width:calc(100% - 28px)}
       .site-nav{min-height:54px}
       .site-nav-logo{font-size:.54rem}
       .site-nav-links{gap:.65rem;max-width:62vw}
@@ -428,7 +437,7 @@
       .section-head .lede{font-size:.9rem}
       .value-chain{grid-template-columns:repeat(5,145px)}
       .chain-block{min-height:112px;padding:.75rem .7rem}
-      .next-item{flex-basis:245px}
+      .next-item{flex:0 0 245px;width:245px;min-width:245px}
       .evidence-item{min-width:180px}
     }
 
@@ -541,17 +550,89 @@
     .focus-item p{margin:.6rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.5}
     .focus-item .mono{display:block;margin-top:.75rem;color:var(--muted);font-size:.5rem;letter-spacing:.08em;text-transform:uppercase}
 
-    .next-window{position:relative;overflow:hidden;margin-top:.8rem;padding:1.45rem 0;}
-    .next-window::before,.next-window::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+    .next-window{
+      position:relative;
+      overflow:hidden;
+      width:100%;
+      max-width:100%;
+      margin-top:.8rem;
+      padding:1.45rem 0;
+      contain:paint;
+    }
+    .next-window::before,.next-window::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:90px;
+      z-index:2;
+      pointer-events:none;
+    }
     .next-window::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
     .next-window::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
-    .next-track{display:flex;width:max-content;animation:next-marquee 34s linear infinite;will-change:transform}
-        .next-set{display:flex;align-items:stretch;gap:4.5rem;padding-right:4.5rem}
-    .next-item{flex:0 0 330px;min-height:118px;padding:1rem 0 1.15rem;position:relative}
-    .next-item::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line);opacity:.65}
-    .next-item strong{display:block;font-size:clamp(1.35rem,2.5vw,2rem);font-weight:600;letter-spacing:-.025em}
-    .next-item small{display:block;margin-top:.8rem;max-width:300px;color:var(--muted);font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;line-height:1.55;text-transform:uppercase}
-    @keyframes next-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* The two sets are exact duplicates. Each set is kept as a non-shrinking unit so
+       adjacent cards can never collapse into one another on narrow viewports. */
+    .next-track{
+      display:flex;
+      width:max-content;
+      max-width:none;
+      animation:next-marquee 34s linear infinite;
+      will-change:transform;
+      transform:translate3d(0,0,0);
+    }
+    .next-set{
+      display:flex;
+      align-items:stretch;
+      flex:0 0 auto;
+      width:max-content;
+      gap:4.5rem;
+      padding-right:4.5rem;
+    }
+    .next-item{
+      flex:0 0 330px;
+      width:330px;
+      min-width:330px;
+      box-sizing:border-box;
+      min-height:118px;
+      padding:1rem 0 1.15rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .next-item::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:1px;
+      background:var(--line);
+      opacity:.65;
+    }
+    .next-item strong{
+      display:block;
+      white-space:nowrap;
+      font-size:clamp(1.35rem,2.5vw,2rem);
+      font-weight:600;
+      letter-spacing:-.025em;
+    }
+    .next-item small{
+      display:block;
+      margin-top:.8rem;
+      width:100%;
+      max-width:100%;
+      color:var(--muted);
+      font-family:var(--mono);
+      font-size:.6rem;
+      letter-spacing:.05em;
+      line-height:1.55;
+      text-transform:uppercase;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+    @keyframes next-marquee{
+      from{transform:translate3d(0,0,0)}
+      to{transform:translate3d(-50%,0,0)}
+    }
 
     .accent{color:var(--blue)}
     .footer-slogan{max-width:420px;text-align:center;font-size:.74rem;line-height:1.35;letter-spacing:.03em;color:var(--ink);}
@@ -593,8 +674,8 @@
     }
     @media (max-width:720px){
       .next-set{gap:3rem;padding-right:3rem}
-      .next-item{flex-basis:270px}
-      .next-item small{max-width:245px}
+      .next-item{flex:0 0 270px;width:270px;min-width:270px}
+      .next-item small{max-width:100%}
       .evidence-row{grid-template-columns:1fr;gap:.45rem}
       .evidence-row-label{padding-right:0}
       .evidence-item{min-width:190px;padding:.75rem 1.35rem .75rem .9rem}
@@ -758,25 +839,13 @@ html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <header class="site-header">
-    <nav class="site-nav shell mono" aria-label="Primary navigation">
-      <a class="site-nav-logo" href="#content">ADELINA MALE</a>
-      <div class="site-nav-links">
-        <a href="#inputs">INPUTS</a>
-        <a href="#outputs">OUTPUTS</a>
-        <a href="#current">CURRENT</a>
-        <a href="#next">NEXT</a>
-      </div>
-    </nav>
-  </header>
-
   <main id="content">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" data-nosnippet>
       <div class="shell">
         <div class="hero-grid">
           <div>
-            <div class="mono eyebrow hero-kicker">Life as Data</div>
-            <h1 id="hero-title">ADELINA<br>MALE</h1>
+            <div class="mono eyebrow hero-kicker">Adelina Male</div>
+            <h1 id="hero-title">LIFE AS<br>DATA</h1>
             <div class="hero-record" aria-live="polite" aria-label="Personal record summary">
               <span class="record-cursor" aria-hidden="true"></span>
               <span class="record-text" id="recordText"></span>
