@@ -7,7 +7,9 @@
   <meta name="author" content="Adelina Male">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://adelinamale.com/">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://adelinamale.com/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://adelinamale.com/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://adelinamale.com/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Life as Data">
   <meta property="og:description" content="A personal record of places, chapters, experiments, work and decisions from 2007 onward.">
@@ -2190,6 +2192,57 @@ body{
     min-height:2.8em;
   }
 }
+
+/* FINAL MOBILE RUN HEADER LOCKUP */
+.stage-head{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  flex-wrap:nowrap!important;
+  gap:.75rem!important;
+}
+
+.stage-head > div:first-child{
+  flex:1 1 auto;
+  min-width:0;
+  white-space:nowrap;
+}
+
+.stage-meta{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex:0 0 auto!important;
+  flex-wrap:nowrap!important;
+  gap:.75rem!important;
+  min-width:max-content!important;
+  text-align:right;
+  white-space:nowrap!important;
+}
+
+.stage-meta > *{
+  min-width:max-content!important;
+  white-space:nowrap!important;
+}
+
+.stage-meta strong{
+  display:inline!important;
+  margin-top:0!important;
+  margin-left:.35rem;
+  vertical-align:baseline;
+}
+
+@media (max-width:360px){
+  .stage-head{
+    padding:.8rem .75rem!important;
+    gap:.45rem!important;
+    font-size:.54rem!important;
+  }
+
+  .stage-meta strong{
+    margin-left:.25rem;
+  }
+}
 </style>
 </head>
 
@@ -3268,4 +3321,3 @@ body{
   </script>
 </body>
 </html>
-
