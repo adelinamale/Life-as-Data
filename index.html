@@ -1324,6 +1324,7 @@ html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;
     radial-gradient(circle at 0 0,rgba(182,156,255,.10),transparent 34%),
     linear-gradient(145deg,#0a0a0c,#0f0e15 58%,#0a0a0c);
   box-shadow:0 22px 70px rgba(21,21,19,.11);
+  border:none!important;
 }
 .turning-label{color:#a9a2b6}
 .turning-label::before{
@@ -2101,6 +2102,7 @@ body{
 #inputs .sheet-grid{
   width:max-content!important;
   min-width:min(980px,220vw)!important;
+  border-bottom:none!important;
 }
 #inputs .sheet-cell{
   min-width:0!important;
@@ -2243,7 +2245,62 @@ body{
     margin-left:.25rem;
   }
 }
+
+/* Final fixes */
+@media (max-width:820px){
+  .record-cursor{
+    display:block!important;
+  }
+}
+#inputs .sheet-grid{
+  border-bottom:none!important;
+}
+
+
+/* Remove the line behind the persistent horizontal sheet scrollbar. */
+#inputs .ops-sheet{
+  border-bottom:none!important;
+}
+#inputs .sheet-grid{
+  border-bottom:none!important;
+}
+
 </style>
+
+<style id="sheet-line-fix">
+/* The horizontal rule is a sheet-level element, never a cell border. */
+#inputs .ops-sheet{
+  position:relative;
+  border-bottom-color:#29292e!important;
+}
+
+#inputs .ops-sheet .sheet-grid{
+  border-bottom:none!important;
+}
+
+#inputs .ops-sheet .sheet-cell{
+  border-bottom:none!important;
+}
+
+/* One uninterrupted line across the visible table, including behind the final cell. */
+#inputs .ops-sheet::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#29292e;
+  z-index:40;
+  pointer-events:none;
+}
+
+/* Keep the purple horizontal scroll thumb above that rule. */
+#inputs .ops-sheet::after{
+  z-index:41!important;
+}
+</style>
+
 </head>
 
 <body>
@@ -2698,6 +2755,150 @@ body{
       color:#ffffff;
     }
 
+
+/* FINAL SHEET SCROLLBAR FIX
+   The native scrollbar creates segmented tracks / arrow buttons on some
+   desktop browsers. Use one continuous custom track instead.
+*/
+#inputs .ops-sheet{
+  position:relative!important;
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+  padding-bottom:12px!important;
+}
+#inputs .ops-sheet::-webkit-scrollbar{
+  display:none!important;
+  width:0!important;
+  height:0!important;
+}
+#inputs .ops-sheet::before{
+  content:"";
+  position:absolute;
+  left:7px;
+  right:7px;
+  bottom:3px;
+  height:5px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  z-index:30;
+  pointer-events:none;
+}
+#inputs .ops-sheet::after{
+  content:"";
+  position:absolute;
+  left:7px;
+  bottom:3px;
+  width:var(--sheet-scroll-thumb,100%);
+  height:5px;
+  border-radius:999px;
+  background:#6f35c9;
+  box-shadow:0 0 9px rgba(111,53,201,.22);
+  transform:translateX(var(--sheet-scroll-left,0px));
+  z-index:31;
+  pointer-events:none;
+}
+
+
+/* Spreadsheet cleanup: no cell-range badge; one uninterrupted bottom rule. */
+#inputs .ops-sheet .sheet-range,
+#inputs .ops-sheet [data-range],
+#inputs .ops-sheet .range-label{
+  display:none!important;
+}
+
+#inputs .ops-sheet .sheet-grid{
+  border-bottom:1px solid #29292e!important;
+}
+
+#inputs .ops-sheet .sheet-grid > .sheet-cell{
+  border-bottom:1px solid #29292e;
+}
+
+#inputs .ops-sheet .sheet-grid > .sheet-cell:nth-last-child(-n+7){
+  border-bottom:none!important;
+}
+
+/* Keep the bottom rule visually continuous across the whole scroll viewport. */
+#inputs .ops-sheet{
+  position:relative;
+}
+
+#inputs .ops-sheet::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#29292e;
+  pointer-events:none;
+  z-index:30;
+}
+
+
+/* Final sheet geometry cleanup */
+#inputs .ops-sheet{
+  border-radius:34px 34px 0 0!important;
+}
+
+#inputs .ops-sheet .sheet-top{
+  padding-left:2.5rem!important;
+}
+
+/* The table separator runs as one uninterrupted horizontal rule. */
+#inputs .ops-sheet .sheet-grid{
+  border-bottom:none!important;
+  position:relative;
+}
+
+#inputs .ops-sheet .sheet-grid::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#29292e;
+  pointer-events:none;
+  z-index:40;
+}
+
+
+/* FINAL INPUTS SHEET POLISH
+   1) The separator above the custom scrollbar is a single sheet-level line.
+      Do not draw another line on the grid/cells, which can create breaks.
+   2) Give the Life_Data.xlsx / sheet title a little more left breathing room.
+*/
+#inputs .ops-sheet{
+  border-bottom:none!important;
+  background-image:linear-gradient(to right,#29292e,#29292e)!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 1px!important;
+  background-position:0 calc(100% - 11px)!important;
+}
+
+#inputs .ops-sheet .sheet-grid,
+#inputs .ops-sheet .sheet-grid::after,
+#inputs .ops-sheet .sheet-cell{
+  border-bottom:none!important;
+}
+
+#inputs .ops-sheet .sheet-grid::after{
+  display:none!important;
+}
+
+#inputs .ops-sheet .sheet-top{
+  padding-left:3.15rem!important;
+}
+
+/* Keep the custom scrollbar as the only element occupying the bottom strip. */
+#inputs .ops-sheet::before{
+  bottom:3px!important;
+}
+#inputs .ops-sheet::after{
+  bottom:3px!important;
+}
+
 </style></noscript>
 
   <script>
@@ -2713,6 +2914,79 @@ body{
       const mapLocations = [...document.querySelectorAll(".map-location")];
       const mapRoutes = [...document.querySelectorAll(".map-route")];
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+      const installPersistentChainScrollbars = () => {
+        const chains = [...document.querySelectorAll(".value-chain")];
+        if (!chains.length) return;
+
+        const update = chain => {
+          const viewport = chain.clientWidth;
+          const content = chain.scrollWidth;
+          const track = Math.max(0, viewport - 24);
+          const maxScroll = Math.max(0, content - viewport);
+
+          if (content <= viewport + 1) {
+            chain.style.setProperty("--chain-scroll-thumb", `${track}px`);
+            chain.style.setProperty("--chain-scroll-left", "0px");
+            return;
+          }
+
+          const thumb = Math.max(36, track * (viewport / content));
+          const maxLeft = Math.max(0, track - thumb);
+          const left = maxScroll
+            ? (chain.scrollLeft / maxScroll) * maxLeft
+            : 0;
+
+          chain.style.setProperty("--chain-scroll-thumb", `${thumb}px`);
+          chain.style.setProperty("--chain-scroll-left", `${left}px`);
+        };
+
+        const bind = chain => {
+          const refresh = () => update(chain);
+          chain.addEventListener("scroll", refresh, { passive:true });
+          window.addEventListener("resize", refresh, { passive:true });
+          if ("ResizeObserver" in window) new ResizeObserver(refresh).observe(chain);
+          refresh();
+        };
+
+        chains.forEach(bind);
+      };
+
+
+      const installSheetScrollbars = () => {
+        const sheets = [...document.querySelectorAll("#inputs .ops-sheet")];
+        if (!sheets.length) return;
+
+        sheets.forEach(sheet => {
+          const update = () => {
+            const viewport = sheet.clientWidth;
+            const content = sheet.scrollWidth;
+            const track = Math.max(0, viewport - 14);
+            const maxScroll = Math.max(0, content - viewport);
+
+            if (content <= viewport + 1) {
+              sheet.style.setProperty("--sheet-scroll-thumb", `${track}px`);
+              sheet.style.setProperty("--sheet-scroll-left", "0px");
+              return;
+            }
+
+            const thumb = Math.max(42, track * (viewport / content));
+            const maxLeft = Math.max(0, track - thumb);
+            const left = maxScroll ? (sheet.scrollLeft / maxScroll) * maxLeft : 0;
+
+            sheet.style.setProperty("--sheet-scroll-thumb", `${thumb}px`);
+            sheet.style.setProperty("--sheet-scroll-left", `${left}px`);
+          };
+
+          sheet.addEventListener("scroll", update, {passive:true});
+          window.addEventListener("resize", update, {passive:true});
+          if ("ResizeObserver" in window) {
+            new ResizeObserver(update).observe(sheet);
+          }
+          update();
+        });
+      };
 
       const variableData = {
         education:{
@@ -3112,13 +3386,26 @@ body{
         animate();
       };
 
+
+      const cleanSheetRangeLabels = () => {
+        document.querySelectorAll("#inputs .sheet-top").forEach(top => {
+          [...top.children].forEach(node => {
+            if (/^A\d+:F\d+$/i.test((node.textContent || "").trim())) node.remove();
+          });
+          top.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && /^A\d+:F\d+$/i.test(node.textContent.trim())) {
+              node.remove();
+            }
+          });
+        });
+      };
+
       const renderVariable = key => {
         const item = variableData[key];
         if (!variablePanel || !item) return;
         const escape = escapeHtml;
         const sheets = {
           origin: {
-            range:'A1:F7',
             headers:['YEAR','PLACE','LIFE PHASE','SCHOOL','ACCESS','ROLE OF INTERNET'],
             rows:[
               ['2007','Oradea','birthplace','—','family','—'],
@@ -3133,7 +3420,6 @@ body{
             note:'LIFE CHAPTERS / ENVIRONMENTAL CONTEXT'
           },
           education: {
-            range:'A1:F5',
             headers:['DOMAIN','START','STATE','DEPENDENCE','OWN METHOD','WHAT HAPPENED'],
             rows:[
               ['Learning','early','good results','low','high','own method'],
@@ -3145,7 +3431,6 @@ body{
             note:'AUTONOMY / RELATIVE POSITION, NOT A PSYCHOMETRIC SCORE'
           },
           creative: {
-            range:'A1:F5',
             headers:['STAGE','INTERNAL','EXTERNAL','MEDIUM','SHOWING UP','ROLE'],
             rows:[
               ['Childhood','high','low','imagined scenarios','often','internal'],
@@ -3157,7 +3442,6 @@ body{
             note:'IMAGINATION / QUALITATIVE POSITIONING'
           },
           digital: {
-            range:'A1:F6',
             headers:['AGE / PERIOD','INTERNET ROLE','ENGLISH','INFORMATION','EXPERIMENTATION','DISTRIBUTION'],
             rows:[
               ['6','access','started','high','—','—'],
@@ -3170,7 +3454,6 @@ body{
             note:'INTERNET / ROLE CHANGES OVER TIME'
           },
           international: {
-            range:'A1:F5',
             headers:['CONTEXT','SOCIAL NEED','SELF-CONTAINMENT','INITIATION','SELECTIVITY','EFFECT'],
             rows:[
               ['School','medium','medium','high','medium','taking part'],
@@ -3192,9 +3475,10 @@ body{
           <div class="mono panel-kicker">${escape(item.kicker)}</div>
           <h3>${escape(item.title)}</h3>
           <div class="ops-sheet">
-            <div class="sheet-top"><span class="sheet-name">Life_Data.xlsx / ${escape(item.title.replace(/\s+/g,'_'))}</span><span>${escape(d.range)}</span></div>
+            <div class="sheet-top"><span class="sheet-name">Life_Data.xlsx / ${escape(item.title.replace(/\s+/g,'_'))}</span></div>
             <div class="sheet-grid"><div class="sheet-cell sheet-head"></div>${headerCells}${rowCells}</div>
           </div>`;
+        installSheetScrollbars();
       };
 
       const activateTab = tab => {
