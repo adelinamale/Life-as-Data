@@ -1324,7 +1324,6 @@ html{scroll-behavior:auto}*,*::before,*::after{animation-duration:1ms!important;
     radial-gradient(circle at 0 0,rgba(182,156,255,.10),transparent 34%),
     linear-gradient(145deg,#0a0a0c,#0f0e15 58%,#0a0a0c);
   box-shadow:0 22px 70px rgba(21,21,19,.11);
-  border:none!important;
 }
 .turning-label{color:#a9a2b6}
 .turning-label::before{
@@ -2102,7 +2101,6 @@ body{
 #inputs .sheet-grid{
   width:max-content!important;
   min-width:min(980px,220vw)!important;
-  border-bottom:none!important;
 }
 #inputs .sheet-cell{
   min-width:0!important;
@@ -2246,61 +2244,104 @@ body{
   }
 }
 
-/* Final fixes */
+/* Keep the hero marker and the horizontal chapter control legible on touch screens. */
 @media (max-width:820px){
   .record-cursor{
     display:block!important;
+    width:10px;
+    height:10px;
+    box-shadow:0 0 0 5px rgba(21,21,19,.055);
+  }
+
+  .value-chain{
+    position:relative;
+    padding-bottom:1.55rem!important;
+    scrollbar-color:#6f35c9 transparent!important;
+    background:linear-gradient(#6f35c9,#6f35c9) no-repeat var(--scroll-indicator-x,0px) calc(100% - 4px) / var(--scroll-indicator-width,26%) 8px!important;
+    border-radius:0!important;
   }
 }
+
+/* The native rail remains available, but its unused track no longer reads as a stray line. */
+.value-chain::-webkit-scrollbar-track{
+  background:transparent!important;
+}
+.value-chain{
+  scrollbar-color:#6f35c9 transparent!important;
+}
+
+/* Final small-screen alignment pass. */
+.hero-record .record-text{
+  display:inline!important;
+}
+.hero-record .record-cursor{
+  position:static!important;
+  display:inline-block!important;
+  width:10px;
+  height:10px;
+  margin-left:.42rem;
+  vertical-align:.08em;
+  transform:none!important;
+  will-change:auto;
+}
+
+.stage-head > div:first-child{
+  flex:0 1 auto!important;
+  text-align:left!important;
+}
+.stage-head .stage-meta{
+  margin-left:auto!important;
+  text-align:right!important;
+}
+
+#inputs .ops-sheet .sheet-top{
+  padding-left:1.5rem!important;
+}
 #inputs .sheet-grid{
-  border-bottom:none!important;
+  border-top:1px solid rgba(182,156,255,.16)!important;
 }
 
-
-/* Remove the line behind the persistent horizontal sheet scrollbar. */
-#inputs .ops-sheet{
-  border-bottom:none!important;
-}
-#inputs .sheet-grid{
-  border-bottom:none!important;
-}
-
-</style>
-
-<style id="sheet-line-fix">
-/* The horizontal rule is a sheet-level element, never a cell border. */
+/* Keep the spreadsheet frame intact while its columns are panned horizontally. */
 #inputs .ops-sheet{
   position:relative;
-  border-bottom-color:#29292e!important;
+  isolation:isolate;
+  padding-top:1px!important;
+  border-top-color:rgba(182,156,255,.26)!important;
+  background-clip:padding-box!important;
+  box-shadow:inset 0 1px 0 rgba(182,156,255,.26)!important;
 }
 
-#inputs .ops-sheet .sheet-grid{
-  border-bottom:none!important;
+/* Spreadsheet row indexes represent the visible records, rather than Excel's header row. */
+#inputs .sheet-rownum{
+  font-variant-numeric:tabular-nums;
 }
 
-#inputs .ops-sheet .sheet-cell{
-  border-bottom:none!important;
+/* Let the purple thumb stand alone; the final spreadsheet row does not need a second rail. */
+#inputs .sheet-grid{
+  border-bottom:0!important;
+}
+#inputs .sheet-cell:nth-last-child(-n + 7){
+  border-bottom:0!important;
+}
+#inputs .ops-sheet{
+  scrollbar-color:#6f35c9 transparent!important;
+}
+#inputs .ops-sheet::-webkit-scrollbar-track{
+  background:transparent!important;
 }
 
-/* One uninterrupted line across the visible table, including behind the final cell. */
-#inputs .ops-sheet::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:1px;
-  background:#29292e;
-  z-index:40;
-  pointer-events:none;
-}
-
-/* Keep the purple horizontal scroll thumb above that rule. */
-#inputs .ops-sheet::after{
-  z-index:41!important;
+/* Model dashboard: the same quiet violet depth used by the other dark surfaces. */
+.run-stage{
+  background:
+    radial-gradient(circle at 12% 0,rgba(182,156,255,.12),transparent 34%),
+    radial-gradient(circle at 96% 100%,rgba(91,66,157,.10),transparent 42%),
+    linear-gradient(145deg,#08080b 0%,#111019 58%,#08080b 100%)!important;
+  border-color:rgba(182,156,255,.24)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 28px 72px rgba(21,21,19,.14)!important;
 }
 </style>
-
 </head>
 
 <body>
@@ -2314,8 +2355,8 @@ body{
             <div class="mono eyebrow hero-kicker">Adelina Male</div>
             <h1 id="hero-title">LIFE AS<br>DATA</h1>
             <div class="hero-record" aria-live="polite" aria-label="Personal record summary">
-              <span class="record-cursor" aria-hidden="true"></span>
               <span class="record-text" id="recordText"></span>
+              <span class="record-cursor" aria-hidden="true"></span>
             </div>
 
             <div class="hero-actions">
@@ -2486,11 +2527,11 @@ body{
               <rect class="chart-bar" x="180" y="191" width="36" height="5" rx="2"></rect>
               <rect class="chart-bar" x="240" y="191" width="36" height="5" rx="2"></rect>
               <rect class="chart-bar" x="300" y="191" width="36" height="5" rx="2"></rect>
-              <text class="chart-value" x="78" y="43" text-anchor="middle">30+</text>
-              <text class="chart-value" x="138" y="164" text-anchor="middle">5</text>
-              <text class="chart-value" x="198" y="184" text-anchor="middle">1</text>
-              <text class="chart-value" x="258" y="184" text-anchor="middle">1</text>
-              <text class="chart-value" x="318" y="184" text-anchor="middle">1</text>
+              <text class="chart-value count-up" x="78" y="43" text-anchor="middle" data-target="30" data-suffix="+">30+</text>
+              <text class="chart-value count-up" x="138" y="164" text-anchor="middle" data-target="5">5</text>
+              <text class="chart-value count-up" x="198" y="184" text-anchor="middle" data-target="1">1</text>
+              <text class="chart-value count-up" x="258" y="184" text-anchor="middle" data-target="1">1</text>
+              <text class="chart-value count-up" x="318" y="184" text-anchor="middle" data-target="1">1</text>
               <text class="chart-label" x="78" y="215" text-anchor="middle">CERT.</text>
               <text class="chart-label" x="138" y="215" text-anchor="middle">ANTHO.</text>
               <text class="chart-label" x="198" y="215" text-anchor="middle">AWARD</text>
@@ -2509,13 +2550,13 @@ body{
               <div class="evidence-chart-note">key metrics</div>
             </div>
             <div class="mini-analytics" role="group" aria-label="Digital media analytics snapshot">
-              <div class="mini-kpi kpi-blue"><span>Views</span><strong>100M+</strong><small>all-time distribution</small></div>
-              <div class="mini-kpi kpi-purple"><span>Likes</span><strong>4.9M+</strong><small>audience response</small></div>
-              <div class="mini-kpi kpi-green"><span>Search</span><strong>76%+</strong><small>search traffic</small></div>
-              <div class="mini-kpi kpi-dark"><span>Creator Search</span><strong>Top 0.5%</strong><small>relative position</small></div>
+              <div class="mini-kpi kpi-blue"><span>Views</span><strong class="count-up" data-target="100" data-suffix="M+">100M+</strong><small>all-time distribution</small></div>
+              <div class="mini-kpi kpi-purple"><span>Likes</span><strong class="count-up" data-target="4.9" data-decimals="1" data-suffix="M+">4.9M+</strong><small>audience response</small></div>
+              <div class="mini-kpi kpi-green"><span>Search</span><strong class="count-up" data-target="76" data-suffix="%+">76%+</strong><small>search traffic</small></div>
+              <div class="mini-kpi kpi-dark"><span>Creator Search</span><strong class="count-up" data-target="0.5" data-decimals="1" data-prefix="Top " data-suffix="%">Top 0.5%</strong><small>relative position</small></div>
             </div>
             <div class="search-rank">
-              <div class="search-rank-head"><span>Creator search position</span><strong>TOP 0.5%</strong></div>
+              <div class="search-rank-head"><span>Creator search position</span><strong class="count-up" data-target="0.5" data-decimals="1" data-prefix="TOP " data-suffix="%">TOP 0.5%</strong></div>
               <div class="search-rank-track"><span class="search-rank-marker" aria-hidden="true"></span></div>
               <div class="search-rank-axis"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
             </div>
@@ -2755,213 +2796,6 @@ body{
       color:#ffffff;
     }
 
-
-/* FINAL SHEET SCROLLBAR FIX
-   The native scrollbar creates segmented tracks / arrow buttons on some
-   desktop browsers. Use one continuous custom track instead.
-*/
-#inputs .ops-sheet{
-  position:relative!important;
-  scrollbar-width:none!important;
-  -ms-overflow-style:none!important;
-  padding-bottom:12px!important;
-}
-#inputs .ops-sheet::-webkit-scrollbar{
-  display:none!important;
-  width:0!important;
-  height:0!important;
-}
-#inputs .ops-sheet::before{
-  content:"";
-  position:absolute;
-  left:7px;
-  right:7px;
-  bottom:3px;
-  height:5px;
-  border-radius:999px;
-  background:rgba(255,255,255,.12);
-  z-index:30;
-  pointer-events:none;
-}
-#inputs .ops-sheet::after{
-  content:"";
-  position:absolute;
-  left:7px;
-  bottom:3px;
-  width:var(--sheet-scroll-thumb,100%);
-  height:5px;
-  border-radius:999px;
-  background:#6f35c9;
-  box-shadow:0 0 9px rgba(111,53,201,.22);
-  transform:translateX(var(--sheet-scroll-left,0px));
-  z-index:31;
-  pointer-events:none;
-}
-
-
-/* Spreadsheet cleanup: no cell-range badge; one uninterrupted bottom rule. */
-#inputs .ops-sheet .sheet-range,
-#inputs .ops-sheet [data-range],
-#inputs .ops-sheet .range-label{
-  display:none!important;
-}
-
-#inputs .ops-sheet .sheet-grid{
-  border-bottom:1px solid #29292e!important;
-}
-
-#inputs .ops-sheet .sheet-grid > .sheet-cell{
-  border-bottom:1px solid #29292e;
-}
-
-#inputs .ops-sheet .sheet-grid > .sheet-cell:nth-last-child(-n+7){
-  border-bottom:none!important;
-}
-
-/* Keep the bottom rule visually continuous across the whole scroll viewport. */
-#inputs .ops-sheet{
-  position:relative;
-}
-
-#inputs .ops-sheet::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:1px;
-  background:#29292e;
-  pointer-events:none;
-  z-index:30;
-}
-
-
-/* Final sheet geometry cleanup */
-#inputs .ops-sheet{
-  border-radius:34px 34px 0 0!important;
-}
-
-#inputs .ops-sheet .sheet-top{
-  padding-left:2.5rem!important;
-}
-
-/* The table separator runs as one uninterrupted horizontal rule. */
-#inputs .ops-sheet .sheet-grid{
-  border-bottom:none!important;
-  position:relative;
-}
-
-#inputs .ops-sheet .sheet-grid::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:1px;
-  background:#29292e;
-  pointer-events:none;
-  z-index:40;
-}
-
-
-/* FINAL INPUTS SHEET POLISH
-   1) The separator above the custom scrollbar is a single sheet-level line.
-      Do not draw another line on the grid/cells, which can create breaks.
-   2) Give the Life_Data.xlsx / sheet title a little more left breathing room.
-*/
-#inputs .ops-sheet{
-  border-bottom:none!important;
-  background-image:linear-gradient(to right,#29292e,#29292e)!important;
-  background-repeat:no-repeat!important;
-  background-size:100% 1px!important;
-  background-position:0 calc(100% - 11px)!important;
-}
-
-#inputs .ops-sheet .sheet-grid,
-#inputs .ops-sheet .sheet-grid::after,
-#inputs .ops-sheet .sheet-cell{
-  border-bottom:none!important;
-}
-
-#inputs .ops-sheet .sheet-grid::after{
-  display:none!important;
-}
-
-#inputs .ops-sheet .sheet-top{
-  padding-left:3.15rem!important;
-}
-
-/* Keep the custom scrollbar as the only element occupying the bottom strip. */
-#inputs .ops-sheet::before{
-  bottom:3px!important;
-}
-#inputs .ops-sheet::after{
-  bottom:3px!important;
-}
-
-
-
-/* FINAL MOBILE + SMALL-SCREEN INPUTS FIXES */
-
-/* The hero cursor becomes an inline dot on small screens so it follows the
-   final line of the wrapped sentence instead of sitting at the card edge. */
-@media (max-width:820px){
-  .record-cursor{
-    display:none!important;
-  }
-  .record-text:not(:empty)::after{
-    content:"";
-    display:inline-block;
-    width:10px;
-    height:10px;
-    margin-left:8px;
-    border-radius:50%;
-    background:var(--ink);
-    box-shadow:0 0 0 5px rgba(21,21,19,.055);
-    vertical-align:middle;
-  }
-}
-
-/* The model-status label is a left-aligned header item, including on phones. */
-.stage-head{
-  text-align:left!important;
-}
-.stage-head > div:first-child{
-  text-align:left!important;
-}
-
-/* Move the workbook/sheet name slightly inward from the left edge. */
-#inputs .ops-sheet .sheet-top{
-  padding-left:3.5rem!important;
-}
-
-/* Keep the spreadsheet header/frame fixed to the visible viewport while the
-   data grid scrolls horizontally. This prevents the top rule from disappearing
-   once STATE/DEPENDENCE/etc. are reached on small screens. */
-#inputs .ops-sheet .sheet-top{
-  position:sticky!important;
-  left:0!important;
-  width:100%!important;
-  min-width:100%!important;
-  box-sizing:border-box!important;
-  z-index:50!important;
-}
-
-#inputs .ops-sheet{
-  border-top:1px solid rgba(182,156,255,.22)!important;
-}
-
-/* Preserve the rounded top frame continuously across horizontal scrolling. */
-#inputs .ops-sheet .sheet-top::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:-1px;
-  height:1px;
-  background:rgba(182,156,255,.22);
-  pointer-events:none;
-}
 </style></noscript>
 
   <script>
@@ -2978,78 +2812,28 @@ body{
       const mapRoutes = [...document.querySelectorAll(".map-route")];
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-
-      const installPersistentChainScrollbars = () => {
-        const chains = [...document.querySelectorAll(".value-chain")];
-        if (!chains.length) return;
-
-        const update = chain => {
-          const viewport = chain.clientWidth;
-          const content = chain.scrollWidth;
-          const track = Math.max(0, viewport - 24);
-          const maxScroll = Math.max(0, content - viewport);
-
-          if (content <= viewport + 1) {
-            chain.style.setProperty("--chain-scroll-thumb", `${track}px`);
-            chain.style.setProperty("--chain-scroll-left", "0px");
+      const syncChainIndicators = () => {
+        document.querySelectorAll(".value-chain").forEach(chain => {
+          const scrollableWidth = Math.max(0, chain.scrollWidth - chain.clientWidth);
+          if (!scrollableWidth) {
+            chain.style.setProperty("--scroll-indicator-width", "100%");
+            chain.style.setProperty("--scroll-indicator-x", "0px");
             return;
           }
 
-          const thumb = Math.max(36, track * (viewport / content));
-          const maxLeft = Math.max(0, track - thumb);
-          const left = maxScroll
-            ? (chain.scrollLeft / maxScroll) * maxLeft
-            : 0;
-
-          chain.style.setProperty("--chain-scroll-thumb", `${thumb}px`);
-          chain.style.setProperty("--chain-scroll-left", `${left}px`);
-        };
-
-        const bind = chain => {
-          const refresh = () => update(chain);
-          chain.addEventListener("scroll", refresh, { passive:true });
-          window.addEventListener("resize", refresh, { passive:true });
-          if ("ResizeObserver" in window) new ResizeObserver(refresh).observe(chain);
-          refresh();
-        };
-
-        chains.forEach(bind);
-      };
-
-
-      const installSheetScrollbars = () => {
-        const sheets = [...document.querySelectorAll("#inputs .ops-sheet")];
-        if (!sheets.length) return;
-
-        sheets.forEach(sheet => {
-          const update = () => {
-            const viewport = sheet.clientWidth;
-            const content = sheet.scrollWidth;
-            const track = Math.max(0, viewport - 14);
-            const maxScroll = Math.max(0, content - viewport);
-
-            if (content <= viewport + 1) {
-              sheet.style.setProperty("--sheet-scroll-thumb", `${track}px`);
-              sheet.style.setProperty("--sheet-scroll-left", "0px");
-              return;
-            }
-
-            const thumb = Math.max(42, track * (viewport / content));
-            const maxLeft = Math.max(0, track - thumb);
-            const left = maxScroll ? (sheet.scrollLeft / maxScroll) * maxLeft : 0;
-
-            sheet.style.setProperty("--sheet-scroll-thumb", `${thumb}px`);
-            sheet.style.setProperty("--sheet-scroll-left", `${left}px`);
-          };
-
-          sheet.addEventListener("scroll", update, {passive:true});
-          window.addEventListener("resize", update, {passive:true});
-          if ("ResizeObserver" in window) {
-            new ResizeObserver(update).observe(sheet);
-          }
-          update();
+          const indicatorWidth = Math.max(44, Math.round(chain.clientWidth * (chain.clientWidth / chain.scrollWidth)));
+          const progress = chain.scrollLeft / scrollableWidth;
+          const indicatorX = Math.round((chain.clientWidth - indicatorWidth) * progress);
+          chain.style.setProperty("--scroll-indicator-width", `${indicatorWidth}px`);
+          chain.style.setProperty("--scroll-indicator-x", `${indicatorX}px`);
         });
       };
+
+      document.querySelectorAll(".value-chain").forEach(chain => {
+        chain.addEventListener("scroll", syncChainIndicators, { passive:true });
+      });
+      window.addEventListener("resize", syncChainIndicators, { passive:true });
+      requestAnimationFrame(syncChainIndicators);
 
       const variableData = {
         education:{
@@ -3146,18 +2930,19 @@ body{
 
       const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char]));
       const easeOutCubic = value => 1 - Math.pow(1 - value, 3);
-      const formatCounter = (value, decimals, suffix) => `${value.toFixed(decimals)}${suffix}`;
+      const formatCounter = (value, decimals, suffix, prefix = "") => `${prefix}${value.toFixed(decimals)}${suffix}`;
 
       const animateCounter = counter => {
         const scramble = counter.dataset.scramble;
         const target = Number(counter.dataset.target || 0);
         const decimals = Number(counter.dataset.decimals || 0);
         const suffix = counter.dataset.suffix || "";
-        const duration = 1150;
+        const prefix = counter.dataset.prefix || "";
+        const duration = 900;
         const start = performance.now();
 
         if (reduceMotion) {
-          counter.textContent = scramble || formatCounter(target, decimals, suffix);
+          counter.textContent = scramble || formatCounter(target, decimals, suffix, prefix);
           return Promise.resolve();
         }
 
@@ -3169,21 +2954,53 @@ body{
               counter.textContent = progress < .78
                 ? `20${String(7 + Math.floor(Math.random() * 19)).padStart(2,"0")}–2${String(Math.floor(Math.random() * 7)).padStart(2,"0")}`
                 : scramble;
-            } else if (progress < .68) {
-              const ceiling = Math.max(target * 1.2, target + 6);
-              counter.textContent = formatCounter(Math.min(Math.random() * ceiling, ceiling), decimals, suffix);
             } else {
-              counter.textContent = formatCounter(target * eased, decimals, suffix);
+              counter.textContent = formatCounter(target * eased, decimals, suffix, prefix);
             }
             if (progress < 1) requestAnimationFrame(tick);
             else {
-              counter.textContent = scramble || formatCounter(target, decimals, suffix);
+              counter.textContent = scramble || formatCounter(target, decimals, suffix, prefix);
               resolve();
             }
           };
           requestAnimationFrame(tick);
         });
       };
+
+      const initEvidenceCounters = () => {
+        const evidenceCounters = [...document.querySelectorAll(".evidence-chart-card .count-up")];
+        if (!evidenceCounters.length) return;
+
+        evidenceCounters.forEach(counter => {
+          const suffix = counter.dataset.suffix || "";
+          const prefix = counter.dataset.prefix || "";
+          counter.textContent = `${prefix}0${suffix}`;
+        });
+
+        const play = card => {
+          if (card.dataset.countersPlayed) return;
+          card.dataset.countersPlayed = "true";
+          [...card.querySelectorAll(".count-up")].forEach((counter, index) => {
+            window.setTimeout(() => { animateCounter(counter); }, index * 85);
+          });
+        };
+
+        if (!("IntersectionObserver" in window) || reduceMotion) {
+          document.querySelectorAll(".evidence-chart-card").forEach(play);
+          return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            play(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { threshold:.35 });
+        document.querySelectorAll(".evidence-chart-card").forEach(card => observer.observe(card));
+      };
+
+      initEvidenceCounters();
 
 
       const initLiveSmoke = () => {
@@ -3395,8 +3212,9 @@ body{
           text.textContent = records[0];
           requestAnimationFrame(() => {
             const tr = text.getBoundingClientRect();
-          const pr = text.parentElement.getBoundingClientRect();
-          cursor.style.left = `${Math.min(tr.right - pr.left + 7, pr.width - 2)}px`;
+            const pr = text.parentElement.getBoundingClientRect();
+            const compact = window.matchMedia("(max-width: 820px)").matches;
+            cursor.style.left = `${compact ? pr.width - 12 : Math.min(tr.right - pr.left + 7, pr.width - 2)}px`;
           });
           return;
         }
@@ -3409,7 +3227,8 @@ body{
         const moveCursor = () => {
           const tr = text.getBoundingClientRect();
           const pr = text.parentElement.getBoundingClientRect();
-          const left = tr.width ? tr.right - pr.left + 7 : pr.width / 2;
+          const compact = window.matchMedia("(max-width: 820px)").matches;
+          const left = compact ? pr.width - 12 : (tr.width ? tr.right - pr.left + 7 : pr.width / 2);
           cursor.style.left = `${Math.max(0, Math.min(left, pr.width - 2))}px`;
         };
 
@@ -3449,26 +3268,13 @@ body{
         animate();
       };
 
-
-      const cleanSheetRangeLabels = () => {
-        document.querySelectorAll("#inputs .sheet-top").forEach(top => {
-          [...top.children].forEach(node => {
-            if (/^A\d+:F\d+$/i.test((node.textContent || "").trim())) node.remove();
-          });
-          top.childNodes.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE && /^A\d+:F\d+$/i.test(node.textContent.trim())) {
-              node.remove();
-            }
-          });
-        });
-      };
-
       const renderVariable = key => {
         const item = variableData[key];
         if (!variablePanel || !item) return;
         const escape = escapeHtml;
         const sheets = {
           origin: {
+            range:'A1:F7',
             headers:['YEAR','PLACE','LIFE PHASE','SCHOOL','ACCESS','ROLE OF INTERNET'],
             rows:[
               ['2007','Oradea','birthplace','—','family','—'],
@@ -3483,6 +3289,7 @@ body{
             note:'LIFE CHAPTERS / ENVIRONMENTAL CONTEXT'
           },
           education: {
+            range:'A1:F5',
             headers:['DOMAIN','START','STATE','DEPENDENCE','OWN METHOD','WHAT HAPPENED'],
             rows:[
               ['Learning','early','good results','low','high','own method'],
@@ -3494,6 +3301,7 @@ body{
             note:'AUTONOMY / RELATIVE POSITION, NOT A PSYCHOMETRIC SCORE'
           },
           creative: {
+            range:'A1:F5',
             headers:['STAGE','INTERNAL','EXTERNAL','MEDIUM','SHOWING UP','ROLE'],
             rows:[
               ['Childhood','high','low','imagined scenarios','often','internal'],
@@ -3505,6 +3313,7 @@ body{
             note:'IMAGINATION / QUALITATIVE POSITIONING'
           },
           digital: {
+            range:'A1:F6',
             headers:['AGE / PERIOD','INTERNET ROLE','ENGLISH','INFORMATION','EXPERIMENTATION','DISTRIBUTION'],
             rows:[
               ['6','access','started','high','—','—'],
@@ -3517,6 +3326,7 @@ body{
             note:'INTERNET / ROLE CHANGES OVER TIME'
           },
           international: {
+            range:'A1:F5',
             headers:['CONTEXT','SOCIAL NEED','SELF-CONTAINMENT','INITIATION','SELECTIVITY','EFFECT'],
             rows:[
               ['School','medium','medium','high','medium','taking part'],
@@ -3541,7 +3351,6 @@ body{
             <div class="sheet-top"><span class="sheet-name">Life_Data.xlsx / ${escape(item.title.replace(/\s+/g,'_'))}</span></div>
             <div class="sheet-grid"><div class="sheet-cell sheet-head"></div>${headerCells}${rowCells}</div>
           </div>`;
-        installSheetScrollbars();
       };
 
       const activateTab = tab => {
