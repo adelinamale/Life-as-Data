@@ -2899,6 +2899,69 @@ body{
   bottom:3px!important;
 }
 
+
+
+/* FINAL MOBILE + SMALL-SCREEN INPUTS FIXES */
+
+/* The hero cursor becomes an inline dot on small screens so it follows the
+   final line of the wrapped sentence instead of sitting at the card edge. */
+@media (max-width:820px){
+  .record-cursor{
+    display:none!important;
+  }
+  .record-text:not(:empty)::after{
+    content:"";
+    display:inline-block;
+    width:10px;
+    height:10px;
+    margin-left:8px;
+    border-radius:50%;
+    background:var(--ink);
+    box-shadow:0 0 0 5px rgba(21,21,19,.055);
+    vertical-align:middle;
+  }
+}
+
+/* The model-status label is a left-aligned header item, including on phones. */
+.stage-head{
+  text-align:left!important;
+}
+.stage-head > div:first-child{
+  text-align:left!important;
+}
+
+/* Move the workbook/sheet name slightly inward from the left edge. */
+#inputs .ops-sheet .sheet-top{
+  padding-left:3.5rem!important;
+}
+
+/* Keep the spreadsheet header/frame fixed to the visible viewport while the
+   data grid scrolls horizontally. This prevents the top rule from disappearing
+   once STATE/DEPENDENCE/etc. are reached on small screens. */
+#inputs .ops-sheet .sheet-top{
+  position:sticky!important;
+  left:0!important;
+  width:100%!important;
+  min-width:100%!important;
+  box-sizing:border-box!important;
+  z-index:50!important;
+}
+
+#inputs .ops-sheet{
+  border-top:1px solid rgba(182,156,255,.22)!important;
+}
+
+/* Preserve the rounded top frame continuously across horizontal scrolling. */
+#inputs .ops-sheet .sheet-top::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-1px;
+  height:1px;
+  background:rgba(182,156,255,.22);
+  pointer-events:none;
+}
 </style></noscript>
 
   <script>
@@ -3467,7 +3530,7 @@ body{
         };
         const d = sheets[key] || sheets.origin;
         const headerCells = d.headers.map((h,i)=>`<div class="sheet-cell sheet-head">${escape(h)}</div>`).join('');
-        const rowCells = d.rows.map((row,r)=>`<div class="sheet-cell sheet-rownum">${r+2}</div>${row.map(v=>`<div class="sheet-cell"><span class="sheet-value">${escape(v)}</span></div>`).join('')}`).join('');
+        const rowCells = d.rows.map((row,r)=>`<div class="sheet-cell sheet-rownum">${r+1}</div>${row.map(v=>`<div class="sheet-cell"><span class="sheet-value">${escape(v)}</span></div>`).join('')}`).join('');
 
         const chart = null;
 
